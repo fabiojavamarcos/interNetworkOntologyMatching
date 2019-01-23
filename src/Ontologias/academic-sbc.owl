@@ -1,0 +1,4171 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY academic-sbc "http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#" >
+    <!ENTITY academic-sbc-final "http://www.semanticweb.org/ontologies/2009/11/academic-sbc-final.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/2009/11/academic-sbc-final.owl#"
+     xml:base="http://www.semanticweb.org/ontologies/2009/11/academic-sbc-final.owl"
+     xmlns:academic-sbc-final="http://www.semanticweb.org/ontologies/2009/11/academic-sbc-final.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:academic-sbc="http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#">
+    <owl:Ontology rdf:about=""/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#hasAdvisor -->
+
+    <owl:ObjectProperty rdf:about="&academic-sbc;hasAdvisor">
+        <rdfs:range rdf:resource="&academic-sbc;Professor"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&academic-sbc;Person"/>
+                    <rdf:Description rdf:about="&academic-sbc;Thesis"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#hasAuthor -->
+
+    <owl:ObjectProperty rdf:about="&academic-sbc;hasAuthor">
+        <rdfs:range rdf:resource="&academic-sbc;Person"/>
+        <rdfs:domain rdf:resource="&academic-sbc;Publication"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#hasEventDocument -->
+
+    <owl:ObjectProperty rdf:about="&academic-sbc;hasEventDocument">
+        <rdfs:domain rdf:resource="&academic-sbc;Event"/>
+        <rdfs:range rdf:resource="&academic-sbc;Publication"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#hasParts -->
+
+    <owl:ObjectProperty rdf:about="&academic-sbc;hasParts">
+        <owl:inverseOf rdf:resource="&academic-sbc;isPartOf"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&academic-sbc;Institute"/>
+                    <rdf:Description rdf:about="&academic-sbc;Journal"/>
+                    <rdf:Description rdf:about="&academic-sbc;Proceedings"/>
+                    <rdf:Description rdf:about="&academic-sbc;University"/>
+                    <rdf:Description rdf:about="&owl;Thing"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#isAdvisorOf -->
+
+    <owl:ObjectProperty rdf:about="&academic-sbc;isAdvisorOf">
+        <owl:inverseOf rdf:resource="&academic-sbc;hasAdvisor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#isAffiliatedTo -->
+
+    <owl:ObjectProperty rdf:about="&academic-sbc;isAffiliatedTo">
+        <rdfs:range rdf:resource="&academic-sbc;Department"/>
+        <rdfs:domain rdf:resource="&academic-sbc;Professor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#isAuthorOf -->
+
+    <owl:ObjectProperty rdf:about="&academic-sbc;isAuthorOf">
+        <owl:inverseOf rdf:resource="&academic-sbc;hasAuthor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#isEventDocumentOf -->
+
+    <owl:ObjectProperty rdf:about="&academic-sbc;isEventDocumentOf">
+        <owl:inverseOf rdf:resource="&academic-sbc;hasEventDocument"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#isHeldIn -->
+
+    <owl:ObjectProperty rdf:about="&academic-sbc;isHeldIn">
+        <rdfs:domain rdf:resource="&academic-sbc;Event"/>
+        <rdfs:range rdf:resource="&academic-sbc;Place"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#isLocatedIn -->
+
+    <owl:ObjectProperty rdf:about="&academic-sbc;isLocatedIn">
+        <rdfs:range rdf:resource="&academic-sbc;Place"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&academic-sbc;Place"/>
+                    <rdf:Description rdf:about="&academic-sbc;University"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#isPartOf -->
+
+    <owl:ObjectProperty rdf:about="&academic-sbc;isPartOf">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&academic-sbc;Article"/>
+                    <rdf:Description rdf:about="&academic-sbc;Department"/>
+                    <rdf:Description rdf:about="&academic-sbc;Institute"/>
+                    <rdf:Description rdf:about="&owl;Thing"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#publishedBy -->
+
+    <owl:ObjectProperty rdf:about="&academic-sbc;publishedBy">
+        <rdfs:range rdf:resource="&academic-sbc;EducationOrganization"/>
+        <rdfs:domain rdf:resource="&academic-sbc;Publication"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#name -->
+
+    <owl:DatatypeProperty rdf:about="&academic-sbc;name">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&academic-sbc;EducationOrganization"/>
+                    <rdf:Description rdf:about="&academic-sbc;Person"/>
+                    <rdf:Description rdf:about="&academic-sbc;Place"/>
+                    <rdf:Description rdf:about="&owl;Thing"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#title -->
+
+    <owl:DatatypeProperty rdf:about="&academic-sbc;title">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&academic-sbc;Publication"/>
+                    <rdf:Description rdf:about="&owl;Thing"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#year -->
+
+    <owl:DatatypeProperty rdf:about="&academic-sbc;year"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#Article -->
+
+    <owl:Class rdf:about="&academic-sbc;Article">
+        <rdfs:subClassOf rdf:resource="&academic-sbc;Publication"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#Conference -->
+
+    <owl:Class rdf:about="&academic-sbc;Conference">
+        <rdfs:subClassOf rdf:resource="&academic-sbc;Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&academic-sbc;hasEventDocument"/>
+                <owl:allValuesFrom rdf:resource="&academic-sbc;Proceedings"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#ConferencePaper -->
+
+    <owl:Class rdf:about="&academic-sbc;ConferencePaper">
+        <rdfs:subClassOf rdf:resource="&academic-sbc;Article"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&academic-sbc;isPartOf"/>
+                <owl:someValuesFrom rdf:resource="&academic-sbc;Proceedings"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#Continent -->
+
+    <owl:Class rdf:about="&academic-sbc;Continent">
+        <rdfs:subClassOf rdf:resource="&academic-sbc;Place"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#Country -->
+
+    <owl:Class rdf:about="&academic-sbc;Country">
+        <rdfs:subClassOf rdf:resource="&academic-sbc;Place"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&academic-sbc;isLocatedIn"/>
+                <owl:someValuesFrom rdf:resource="&academic-sbc;Continent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#Department -->
+
+    <owl:Class rdf:about="&academic-sbc;Department">
+        <rdfs:subClassOf rdf:resource="&academic-sbc;EducationOrganization"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&academic-sbc;isPartOf"/>
+                <owl:someValuesFrom rdf:resource="&academic-sbc;Institute"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#DoctoralThesis -->
+
+    <owl:Class rdf:about="&academic-sbc;DoctoralThesis">
+        <rdfs:subClassOf rdf:resource="&academic-sbc;Thesis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#EducationOrganization -->
+
+    <owl:Class rdf:about="&academic-sbc;EducationOrganization"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#Event -->
+
+    <owl:Class rdf:about="&academic-sbc;Event"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#Institute -->
+
+    <owl:Class rdf:about="&academic-sbc;Institute">
+        <rdfs:subClassOf rdf:resource="&academic-sbc;EducationOrganization"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&academic-sbc;isPartOf"/>
+                <owl:someValuesFrom rdf:resource="&academic-sbc;University"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#Journal -->
+
+    <owl:Class rdf:about="&academic-sbc;Journal">
+        <rdfs:subClassOf rdf:resource="&academic-sbc;Publication"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&academic-sbc;hasParts"/>
+                <owl:allValuesFrom rdf:resource="&academic-sbc;JournalArticle"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#JournalArticle -->
+
+    <owl:Class rdf:about="&academic-sbc;JournalArticle">
+        <rdfs:subClassOf rdf:resource="&academic-sbc;Article"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&academic-sbc;isPartOf"/>
+                <owl:someValuesFrom rdf:resource="&academic-sbc;Journal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#MastersThesis -->
+
+    <owl:Class rdf:about="&academic-sbc;MastersThesis">
+        <rdfs:subClassOf rdf:resource="&academic-sbc;Thesis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#Person -->
+
+    <owl:Class rdf:about="&academic-sbc;Person"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#Place -->
+
+    <owl:Class rdf:about="&academic-sbc;Place"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#Proceedings -->
+
+    <owl:Class rdf:about="&academic-sbc;Proceedings">
+        <rdfs:subClassOf rdf:resource="&academic-sbc;Publication"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&academic-sbc;hasParts"/>
+                <owl:allValuesFrom rdf:resource="&academic-sbc;ConferencePaper"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&academic-sbc;isEventDocumentOf"/>
+                <owl:allValuesFrom rdf:resource="&academic-sbc;Conference"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#Professor -->
+
+    <owl:Class rdf:about="&academic-sbc;Professor">
+        <rdfs:subClassOf rdf:resource="&academic-sbc;Person"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&academic-sbc;isAffiliatedTo"/>
+                <owl:someValuesFrom rdf:resource="&academic-sbc;Department"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#Publication -->
+
+    <owl:Class rdf:about="&academic-sbc;Publication"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#Student -->
+
+    <owl:Class rdf:about="&academic-sbc;Student">
+        <rdfs:subClassOf rdf:resource="&academic-sbc;Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#Thesis -->
+
+    <owl:Class rdf:about="&academic-sbc;Thesis">
+        <rdfs:subClassOf rdf:resource="&academic-sbc;Publication"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&academic-sbc;hasAdvisor"/>
+                <owl:allValuesFrom rdf:resource="&academic-sbc;Professor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&academic-sbc;publishedBy"/>
+                <owl:allValuesFrom rdf:resource="&academic-sbc;University"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&academic-sbc;hasAuthor"/>
+                <owl:allValuesFrom rdf:resource="&academic-sbc;Person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&academic-sbc;hasAuthor"/>
+                <owl:onClass rdf:resource="&academic-sbc;Person"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&academic-sbc;publishedBy"/>
+                <owl:onClass rdf:resource="&academic-sbc;University"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#University -->
+
+    <owl:Class rdf:about="&academic-sbc;University">
+        <rdfs:subClassOf rdf:resource="&academic-sbc;EducationOrganization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#ABAURRE_M_B_M -->
+
+    <owl:Thing rdf:about="&academic-sbc;ABAURRE_M_B_M">
+        <rdf:type rdf:resource="&academic-sbc;Person"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#AGUSTI_J -->
+
+    <owl:Thing rdf:about="&academic-sbc;AGUSTI_J">
+        <rdf:type rdf:resource="&academic-sbc;Person"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Jaume Agusti Cullell</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#ALC92 -->
+
+    <owl:Thing rdf:about="&academic-sbc;ALC92">
+        <rdf:type rdf:resource="&academic-sbc;Conference"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">1992</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Applied Logic Conference</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#ALC92_PROC -->
+
+    <owl:Thing rdf:about="&academic-sbc;ALC92_PROC">
+        <rdf:type rdf:resource="&academic-sbc;Proceedings"/>
+        <academic-sbc:isEventDocumentOf rdf:resource="&academic-sbc;ALC92"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#AMERICA -->
+
+    <academic-sbc:Continent rdf:about="&academic-sbc;AMERICA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </academic-sbc:Continent>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#ARAUJO_R_C -->
+
+    <owl:Thing rdf:about="&academic-sbc;ARAUJO_R_C">
+        <rdf:type rdf:resource="&academic-sbc;Person"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Roberto Cassio de Araujo</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#ARAUJO_R_C_DT -->
+
+    <owl:Thing rdf:about="&academic-sbc;ARAUJO_R_C_DT">
+        <rdf:type rdf:resource="&academic-sbc;DoctoralThesis"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2000</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Compartilhamento de Conhecimento entre Sistemas Baseados em Conhecimento</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;ARAUJO_R_C"/>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;CORREA_DA_SILVA_F_S"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#ARMELIN_H_A -->
+
+    <owl:Thing rdf:about="&academic-sbc;ARMELIN_H_A">
+        <rdf:type rdf:resource="&academic-sbc;Person"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Hugo Aguirre Armelin</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#ASIA -->
+
+    <owl:Thing rdf:about="&academic-sbc;ASIA">
+        <rdf:type rdf:resource="&academic-sbc;Continent"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#AZEVEDO_F_M -->
+
+    <owl:Thing rdf:about="&academic-sbc;AZEVEDO_F_M">
+        <rdf:type rdf:resource="&academic-sbc;Professor"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Fernando Mendes de Azevedo</academic-sbc:name>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;DEE"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#BANON_G_J_F -->
+
+    <owl:Thing rdf:about="&academic-sbc;BANON_G_J_F">
+        <rdf:type rdf:resource="&academic-sbc;Professor"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Gerald Jean Francis Banon</academic-sbc:name>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;DECS"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#BARRERA_JUNIOR -->
+
+    <academic-sbc:Professor rdf:about="&academic-sbc;BARRERA_JUNIOR">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string">Junior Barrera</academic-sbc:name>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;DCC"/>
+    </academic-sbc:Professor>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#BARRERA_JUNIOR_CP_01 -->
+
+    <owl:Thing rdf:about="&academic-sbc;BARRERA_JUNIOR_CP_01">
+        <rdf:type rdf:resource="&academic-sbc;ConferencePaper"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Binary Decision Diagrams as a New Paradigm for Morphological Machines</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;BARRERA_JUNIOR"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;HASHIMOTO_R_F"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;ISCMM05_PROC"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#BARRERA_JUNIOR_CP_02 -->
+
+    <owl:Thing rdf:about="&academic-sbc;BARRERA_JUNIOR_CP_02">
+        <rdf:type rdf:resource="&academic-sbc;ConferencePaper"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Basis Computation Algorithm</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;BARRERA_JUNIOR"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;HIRATA_JR_R"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;HIRATA_N_S"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;ISMM07_PROC"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#BARRERA_JUNIOR_CP_03 -->
+
+    <academic-sbc:ConferencePaper rdf:about="&academic-sbc;BARRERA_JUNIOR_CP_03">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Automatic window design for gray-scale image processing based on entropy minimization</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;BARRERA_JUNIOR"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;CESAR_JUNIOR_R_M"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;CIARP05_PROC"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;MARTINS_JR"/>
+    </academic-sbc:ConferencePaper>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#BARRERA_JUNIOR_DT -->
+
+    <owl:Thing rdf:about="&academic-sbc;BARRERA_JUNIOR_DT">
+        <rdf:type rdf:resource="&academic-sbc;DoctoralThesis"/>
+        <academic-sbc:year rdf:datatype="&xsd;int">1992</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Uma abordagem unificada para os problemas de vis&#227;o computacional: a morfologia matem&#225;tica.</academic-sbc:title>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;BANON_G_J_F"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;BARRERA_JUNIOR"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#BARRERA_JUNIOR_JA_01 -->
+
+    <owl:Thing rdf:about="&academic-sbc;BARRERA_JUNIOR_JA_01">
+        <rdf:type rdf:resource="&academic-sbc;JournalArticle"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >W-operator window design by minimization of mean conditional entropy</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;BARRERA_JUNIOR"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;CESAR_JUNIOR_R_M"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;JPAA"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;MARTINS_JR"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#BARRERA_JUNIOR_JA_02 -->
+
+    <academic-sbc:JournalArticle rdf:about="&academic-sbc;BARRERA_JUNIOR_JA_02">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >A Unifying View for Stack Filter Design Based on Graph Search Methods</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;BARRERA_JUNIOR"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;HIRATA_N_S"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;JPRR"/>
+    </academic-sbc:JournalArticle>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#BARRERA_JUNIOR_JA_03 -->
+
+    <academic-sbc:JournalArticle rdf:about="&academic-sbc;BARRERA_JUNIOR_JA_03">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >A Robust Structural PGN Model for Control of Cell-Cycle Progression Stabilized by Negative Feedbacks</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;ARMELIN_H_A"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;BARRERA_JUNIOR"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;BITTNER_M_L"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;GUBITOSO_M_D"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;HASHIMOTO_R_F"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;TREPODE_N_W"/>
+    </academic-sbc:JournalArticle>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#BARRERA_JUNIOR_MT -->
+
+    <owl:Thing rdf:about="&academic-sbc;BARRERA_JUNIOR_MT">
+        <rdf:type rdf:resource="&academic-sbc;MastersThesis"/>
+        <academic-sbc:year rdf:datatype="&xsd;int">1987</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Uma abordagem unificada para os problemas de Processamento Digital de Imagens: a Morfologia Matem&#225;tica</academic-sbc:name>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;BANON_G_J_F"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;BARRERA_JUNIOR"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;INPE"/>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;MASCARENHAS_NELSON_D_A"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#BARROS_L_N -->
+
+    <owl:Thing rdf:about="&academic-sbc;BARROS_L_N">
+        <rdf:type rdf:resource="&academic-sbc;Professor"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Leliane Nunes de Barros</academic-sbc:name>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;IME"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#BELGIUM -->
+
+    <academic-sbc:Country rdf:about="&academic-sbc;BELGIUM">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:isLocatedIn rdf:resource="&academic-sbc;EUROPE"/>
+    </academic-sbc:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#BITTNER_M_L -->
+
+    <owl:Thing rdf:about="&academic-sbc;BITTNER_M_L">
+        <rdf:type rdf:resource="&academic-sbc;Person"/>
+        <academic-sbc:name rdf:datatype="&xsd;string">Michael Bittner</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#BOYER_J_M -->
+
+    <academic-sbc:Person rdf:about="&academic-sbc;BOYER_J_M">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </academic-sbc:Person>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#BRAGA_NETO -->
+
+    <owl:Thing rdf:about="&academic-sbc;BRAGA_NETO">
+        <rdf:type rdf:resource="&academic-sbc;Person"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Ulisses de Mendon&#231;a Braga Neto</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#BRAZIL -->
+
+    <academic-sbc:Country rdf:about="&academic-sbc;BRAZIL">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:isLocatedIn rdf:resource="&academic-sbc;AMERICA"/>
+    </academic-sbc:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CAMARGO_R_Y -->
+
+    <owl:Thing rdf:about="&academic-sbc;CAMARGO_R_Y">
+        <rdf:type rdf:resource="&academic-sbc;Professor"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Raphael Yokoingawa de Camargo</academic-sbc:name>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;CMCC_UFABC"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CAMARGO_R_Y_DT -->
+
+    <academic-sbc:DoctoralThesis rdf:about="&academic-sbc;CAMARGO_R_Y_DT">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2007</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Armazenamento distribu&#237;do de dados e checkpointing de aplica&#231;&#245;es paralelas em grades oportunistas</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;CAMARGO_R_Y"/>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;KON_F"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+    </academic-sbc:DoctoralThesis>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CANADA -->
+
+    <academic-sbc:Country rdf:about="&academic-sbc;CANADA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:isLocatedIn rdf:resource="&academic-sbc;AMERICA"/>
+    </academic-sbc:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CASTANO_A_C -->
+
+    <academic-sbc:Student rdf:about="&academic-sbc;CASTANO_A_C">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Andr&#233; Casado Castano</academic-sbc:name>
+    </academic-sbc:Student>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CASTANO_A_C_MT -->
+
+    <academic-sbc:MastersThesis rdf:about="&academic-sbc;CASTANO_A_C_MT">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2008</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Populando ontologias atrav&#233;s de informa&#231;&#245;es em HTML - o caso do Curr&#237;culo Lattes</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;CASTANO_A_C"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;WASSERMANN_R"/>
+    </academic-sbc:MastersThesis>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CASTOR_FILHO -->
+
+    <academic-sbc:Student rdf:about="&academic-sbc;CASTOR_FILHO">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Fernando Castor Filho</academic-sbc:name>
+    </academic-sbc:Student>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CBM83 -->
+
+    <academic-sbc:Conference rdf:about="&academic-sbc;CBM83">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">1983</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >ATAS DO XIV COLOQUIO BRASILEIRO DE MATEMATICA</academic-sbc:name>
+        <academic-sbc:isHeldIn rdf:resource="&academic-sbc;BRAZIL"/>
+    </academic-sbc:Conference>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CCET -->
+
+    <owl:Thing rdf:about="&academic-sbc;CCET">
+        <rdf:type rdf:resource="&academic-sbc;Institute"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Centro de Ci&#234;ncias Exatas e de Tecnologia</academic-sbc:name>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;UFSCAR"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CCGRID07 -->
+
+    <owl:Thing rdf:about="&academic-sbc;CCGRID07">
+        <rdf:type rdf:resource="&academic-sbc;Conference"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Seventh IEEE International Symposium on Cluster Computing and the Grid</academic-sbc:name>
+        <academic-sbc:isHeldIn rdf:resource="&academic-sbc;BRAZIL"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CCGRID07_PROC -->
+
+    <academic-sbc:Proceedings rdf:about="&academic-sbc;CCGRID07_PROC">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:isEventDocumentOf rdf:resource="&academic-sbc;CCGRID07"/>
+    </academic-sbc:Proceedings>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CC_PE09 -->
+
+    <owl:Thing rdf:about="&academic-sbc;CC_PE09">
+        <rdf:type rdf:resource="&academic-sbc;Journal"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2009</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Concurrency and Computation. Practice &amp; Experience</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CERQUEIRA_R -->
+
+    <academic-sbc:Professor rdf:about="&academic-sbc;CERQUEIRA_R">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Renato Fontoura de Gusm&#227;o Cerqueira</academic-sbc:name>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;PUC_RIO"/>
+    </academic-sbc:Professor>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CESAR_JUNIOR_R_M -->
+
+    <academic-sbc:Professor rdf:about="&academic-sbc;CESAR_JUNIOR_R_M">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Roberto Marcondes Cesar Junior</academic-sbc:name>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;DCC"/>
+    </academic-sbc:Professor>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CHATAIGNER_F -->
+
+    <academic-sbc:Person rdf:about="&academic-sbc;CHATAIGNER_F">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </academic-sbc:Person>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CIARP05 -->
+
+    <academic-sbc:Conference rdf:about="&academic-sbc;CIARP05">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;int">2005</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Iberoamerican Congress on Pattern Recognition</academic-sbc:name>
+        <academic-sbc:isHeldIn rdf:resource="&academic-sbc;CUBA"/>
+    </academic-sbc:Conference>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CIARP05_PROC -->
+
+    <owl:Thing rdf:about="&academic-sbc;CIARP05_PROC">
+        <rdf:type rdf:resource="&academic-sbc;Proceedings"/>
+        <academic-sbc:isEventDocumentOf rdf:resource="&academic-sbc;CIARP05"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CMCC_UFABC -->
+
+    <owl:Thing rdf:about="&academic-sbc;CMCC_UFABC">
+        <rdf:type rdf:resource="&academic-sbc;Department"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Centro de Matem&#225;tica, Computa&#231;&#227;o e Cogni&#231;&#227;o</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CORREA_DA_SILVA_F_S -->
+
+    <owl:Thing rdf:about="&academic-sbc;CORREA_DA_SILVA_F_S">
+        <rdf:type rdf:resource="&academic-sbc;Professor"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Flavio Soares Correa da Silva</academic-sbc:name>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;DCC"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CORREA_DA_SILVA_F_S_CP_01 -->
+
+    <academic-sbc:ConferencePaper rdf:about="&academic-sbc;CORREA_DA_SILVA_F_S_CP_01">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Automated Reasoning with Uncertainties</academic-sbc:title>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;ALC92_PROC"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;CORREA_DA_SILVA_F_S"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;HESKETH_J"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;ROBERTSON_D_S"/>
+    </academic-sbc:ConferencePaper>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CORREA_DA_SILVA_F_S_CP_02 -->
+
+    <owl:Thing rdf:about="&academic-sbc;CORREA_DA_SILVA_F_S_CP_02">
+        <rdf:type rdf:resource="&academic-sbc;ConferencePaper"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Towards Efficient Modelling Of Distributed Knowledge Using Equational And Order-Sorted Logic</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;CORREA_DA_SILVA_F_S"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;SBIA94_PROC"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;WASSERMANN_R"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CORREA_DA_SILVA_F_S_CP_03 -->
+
+    <owl:Thing rdf:about="&academic-sbc;CORREA_DA_SILVA_F_S_CP_03">
+        <rdf:type rdf:resource="&academic-sbc;ConferencePaper"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Categorial Grammar And Harmonic Analysis</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;CORREA_DA_SILVA_F_S"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;KON_F"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;SBCM95_PROC"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CORREA_DA_SILVA_F_S_CP_04 -->
+
+    <academic-sbc:ConferencePaper rdf:about="&academic-sbc;CORREA_DA_SILVA_F_S_CP_04">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Experimental information and experiential knowledge</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;AGUSTI_J"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;CORREA_DA_SILVA_F_S"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;ECAP09_PROC"/>
+    </academic-sbc:ConferencePaper>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CORREA_DA_SILVA_F_S_CP_05 -->
+
+    <academic-sbc:ConferencePaper rdf:about="&academic-sbc;CORREA_DA_SILVA_F_S_CP_05">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Intelligent Mobile Multi-robotic Systems: some Challenges and Possible Solutions</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;BARROS_L_N"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;CORREA_DA_SILVA_F_S"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;FINGER_M"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;ICINCO05_PROC"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;MELO_ANA_C_V_DE"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;WASSERMANN_R"/>
+    </academic-sbc:ConferencePaper>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CORREA_DA_SILVA_F_S_CP_06 -->
+
+    <academic-sbc:ConferencePaper rdf:about="&academic-sbc;CORREA_DA_SILVA_F_S_CP_06">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Knowledge Sharing Between a Probabilistic Logic and a Bayesian Belief Network</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;AGUSTI_J"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;ARAUJO_R_C"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;CORREA_DA_SILVA_F_S"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;IPMU00_PROC"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;MELO_ANA_C_V_DE"/>
+    </academic-sbc:ConferencePaper>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CORREA_DA_SILVA_F_S_DT -->
+
+    <owl:Thing rdf:about="&academic-sbc;CORREA_DA_SILVA_F_S_DT">
+        <rdf:type rdf:resource="&academic-sbc;DoctoralThesis"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">1992</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Automated Reasoning With Uncertainties</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;CORREA_DA_SILVA_F_S"/>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;HESKETH_J"/>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;ROBERTSON_D_S"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;UE"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CORREA_DA_SILVA_F_S_JA_01 -->
+
+    <owl:Thing rdf:about="&academic-sbc;CORREA_DA_SILVA_F_S_JA_01">
+        <rdf:type rdf:resource="&academic-sbc;JournalArticle"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >On Proof- And Model-Based Techniques For Reasoning With Uncertainty</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;CORREA_DA_SILVA_F_S"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;IJIS95"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CORREA_DA_SILVA_F_S_JA_02 -->
+
+    <owl:Thing rdf:about="&academic-sbc;CORREA_DA_SILVA_F_S_JA_02">
+        <rdf:type rdf:resource="&academic-sbc;JournalArticle"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >A Formal Model for the Fifth Discipline</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;CORREA_DA_SILVA_F_S"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;JASSS05"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;SILVA_LOURIVAL_PAULINO_DA"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CORREA_DA_SILVA_F_S_JA_03 -->
+
+    <owl:Thing rdf:about="&academic-sbc;CORREA_DA_SILVA_F_S_JA_03">
+        <rdf:type rdf:resource="&academic-sbc;JournalArticle"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Learning Management Systems Desiderata for Competitive Universities</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;CORREA_DA_SILVA_F_S"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;EURODL07"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;HULOT_C"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;PANIGASSI_R"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CORREA_DA_SILVA_F_S_MT -->
+
+    <academic-sbc:MastersThesis rdf:about="&academic-sbc;CORREA_DA_SILVA_F_S_MT">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">1989</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Ocupa&#231;&#227;o volum&#233;trica de cont&#234;ineres</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;CORREA_DA_SILVA_F_S"/>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;NOVAES_A_G_N"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+    </academic-sbc:MastersThesis>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CORREA_J_R -->
+
+    <owl:Thing rdf:about="&academic-sbc;CORREA_J_R">
+        <rdf:type rdf:resource="&academic-sbc;Person"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CT -->
+
+    <owl:Thing rdf:about="&academic-sbc;CT">
+        <rdf:type rdf:resource="&academic-sbc;Institute"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Centro T&#233;cnol&#243;gico</academic-sbc:name>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;UFSC"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#CUBA -->
+
+    <owl:Thing rdf:about="&academic-sbc;CUBA">
+        <rdf:type rdf:resource="&academic-sbc;Country"/>
+        <academic-sbc:isLocatedIn rdf:resource="&academic-sbc;AMERICA"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#DAM02 -->
+
+    <academic-sbc:Journal rdf:about="&academic-sbc;DAM02">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2002</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Discrete Applied Mathematics</academic-sbc:name>
+    </academic-sbc:Journal>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#DAM09 -->
+
+    <academic-sbc:Journal rdf:about="&academic-sbc;DAM09">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2009</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Discrete Applied Mathematics</academic-sbc:name>
+    </academic-sbc:Journal>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#DC -->
+
+    <academic-sbc:Department rdf:about="&academic-sbc;DC">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Departamento de Computa&#231;&#227;o</academic-sbc:name>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;CCET"/>
+    </academic-sbc:Department>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#DCC -->
+
+    <owl:Thing rdf:about="&academic-sbc;DCC">
+        <rdf:type rdf:resource="&academic-sbc;Department"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Departamento de Ci&#234;ncia da Computa&#231;&#227;o</academic-sbc:name>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;IME"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#DCC_ILLINOIS -->
+
+    <academic-sbc:Department rdf:about="&academic-sbc;DCC_ILLINOIS">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Department of Computer Science - University of Illinois at Urbana-Champaign</academic-sbc:name>
+        <academic-sbc:isPartOf rdf:resource="#ENG_ILLINOIS"/>
+    </academic-sbc:Department>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#DECS -->
+
+    <academic-sbc:Department rdf:about="&academic-sbc;DECS">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Departamento de Engenharia de Computa&#231;&#227;o e Sistemas Digitais</academic-sbc:name>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;POLI"/>
+    </academic-sbc:Department>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#DEE -->
+
+    <academic-sbc:Department rdf:about="&academic-sbc;DEE">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Departamento de Engenharia El&#233;trica</academic-sbc:name>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;IEB"/>
+    </academic-sbc:Department>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#DEFINF_UFMA -->
+
+    <academic-sbc:Department rdf:about="&academic-sbc;DEFINF_UFMA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Departamento de Inform&#225;tica  da  Universidade Federal do Maranh&#227;o</academic-sbc:name>
+    </academic-sbc:Department>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#DEPS -->
+
+    <academic-sbc:Department rdf:about="&academic-sbc;DEPS">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Departamento de Engenharia de Produ&#231;&#227;o e Sistemas</academic-sbc:name>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;CT"/>
+    </academic-sbc:Department>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#DOUGHERTY_E_R -->
+
+    <owl:Thing rdf:about="&academic-sbc;DOUGHERTY_E_R">
+        <rdf:type rdf:resource="&academic-sbc;Person"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >R. Edward, Dougherty</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#DP -->
+
+    <owl:Thing rdf:about="&academic-sbc;DP">
+        <rdf:type rdf:resource="&academic-sbc;Department"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Department of Philosophy</academic-sbc:name>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;IP"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#ECAI02 -->
+
+    <academic-sbc:Conference rdf:about="&academic-sbc;ECAI02">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2002</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >European Conference on Artificial Intelligence</academic-sbc:name>
+        <academic-sbc:isHeldIn rdf:resource="&academic-sbc;FRANCE"/>
+    </academic-sbc:Conference>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#ECAI02_PROC -->
+
+    <owl:Thing rdf:about="&academic-sbc;ECAI02_PROC">
+        <rdf:type rdf:resource="&academic-sbc;Proceedings"/>
+        <academic-sbc:isEventDocumentOf rdf:resource="&academic-sbc;ECAI02"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#ECAP09 -->
+
+    <owl:Thing rdf:about="&academic-sbc;ECAP09">
+        <rdf:type rdf:resource="&academic-sbc;Conference"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2009</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >European Conference on Philosophy and Computing</academic-sbc:name>
+        <academic-sbc:isHeldIn rdf:resource="&academic-sbc;SPAIN"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#ECAP09_PROC -->
+
+    <academic-sbc:Proceedings rdf:about="&academic-sbc;ECAP09_PROC">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:isEventDocumentOf rdf:resource="&academic-sbc;ECAP09"/>
+    </academic-sbc:Proceedings>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#EDMONDS_J -->
+
+    <academic-sbc:Professor rdf:about="&academic-sbc;EDMONDS_J">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string">Jack Edmonds</academic-sbc:name>
+    </academic-sbc:Professor>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#ELSEVIER-DM73 -->
+
+    <academic-sbc:Journal rdf:about="&academic-sbc;ELSEVIER-DM73">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">1973</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Elsevier - Discrete Mathematics</academic-sbc:name>
+    </academic-sbc:Journal>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#ELSEVIER-TCS90 -->
+
+    <owl:Thing rdf:about="&academic-sbc;ELSEVIER-TCS90">
+        <rdf:type rdf:resource="&academic-sbc;Journal"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">1990</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Elsevier - Theoretical Computer Science</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#EURASIP -->
+
+    <academic-sbc:Journal rdf:about="&academic-sbc;EURASIP">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;int">2007</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Journal on Bioinformatics and System Biology</academic-sbc:name>
+    </academic-sbc:Journal>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#EURODL07 -->
+
+    <academic-sbc:Journal rdf:about="&academic-sbc;EURODL07">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2007</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >European Journal of Open, Distance and E-Learning</academic-sbc:name>
+    </academic-sbc:Journal>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#EUROPE -->
+
+    <academic-sbc:Continent rdf:about="&academic-sbc;EUROPE">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </academic-sbc:Continent>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#FALLEIROS_M_B -->
+
+    <owl:Thing rdf:about="&academic-sbc;FALLEIROS_M_B">
+        <rdf:type rdf:resource="&academic-sbc;Person"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Maur&#237;cio Bellissimo Falleiros</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#FALLEIROS_M_B_MT -->
+
+    <academic-sbc:MastersThesis rdf:about="&academic-sbc;FALLEIROS_M_B_MT">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2000</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >An&#225;lise Formal do Aprendizado Supervisionado por &#193;rvore de Decis&#227;o</academic-sbc:title>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;CORREA_DA_SILVA_F_S"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;FALLEIROS_M_B"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+    </academic-sbc:MastersThesis>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#FEOFILOFF_P -->
+
+    <owl:Thing rdf:about="&academic-sbc;FEOFILOFF_P">
+        <rdf:type rdf:resource="&academic-sbc;Professor"/>
+        <academic-sbc:name rdf:datatype="&xsd;string">Paulo Feofiloff</academic-sbc:name>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;DCC"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#FERNANDES_C -->
+
+    <owl:Thing rdf:about="&academic-sbc;FERNANDES_C">
+        <rdf:type rdf:resource="&academic-sbc;Person"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#FERNANDES_C_G -->
+
+    <owl:Thing rdf:about="&academic-sbc;FERNANDES_C_G">
+        <rdf:type rdf:resource="&academic-sbc;Professor"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Cristina Gomes Fernandes</academic-sbc:name>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;DCC"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#FERREIRA_C_E -->
+
+    <academic-sbc:Professor rdf:about="&academic-sbc;FERREIRA_C_E">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Carlos Eduardo Ferreira</academic-sbc:name>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;DCC"/>
+    </academic-sbc:Professor>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#FERREIRA_V_O -->
+
+    <academic-sbc:Person rdf:about="&academic-sbc;FERREIRA_V_O">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </academic-sbc:Person>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#FINGER_M -->
+
+    <academic-sbc:Professor rdf:about="&academic-sbc;FINGER_M">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string">Marcelo Finger</academic-sbc:name>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;DCC"/>
+    </academic-sbc:Professor>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#FOCS78 -->
+
+    <academic-sbc:Conference rdf:about="&academic-sbc;FOCS78">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">1978</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Symposium on Foundations of Computer Science</academic-sbc:name>
+        <academic-sbc:isHeldIn rdf:resource="&academic-sbc;UNITED_STATES"/>
+    </academic-sbc:Conference>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#FOCS78_PROC -->
+
+    <academic-sbc:Proceedings rdf:about="&academic-sbc;FOCS78_PROC">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </academic-sbc:Proceedings>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#FRANCE -->
+
+    <academic-sbc:Country rdf:about="&academic-sbc;FRANCE">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:isLocatedIn rdf:resource="&academic-sbc;EUROPE"/>
+    </academic-sbc:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#GALVES_C_M_C -->
+
+    <academic-sbc:Person rdf:about="&academic-sbc;GALVES_C_M_C">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </academic-sbc:Person>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#GERMANY -->
+
+    <owl:Thing rdf:about="&academic-sbc;GERMANY">
+        <rdf:type rdf:resource="&academic-sbc;Country"/>
+        <academic-sbc:isLocatedIn rdf:resource="&academic-sbc;EUROPE"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#GOLDCHLEGER_A -->
+
+    <academic-sbc:Person rdf:about="&academic-sbc;GOLDCHLEGER_A">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Andrei Goldchleger</academic-sbc:name>
+    </academic-sbc:Person>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#GOLDCHLEGER_A_MT -->
+
+    <owl:Thing rdf:about="&academic-sbc;GOLDCHLEGER_A_MT">
+        <rdf:type rdf:resource="&academic-sbc;MastersThesis"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2004</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >InteGrade: Um Sistema de Middleware para Computa&#231;&#227;o em Grade Oportunista</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;GOLDCHLEGER_A"/>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;KON_F"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#GOLDMAN_A -->
+
+    <academic-sbc:Professor rdf:about="&academic-sbc;GOLDMAN_A">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Alfredo Goldman vel Lejbman</academic-sbc:name>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;DCC"/>
+    </academic-sbc:Professor>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#GONCALVES_J_Z -->
+
+    <academic-sbc:Person rdf:about="&academic-sbc;GONCALVES_J_Z">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </academic-sbc:Person>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#GREEN_E_L -->
+
+    <academic-sbc:Person rdf:about="&academic-sbc;GREEN_E_L">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </academic-sbc:Person>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#GROETSCHEL_M -->
+
+    <owl:Thing rdf:about="&academic-sbc;GROETSCHEL_M">
+        <rdf:type rdf:resource="&academic-sbc;Professor"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Martin Groetschel</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#GUBITOSO_M_D -->
+
+    <owl:Thing rdf:about="&academic-sbc;GUBITOSO_M_D">
+        <rdf:type rdf:resource="&academic-sbc;Person"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Marco Dimas Gubitoso</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#HANSSON_S_O -->
+
+    <owl:Thing rdf:about="&academic-sbc;HANSSON_S_O">
+        <rdf:type rdf:resource="&academic-sbc;Person"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#HASHIMOTO_R_F -->
+
+    <owl:Thing rdf:about="&academic-sbc;HASHIMOTO_R_F">
+        <rdf:type rdf:resource="&academic-sbc;Professor"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Ronaldo Fumio Hashimoto</academic-sbc:name>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;DCC"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#HASHIMOTO_R_F_CP_01 -->
+
+    <owl:Thing rdf:about="&academic-sbc;HASHIMOTO_R_F_CP_01">
+        <rdf:type rdf:resource="&academic-sbc;ConferencePaper"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >A New Training Algorithm for Pattern Recognition Technique Based on Straight Line Segments</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;HASHIMOTO_R_F"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;RIBEIRO_J_H_B"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;SIBGRAPI08_PROC"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#HASHIMOTO_R_F_CP_02 -->
+
+    <owl:Thing rdf:about="&academic-sbc;HASHIMOTO_R_F_CP_02">
+        <rdf:type rdf:resource="&academic-sbc;ConferencePaper"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Jump-Miss Erosion Algorithm</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;HASHIMOTO_R_F"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;MACHADO_A_F"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;SIBGRAPI09_PROC"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#HASHIMOTO_R_F_CP_03 -->
+
+    <owl:Thing rdf:about="&academic-sbc;HASHIMOTO_R_F_CP_03">
+        <rdf:type rdf:resource="&academic-sbc;ConferencePaper"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Efficient Binary Erosion Algorithm Based on a String-Matching-Like Technique</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;HASHIMOTO_R_F"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;ISMM07_PROC"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;LAGO_A_P"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;MACHADO_A_F"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#HASHIMOTO_R_F_DT -->
+
+    <owl:Thing rdf:about="&academic-sbc;HASHIMOTO_R_F_DT">
+        <rdf:type rdf:resource="&academic-sbc;DoctoralThesis"/>
+        <academic-sbc:year rdf:datatype="&xsd;int">2000</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Mudan&#231;a de Estrutura de Representa&#231;&#227;o de Operadores em Morfologia Matem&#225;tica</academic-sbc:title>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;BARRERA_JUNIOR"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;HASHIMOTO_R_F"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#HASHIMOTO_R_F_JA_01 -->
+
+    <academic-sbc:JournalArticle rdf:about="&academic-sbc;HASHIMOTO_R_F_JA_01">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >A Greedy Algorithm for Decomposing Convex Structuring Elements</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;BARRERA_JUNIOR"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;HASHIMOTO_R_F"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;JMIV03"/>
+    </academic-sbc:JournalArticle>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#HASHIMOTO_R_F_JA_02 -->
+
+    <academic-sbc:JournalArticle rdf:about="&academic-sbc;HASHIMOTO_R_F_JA_02">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Intrinsically Multivariate Predictive Genes</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;BITTNER_M_L"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;BRAGA_NETO"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;DOUGHERTY_E_R"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;HASHIMOTO_R_F"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;JSTSP08"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;MARTINS_JR"/>
+    </academic-sbc:JournalArticle>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#HASHIMOTO_R_F_JA_03 -->
+
+    <owl:Thing rdf:about="&academic-sbc;HASHIMOTO_R_F_JA_03">
+        <rdf:type rdf:resource="&academic-sbc;JournalArticle"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >A Note on Park and Chin&#39;s Algorithm</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;BARRERA_JUNIOR"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;HASHIMOTO_R_F"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;TPAMI02"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#HASHIMOTO_R_F_MT -->
+
+    <academic-sbc:MastersThesis rdf:about="&academic-sbc;HASHIMOTO_R_F_MT">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;int">1994</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Circuitos Pares e &#205;mpares em Grafos e Digrafos</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;HASHIMOTO_R_F"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;WAKABAYASHI_Y"/>
+    </academic-sbc:MastersThesis>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#HAYASHIDA_U -->
+
+    <owl:Thing rdf:about="&academic-sbc;HAYASHIDA_U">
+        <rdf:type rdf:resource="&academic-sbc;Person"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Ulisses Hayashida</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#HESKETH_J -->
+
+    <academic-sbc:Professor rdf:about="&academic-sbc;HESKETH_J">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string">Jane Hesketh</academic-sbc:name>
+    </academic-sbc:Professor>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#HIRATA_JR_R -->
+
+    <academic-sbc:Professor rdf:about="&academic-sbc;HIRATA_JR_R">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Roberto Hirata Junior</academic-sbc:name>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;DCC"/>
+    </academic-sbc:Professor>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#HIRATA_JR_R_DT -->
+
+    <academic-sbc:DoctoralThesis rdf:about="&academic-sbc;HIRATA_JR_R_DT">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;int">2001</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Projeto de Operadores Morfol&#243;gicos para Imagens e Sinais - Abordagem de reticulados finitos discretos</academic-sbc:title>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;BARRERA_JUNIOR"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;HIRATA_JR_R"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+    </academic-sbc:DoctoralThesis>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#HIRATA_JR_R_MT -->
+
+    <owl:Thing rdf:about="&academic-sbc;HIRATA_JR_R_MT">
+        <rdf:type rdf:resource="&academic-sbc;MastersThesis"/>
+        <academic-sbc:year rdf:datatype="&xsd;int">1997</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Segmenta&#231;&#227;o de Imagens por Morfologia Matem&#225;tica</academic-sbc:title>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;BARRERA_JUNIOR"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;HIRATA_JR_R"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#HIRATA_N_S -->
+
+    <academic-sbc:Professor rdf:about="&academic-sbc;HIRATA_N_S">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Nina Sumiko Tomita Hirata</academic-sbc:name>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;DCC"/>
+    </academic-sbc:Professor>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#HIRATA_N_S_DT -->
+
+    <academic-sbc:DoctoralThesis rdf:about="&academic-sbc;HIRATA_N_S_DT">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;int">2000</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Projeto Autom&#225;tico de Operadores - Explorando Conhecimentos a Priori</academic-sbc:title>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;BARRERA_JUNIOR"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;HIRATA_N_S"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+    </academic-sbc:DoctoralThesis>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#HIRATA_N_S_MT -->
+
+    <academic-sbc:MastersThesis rdf:about="&academic-sbc;HIRATA_N_S_MT">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;int">1996</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Programacao Autom&#225;tica de M&#225;quinas Morfol&#243;gicas Bin&#225;rias Baseada em Aprendizado PAC</academic-sbc:title>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;BARRERA_JUNIOR"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;HIRATA_N_S"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+    </academic-sbc:MastersThesis>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#HULOT_C -->
+
+    <owl:Thing rdf:about="&academic-sbc;HULOT_C">
+        <rdf:type rdf:resource="&academic-sbc;Person"/>
+        <academic-sbc:name rdf:datatype="&xsd;string">Carlos Hulot</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#ICALP93 -->
+
+    <owl:Thing rdf:about="&academic-sbc;ICALP93">
+        <rdf:type rdf:resource="&academic-sbc;Conference"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">1993</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Automata, Languages and Programming</academic-sbc:name>
+        <academic-sbc:isHeldIn rdf:resource="&academic-sbc;SWEDEN"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#ICALP93_PROC -->
+
+    <owl:Thing rdf:about="&academic-sbc;ICALP93_PROC">
+        <rdf:type rdf:resource="&academic-sbc;Proceedings"/>
+        <academic-sbc:isEventDocumentOf rdf:resource="&academic-sbc;ICALP93"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#ICINCO05 -->
+
+    <owl:Thing rdf:about="&academic-sbc;ICINCO05">
+        <rdf:type rdf:resource="&academic-sbc;Conference"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2005</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >International Conference on Informatics in Control, Automation and Robotics</academic-sbc:name>
+        <academic-sbc:isHeldIn rdf:resource="&academic-sbc;SPAIN"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#ICINCO05_PROC -->
+
+    <academic-sbc:Proceedings rdf:about="&academic-sbc;ICINCO05_PROC">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:isEventDocumentOf rdf:resource="&academic-sbc;ICINCO05"/>
+    </academic-sbc:Proceedings>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#IEB -->
+
+    <academic-sbc:Institute rdf:about="&academic-sbc;IEB">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Instituto de Engenharia Biomedica</academic-sbc:name>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;UFSC"/>
+    </academic-sbc:Institute>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#IEEE_CONCURRENCY00 -->
+
+    <academic-sbc:Journal rdf:about="&academic-sbc;IEEE_CONCURRENCY00">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2000</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Concurrency, IEEE</academic-sbc:name>
+    </academic-sbc:Journal>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#IEEE_DSO06 -->
+
+    <academic-sbc:Journal rdf:about="&academic-sbc;IEEE_DSO06">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2006</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >IEEE Distributed Systems Online</academic-sbc:name>
+    </academic-sbc:Journal>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#IJAC05 -->
+
+    <owl:Thing rdf:about="&academic-sbc;IJAC05">
+        <rdf:type rdf:resource="&academic-sbc;Journal"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2005</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >International Journal of Algebra and Computation</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#IJIS95 -->
+
+    <academic-sbc:Journal rdf:about="&academic-sbc;IJIS95">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">1995</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >International Journal of Intelligent Systems</academic-sbc:name>
+    </academic-sbc:Journal>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#ILLINOIS_EDU -->
+
+    <academic-sbc:University rdf:about="&academic-sbc;ILLINOIS_EDU">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >University of Illinois at Urbana-Champaign</academic-sbc:name>
+        <academic-sbc:isLocatedIn rdf:resource="&academic-sbc;UNITED_STATES"/>
+    </academic-sbc:University>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#IME -->
+
+    <academic-sbc:Institute rdf:about="&academic-sbc;IME">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Instituto de Matem&#225;tica e Estat&#237;stica</academic-sbc:name>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;USP"/>
+    </academic-sbc:Institute>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#INPE -->
+
+    <owl:Thing rdf:about="&academic-sbc;INPE">
+        <rdf:type rdf:resource="&academic-sbc;Institute"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Instituto Nacional de Pesquisas Espaciais</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#IP -->
+
+    <owl:Thing rdf:about="&academic-sbc;IP">
+        <rdf:type rdf:resource="&academic-sbc;Institute"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Institute for Philosophy</academic-sbc:name>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;UR"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#IPL07 -->
+
+    <owl:Thing rdf:about="&academic-sbc;IPL07">
+        <rdf:type rdf:resource="&academic-sbc;Journal"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2007</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Information Processing Letters</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#IPMU00 -->
+
+    <owl:Thing rdf:about="&academic-sbc;IPMU00">
+        <rdf:type rdf:resource="&academic-sbc;Conference"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2000</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >International Conference of Information Processing and Management of Uncertainty in Knowledge-based Systems</academic-sbc:name>
+        <academic-sbc:isHeldIn rdf:resource="&academic-sbc;SPAIN"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#IPMU00_PROC -->
+
+    <owl:Thing rdf:about="&academic-sbc;IPMU00_PROC">
+        <rdf:type rdf:resource="&academic-sbc;Proceedings"/>
+        <academic-sbc:isEventDocumentOf rdf:resource="&academic-sbc;IPMU00"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#ISCMM05_PROC -->
+
+    <owl:Thing rdf:about="&academic-sbc;ISCMM05_PROC">
+        <rdf:type rdf:resource="&academic-sbc;Proceedings"/>
+        <academic-sbc:isEventDocumentOf rdf:resource="&academic-sbc;ISMM05"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#ISMM05 -->
+
+    <owl:Thing rdf:about="&academic-sbc;ISMM05">
+        <rdf:type rdf:resource="&academic-sbc;Conference"/>
+        <academic-sbc:year rdf:datatype="&xsd;int">2005</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >International Symposium on Mathematical Morphology</academic-sbc:name>
+        <academic-sbc:isHeldIn rdf:resource="&academic-sbc;FRANCE"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#ISMM07 -->
+
+    <academic-sbc:Conference rdf:about="&academic-sbc;ISMM07">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;int">2007</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >International Symposium on Mathematical Morphology</academic-sbc:name>
+        <academic-sbc:isHeldIn rdf:resource="&academic-sbc;BRAZIL"/>
+    </academic-sbc:Conference>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#ISMM07_PROC -->
+
+    <owl:Thing rdf:about="&academic-sbc;ISMM07_PROC">
+        <rdf:type rdf:resource="&academic-sbc;Proceedings"/>
+        <academic-sbc:isEventDocumentOf rdf:resource="&academic-sbc;ISMM07"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#ISRAEL -->
+
+    <academic-sbc:Country rdf:about="&academic-sbc;ISRAEL">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:isLocatedIn rdf:resource="&academic-sbc;ASIA"/>
+    </academic-sbc:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#JANL01 -->
+
+    <academic-sbc:Journal rdf:about="&academic-sbc;JANL01">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2001</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Journal of Applied Non-Classical Logics</academic-sbc:name>
+    </academic-sbc:Journal>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#JASSS05 -->
+
+    <academic-sbc:Journal rdf:about="&academic-sbc;JASSS05">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2005</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Journal of Artificial Societies and Social Simulation</academic-sbc:name>
+    </academic-sbc:Journal>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#JBCS04 -->
+
+    <academic-sbc:Journal rdf:about="&academic-sbc;JBCS04">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2004</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Journal of the Brazilian Computer Society</academic-sbc:name>
+    </academic-sbc:Journal>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#JCT03 -->
+
+    <owl:Thing rdf:about="&academic-sbc;JCT03">
+        <rdf:type rdf:resource="&academic-sbc;Journal"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2003</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Journal of Combinatorial Theory</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#JCT04 -->
+
+    <owl:Thing rdf:about="&academic-sbc;JCT04">
+        <rdf:type rdf:resource="&academic-sbc;Journal"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2004</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Journal of Combinatorial Theory</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#JLC08 -->
+
+    <owl:Thing rdf:about="&academic-sbc;JLC08">
+        <rdf:type rdf:resource="&academic-sbc;Journal"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2008</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Journal of Logic and Computation</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#JMIV03 -->
+
+    <academic-sbc:Journal rdf:about="&academic-sbc;JMIV03">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;int">2003</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Journal of Mathematical Imaging and Vision</academic-sbc:name>
+    </academic-sbc:Journal>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#JOHNSON_R -->
+
+    <academic-sbc:Professor rdf:about="&academic-sbc;JOHNSON_R">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string">Ralph Johnson</academic-sbc:name>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;DCC_ILLINOIS"/>
+    </academic-sbc:Professor>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#JPAA -->
+
+    <owl:Thing rdf:about="&academic-sbc;JPAA">
+        <rdf:type rdf:resource="&academic-sbc;Journal"/>
+        <academic-sbc:year rdf:datatype="&xsd;int">2006</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Pattern Analysis &amp; Applications</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#JPRR -->
+
+    <owl:Thing rdf:about="&academic-sbc;JPRR">
+        <rdf:type rdf:resource="&academic-sbc;Journal"/>
+        <academic-sbc:year rdf:datatype="&xsd;int">2005</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Journal of Pattern Recognition Research</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#JSTSP08 -->
+
+    <owl:Thing rdf:about="&academic-sbc;JSTSP08">
+        <rdf:type rdf:resource="&academic-sbc;Journal"/>
+        <academic-sbc:year rdf:datatype="&xsd;int">2008</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Journal of Selected Topics in Signal Processing</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#J_BRZOZOWSKI -->
+
+    <owl:Thing rdf:about="&academic-sbc;J_BRZOZOWSKI">
+        <rdf:type rdf:resource="&academic-sbc;Person"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#J_C_DE_PINA -->
+
+    <owl:Thing rdf:about="&academic-sbc;J_C_DE_PINA">
+        <rdf:type rdf:resource="&academic-sbc;Professor"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Jos&#233; Coelho de Pina Junior</academic-sbc:name>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;DCC"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#J_C_DE_PINA_CP_01 -->
+
+    <owl:Thing rdf:about="&academic-sbc;J_C_DE_PINA_CP_01">
+        <rdf:type rdf:resource="&academic-sbc;ConferencePaper"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Lempel, Even, and Cederbaum Planarith Method</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;BOYER_J_M"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;FERNANDES_C_G"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;J_C_DE_PINA"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;NOMA_A"/>
+        <academic-sbc:isPartOf rdf:resource="#WEA04_PROC"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#J_C_DE_PINA_DT -->
+
+    <academic-sbc:DoctoralThesis rdf:about="&academic-sbc;J_C_DE_PINA_DT">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">1995</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Applications of Shortest Path Methods</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;J_C_DE_PINA"/>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;SCHRIJVER_A"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;UA"/>
+    </academic-sbc:DoctoralThesis>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#J_C_DE_PINA_JA_01 -->
+
+    <academic-sbc:JournalArticle rdf:about="&academic-sbc;J_C_DE_PINA_JA_01">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Primal-dual approximation algorithms for the Prize-Collecting Steiner Tree Problem</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;FEOFILOFF_P"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;FERNANDES_C_G"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;FERREIRA_C_E"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;IPL07"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;J_C_DE_PINA"/>
+    </academic-sbc:JournalArticle>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#J_C_DE_PINA_JA_02 -->
+
+    <owl:Thing rdf:about="&academic-sbc;J_C_DE_PINA_JA_02">
+        <rdf:type rdf:resource="&academic-sbc;JournalArticle"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Algorithms for terminal Steiner trees</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;J_C_DE_PINA"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;MARTINEZ_F_V"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;SOARES_J_A_R"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;TCS07"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#J_C_DE_PINA_JA_03 -->
+
+    <academic-sbc:JournalArticle rdf:about="&academic-sbc;J_C_DE_PINA_JA_03">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Improved bound for the Carath&#233;odory rank of the bases of a matroid</academic-sbc:title>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;JCT03"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;J_C_DE_PINA"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;SOARES_J_A_R"/>
+    </academic-sbc:JournalArticle>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#J_C_DE_PINA_MT -->
+
+    <academic-sbc:MastersThesis rdf:about="&academic-sbc;J_C_DE_PINA_MT">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">1990</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Estruturas Gr&#225;ficas de Matrizes</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;J_C_DE_PINA_MT"/>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;MANDEL_A"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+    </academic-sbc:MastersThesis>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#KOFUJI_S_T -->
+
+    <academic-sbc:Person rdf:about="&academic-sbc;KOFUJI_S_T">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Sergio Takeo Kofuji</academic-sbc:name>
+    </academic-sbc:Person>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#KON_F -->
+
+    <academic-sbc:Professor rdf:about="&academic-sbc;KON_F">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string">Fabio Kon</academic-sbc:name>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;DCC"/>
+    </academic-sbc:Professor>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#KON_F_CP_01 -->
+
+    <owl:Thing rdf:about="&academic-sbc;KON_F_CP_01">
+        <rdf:type rdf:resource="&academic-sbc;ConferencePaper"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Efficient maintenance of distributed data in highly dynamic opportunistic grids</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;CAMARGO_R_Y"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;CASTOR_FILHO"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;KON_F"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;SAC09_PROC"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#KON_F_CP_02 -->
+
+    <owl:Thing rdf:about="&academic-sbc;KON_F_CP_02">
+        <rdf:type rdf:resource="&academic-sbc;ConferencePaper"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >A Group Membership Service for Large-Scale Grids</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;CAMARGO_R_Y"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;CASTOR_FILHO"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;KON_F"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;MGC08_PROC"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#KON_F_CP_03 -->
+
+    <owl:Thing rdf:about="&academic-sbc;KON_F_CP_03">
+        <rdf:type rdf:resource="&academic-sbc;ConferencePaper"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Design and Implementation of a Middleware for Data Storage in Opportunistic Grids</academic-sbc:name>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;CAMARGO_R_Y"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;CCGRID07_PROC"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;KON_F"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#KON_F_CP_04 -->
+
+    <owl:Thing rdf:about="&academic-sbc;KON_F_CP_04">
+        <rdf:type rdf:resource="&academic-sbc;ConferencePaper"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Portable Checkpointing and Communications for BSP Applications on Dynamic Heterogeneous Grid Environments</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;CAMARGO_R_Y"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;GOLDMAN_A"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;KON_F"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;SBAC_PAD05_PROC"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#KON_F_CP_05 -->
+
+    <owl:Thing rdf:about="&academic-sbc;KON_F_CP_05">
+        <rdf:type rdf:resource="&academic-sbc;ConferencePaper"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >A Patttern Language for Adaptive Distributed Systems</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;JOHNSON_R"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;KON_F"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;SILVA_F_J_S_E"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;SUGARLOAFPLOP05_PROC"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;YODER_J_W"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#KON_F_CP_06 -->
+
+    <academic-sbc:ConferencePaper rdf:about="&academic-sbc;KON_F_CP_06">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >The Implementation of the BSP Parallel Computing Model on the InteGrade Grid Middleware</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;GOLDCHLEGER_A"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;GOLDMAN_A"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;HAYASHIDA_U"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;KON_F"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;MIDDLEWARE05"/>
+    </academic-sbc:ConferencePaper>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#KON_F_CP_07 -->
+
+    <academic-sbc:ConferencePaper rdf:about="&academic-sbc;KON_F_CP_07">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Checkpointing-based Rollback Recovery for Parallel Applications on the InteGrade Grid Middleware</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;CAMARGO_R_Y"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;GOLDCHLEGER_A"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;KON_F"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;MGC04_PROC"/>
+    </academic-sbc:ConferencePaper>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#KON_F_DT -->
+
+    <academic-sbc:DoctoralThesis rdf:about="&academic-sbc;KON_F_DT">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2000</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Automatic Configuration of Component-Based Distributed Systems</academic-sbc:title>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;ILLINOIS_EDU"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;KON_F"/>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;ROY_H_CAMPBELL"/>
+    </academic-sbc:DoctoralThesis>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#KON_F_JA_01 -->
+
+    <owl:Thing rdf:about="&academic-sbc;KON_F_JA_01">
+        <rdf:type rdf:resource="&academic-sbc;JournalArticle"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Applying semantics to grid middleware</academic-sbc:title>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;CC_PE09"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;KOFUJI_S_T"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;KON_F"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;SILVA_F_J_S_E"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;VIDAL_A"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#KON_F_JA_02 -->
+
+    <owl:Thing rdf:about="&academic-sbc;KON_F_JA_02">
+        <rdf:type rdf:resource="&academic-sbc;JournalArticle"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Strategies for Checkpoint Storage on Opportunistic Grids</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;CAMARGO_R_Y"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;CERQUEIRA_R"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;IEEE_DSO06"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;KON_F"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#KON_F_JA_03 -->
+
+    <owl:Thing rdf:about="&academic-sbc;KON_F_JA_03">
+        <rdf:type rdf:resource="&academic-sbc;JournalArticle"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Being Extreme in the Classroom: Experiences Teaching XP</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;GOLDMAN_A"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;JBCS04"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;KON_F"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;SILVA_F_J_S_E"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#KON_F_JA_04 -->
+
+    <owl:Thing rdf:about="&academic-sbc;KON_F_JA_04">
+        <rdf:type rdf:resource="&academic-sbc;JournalArticle"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Dependence management in component-based distributed systems</academic-sbc:name>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;IEEE_CONCURRENCY00"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;KON_F"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;ROY_H_CAMPBELL"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#KON_F_MT -->
+
+    <owl:Thing rdf:about="&academic-sbc;KON_F_MT">
+        <rdf:type rdf:resource="&academic-sbc;MastersThesis"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">1994</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Sistemas de Arquivos Distribu&#237;dos</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;KON_F"/>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;MANDEL_A"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#KR00 -->
+
+    <owl:Thing rdf:about="&academic-sbc;KR00">
+        <rdf:type rdf:resource="&academic-sbc;Conference"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2000</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Conference on Principles of Knowledge Representation and Reasoning</academic-sbc:name>
+        <academic-sbc:isHeldIn rdf:resource="&academic-sbc;UNITED_STATES"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#KR00_PROC -->
+
+    <academic-sbc:Proceedings rdf:about="&academic-sbc;KR00_PROC">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:isEventDocumentOf rdf:resource="&academic-sbc;KR00"/>
+    </academic-sbc:Proceedings>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#LAGO_A_P -->
+
+    <academic-sbc:Professor rdf:about="&academic-sbc;LAGO_A_P">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Alair Pereira do Lago</academic-sbc:name>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;DCC"/>
+    </academic-sbc:Professor>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#LAGO_A_P_DT -->
+
+    <owl:Thing rdf:about="&academic-sbc;LAGO_A_P_DT">
+        <rdf:type rdf:resource="&academic-sbc;DoctoralThesis"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">1998</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Grupos Maximais em Semigrupos de Burnside Livres</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;LAGO_A_P"/>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;SIMON_I"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#LAGO_A_P_MT -->
+
+    <academic-sbc:MastersThesis rdf:about="&academic-sbc;LAGO_A_P_MT">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">1991</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Sobre os semigrupos de Burnside x{n}=x{n+m}</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;LAGO_A_P"/>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;SIMON_I"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+    </academic-sbc:MastersThesis>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#LATI08 -->
+
+    <academic-sbc:Conference rdf:about="&academic-sbc;LATI08">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2008</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Latin American Theoretical Informatics</academic-sbc:name>
+        <academic-sbc:isHeldIn rdf:resource="&academic-sbc;BRAZIL"/>
+    </academic-sbc:Conference>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#LEE_O -->
+
+    <owl:Thing rdf:about="&academic-sbc;LEE_O">
+        <rdf:type rdf:resource="&academic-sbc;Person"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#MACHADO_A_F -->
+
+    <owl:Thing rdf:about="&academic-sbc;MACHADO_A_F">
+        <rdf:type rdf:resource="&academic-sbc;Person"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Anderson Fraiha Machado</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#MANDEL_A -->
+
+    <owl:Thing rdf:about="&academic-sbc;MANDEL_A">
+        <rdf:type rdf:resource="&academic-sbc;Professor"/>
+        <academic-sbc:name rdf:datatype="&xsd;string">Arnaldo Mandel</academic-sbc:name>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;DCC"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#MANDEL_A_CP_01 -->
+
+    <academic-sbc:ConferencePaper rdf:about="&academic-sbc;MANDEL_A_CP_01">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Soda: A Lease-Based Consistent Distributed File System</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;KON_F"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;MANDEL_A_CP_01"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;SBRC95"/>
+    </academic-sbc:ConferencePaper>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#MANDEL_A_CP_02 -->
+
+    <owl:Thing rdf:about="&academic-sbc;MANDEL_A_CP_02">
+        <rdf:type rdf:resource="&academic-sbc;ConferencePaper"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Alguns Problemas de Enumeracao Em Geometria</academic-sbc:title>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;CBM83"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;MANDEL_A"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#MANDEL_A_DT -->
+
+    <academic-sbc:DoctoralThesis rdf:about="&academic-sbc;MANDEL_A_DT">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">1982</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Topology of Oriented Matroids</academic-sbc:title>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;EDMONDS_J"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;MANDEL_A"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;UW"/>
+    </academic-sbc:DoctoralThesis>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#MANDEL_A_JA_01 -->
+
+    <academic-sbc:JournalArticle rdf:about="&academic-sbc;MANDEL_A_JA_01">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Secondary stress in two varieties of Portuguese and the Sotaq optimality based computer program</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;ABAURRE_M_B_M"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;GALVES_C_M_C"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;MANDEL_A"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;PROBUS06"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;SANDALO_F"/>
+    </academic-sbc:JournalArticle>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#MANDEL_A_JA_02 -->
+
+    <academic-sbc:JournalArticle rdf:about="&academic-sbc;MANDEL_A_JA_02">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Free symmetric and unitary pairs in division rings with involution</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;FERREIRA_V_O"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;GONCALVES_J_Z"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;IJAC05"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;MANDEL_A"/>
+    </academic-sbc:JournalArticle>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#MANDEL_A_JA_03 -->
+
+    <academic-sbc:JournalArticle rdf:about="&academic-sbc;MANDEL_A_JA_03">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >From Monomials to Words to Graphs</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;FERNANDES_C_G"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;GREEN_E_L"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;JCT04"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;MANDEL_A"/>
+    </academic-sbc:JournalArticle>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#MANDEL_A_MT -->
+
+    <owl:Thing rdf:about="&academic-sbc;MANDEL_A_MT">
+        <rdf:type rdf:resource="&academic-sbc;MastersThesis"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">1976</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >K-SUBCONJUNTOS LIMITADOS DE UM MONOIDE LIVRE</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;MANDEL_A"/>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;SIMON_I"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#MANIC_G -->
+
+    <academic-sbc:Person rdf:about="&academic-sbc;MANIC_G">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </academic-sbc:Person>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#MARTINEZ_F_V -->
+
+    <owl:Thing rdf:about="&academic-sbc;MARTINEZ_F_V">
+        <rdf:type rdf:resource="&academic-sbc;Person"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#MARTINS_JR -->
+
+    <academic-sbc:Person rdf:about="&academic-sbc;MARTINS_JR">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >David Corr&#234;a Martins Junior</academic-sbc:name>
+    </academic-sbc:Person>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#MARTINS_JR_DT -->
+
+    <owl:Thing rdf:about="&academic-sbc;MARTINS_JR_DT">
+        <rdf:type rdf:resource="&academic-sbc;DoctoralThesis"/>
+        <academic-sbc:year rdf:datatype="&xsd;int">2008</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Sele&#231;&#227;o de caracter&#237;sticas e predi&#231;&#227;o intrinsecamente multivariada em identifica&#231;&#227;o de redes de regula&#231;&#227;o g&#234;nica</academic-sbc:title>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;CESAR_JUNIOR_R_M"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;MARTINS_JR"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#MARTINS_JR_MT -->
+
+    <owl:Thing rdf:about="&academic-sbc;MARTINS_JR_MT">
+        <rdf:type rdf:resource="&academic-sbc;MastersThesis"/>
+        <academic-sbc:year rdf:datatype="&xsd;int">2004</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Redu&#231;&#227;o de dimensionalidade utilizando entropia condicional m&#233;dia aplicada a problemas de bioinform&#225;tica e processamento de imagens</academic-sbc:title>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;CESAR_JUNIOR_R_M"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;MARTINS_JR"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#MASCARENHAS_NELSON_D_A -->
+
+    <owl:Thing rdf:about="&academic-sbc;MASCARENHAS_NELSON_D_A">
+        <rdf:type rdf:resource="&academic-sbc;Professor"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Nelson Delfino d&#39;&#193;vila Mascarenhas</academic-sbc:name>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;DC"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#MATAMALA_M -->
+
+    <academic-sbc:Person rdf:about="&academic-sbc;MATAMALA_M">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </academic-sbc:Person>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#MELO_ANA_C_V_DE -->
+
+    <academic-sbc:Professor rdf:about="&academic-sbc;MELO_ANA_C_V_DE">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Ana Cristina Vieira de Melo</academic-sbc:name>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;DCC"/>
+    </academic-sbc:Professor>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#MGC04 -->
+
+    <academic-sbc:Conference rdf:about="&academic-sbc;MGC04">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2004</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >2nd International ACM/IFIP/USENIX Workshop on Middleware for Grid Computing</academic-sbc:name>
+        <academic-sbc:isHeldIn rdf:resource="&academic-sbc;CANADA"/>
+    </academic-sbc:Conference>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#MGC04_PROC -->
+
+    <academic-sbc:Proceedings rdf:about="&academic-sbc;MGC04_PROC">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:isEventDocumentOf rdf:resource="&academic-sbc;MGC04"/>
+    </academic-sbc:Proceedings>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#MGC08 -->
+
+    <academic-sbc:Conference rdf:about="&academic-sbc;MGC08">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2008</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >6th International Workshop on Middleware for Grid Computing</academic-sbc:name>
+        <academic-sbc:isHeldIn rdf:resource="&academic-sbc;BELGIUM"/>
+    </academic-sbc:Conference>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#MGC08_PROC -->
+
+    <owl:Thing rdf:about="&academic-sbc;MGC08_PROC">
+        <rdf:type rdf:resource="&academic-sbc;Proceedings"/>
+        <academic-sbc:hasEventDocument rdf:resource="&academic-sbc;MGC08"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#MIDDLEWARE05 -->
+
+    <owl:Thing rdf:about="&academic-sbc;MIDDLEWARE05">
+        <rdf:type rdf:resource="&academic-sbc;Conference"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2005</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >ACM/IFIP/USENIX International Middleware Conference</academic-sbc:name>
+        <academic-sbc:isHeldIn rdf:resource="&academic-sbc;FRANCE"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#MIKOSZEWSKI_C_G -->
+
+    <owl:Thing rdf:about="&academic-sbc;MIKOSZEWSKI_C_G">
+        <rdf:type rdf:resource="&academic-sbc;Person"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Cristiano Garbelotto Mikoszewski</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#MIKOSZEWSKI_C_G_MT -->
+
+    <owl:Thing rdf:about="&academic-sbc;MIKOSZEWSKI_C_G_MT">
+        <rdf:type rdf:resource="&academic-sbc;MastersThesis"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2002</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >An&#225;lise de Investimentos: Uma Abordagem sobre a Implanta&#231;&#227;o de Sistemas de Gest&#227;o Empresarial</academic-sbc:title>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;CORREA_DA_SILVA_F_S"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;MIKOSZEWSKI_C_G"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#M_GROTSCHEL -->
+
+    <owl:Thing rdf:about="&academic-sbc;M_GROTSCHEL">
+        <rdf:type rdf:resource="&academic-sbc;Professor"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Martin Gr&#246;tschel</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#NETHERLANDS -->
+
+    <owl:Thing rdf:about="&academic-sbc;NETHERLANDS">
+        <rdf:type rdf:resource="&academic-sbc;Country"/>
+        <academic-sbc:isLocatedIn rdf:resource="&academic-sbc;EUROPE"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#NOMA_A -->
+
+    <owl:Thing rdf:about="&academic-sbc;NOMA_A">
+        <rdf:type rdf:resource="&academic-sbc;Person"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#NOVAES_A_G_N -->
+
+    <academic-sbc:Professor rdf:about="&academic-sbc;NOVAES_A_G_N">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Ant&#244;nio Galv&#227;o Nacl&#233;rio Novaes</academic-sbc:name>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;DEPS"/>
+    </academic-sbc:Professor>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#PANIGASSI_R -->
+
+    <owl:Thing rdf:about="&academic-sbc;PANIGASSI_R">
+        <rdf:type rdf:resource="&academic-sbc;Person"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Rog&#233;rio Panigassi</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#PAZ-TRILLO_C -->
+
+    <academic-sbc:Person rdf:about="&academic-sbc;PAZ-TRILLO_C">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Christian Danniel Paz-Trillo</academic-sbc:name>
+    </academic-sbc:Person>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#PAZ-TRILLO_C_MT -->
+
+    <owl:Thing rdf:about="&academic-sbc;PAZ-TRILLO_C_MT">
+        <rdf:type rdf:resource="&academic-sbc;MastersThesis"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2005</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Recupera&#231;&#227;o de v&#237;deos indexados por conceitos</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;PAZ-TRILLO_C"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;WASSERMANN_R"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#POLI -->
+
+    <academic-sbc:Institute rdf:about="&academic-sbc;POLI">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Escola Polit&#233;cnica da Universidade de S&#227;o Paulo</academic-sbc:name>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;USP"/>
+    </academic-sbc:Institute>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#PROBUS06 -->
+
+    <owl:Thing rdf:about="&academic-sbc;PROBUS06">
+        <rdf:type rdf:resource="&academic-sbc;Journal"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2006</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string">Probus</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#PUC_RIO -->
+
+    <academic-sbc:University rdf:about="&academic-sbc;PUC_RIO">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Pontif&#237;cia Universidade Cat&#243;lica do Rio de Janeiro</academic-sbc:name>
+    </academic-sbc:University>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#RAIRO01 -->
+
+    <academic-sbc:Journal rdf:about="&academic-sbc;RAIRO01">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2001</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Theoretical Informatics and Applications - Informatique Th&#233;orique et Applications</academic-sbc:name>
+    </academic-sbc:Journal>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#RIANI_J_N_C -->
+
+    <academic-sbc:Person rdf:about="&academic-sbc;RIANI_J_N_C">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Joselyto Nawber da Costa Riani</academic-sbc:name>
+    </academic-sbc:Person>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#RIANI_J_N_C_MT -->
+
+    <academic-sbc:MastersThesis rdf:about="&academic-sbc;RIANI_J_N_C_MT">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2004</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Em Busca de Procedimentos de Infer&#234;ncia Eficientes via Relev&#226;ncia por Sintaxe</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;RIANI_J_N_C"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;WASSERMANN_R"/>
+    </academic-sbc:MastersThesis>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#RIBEIRO_J_H_B -->
+
+    <academic-sbc:Person rdf:about="&academic-sbc;RIBEIRO_J_H_B">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Jo&#227;o Henrique Burckas Ribeiro</academic-sbc:name>
+    </academic-sbc:Person>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#RIBEIRO_J_H_B_DT -->
+
+    <academic-sbc:DoctoralThesis rdf:about="&academic-sbc;RIBEIRO_J_H_B_DT">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;int">2008</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >M&#225;quina de Aprendizado Baseado em Segmentos de Retas</academic-sbc:title>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;HASHIMOTO_R_F"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;RIBEIRO_J_H_B"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+    </academic-sbc:DoctoralThesis>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#RIBEIRO_J_H_B_MT -->
+
+    <owl:Thing rdf:about="&academic-sbc;RIBEIRO_J_H_B_MT">
+        <rdf:type rdf:resource="&academic-sbc;MastersThesis"/>
+        <academic-sbc:year rdf:datatype="&xsd;int">2003</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Desenvolvimento de uma T&#233;cnica de Reconhecimento de Padr&#245;es Baseada em Dist&#226;ncia</academic-sbc:title>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;AZEVEDO_F_M"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;RIBEIRO_J_H_B"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;UFSC"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#RIBEIRO_M_M -->
+
+    <owl:Thing rdf:about="&academic-sbc;RIBEIRO_M_M">
+        <rdf:type rdf:resource="&academic-sbc;Student"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#ROBERTSON_D_S -->
+
+    <academic-sbc:Professor rdf:about="&academic-sbc;ROBERTSON_D_S">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >David Stuart Robertson</academic-sbc:name>
+    </academic-sbc:Professor>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#ROTT_H -->
+
+    <academic-sbc:Professor rdf:about="&academic-sbc;ROTT_H">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string">Hans Rott</academic-sbc:name>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;DP"/>
+    </academic-sbc:Professor>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#ROY_H_CAMPBELL -->
+
+    <academic-sbc:Professor rdf:about="&academic-sbc;ROY_H_CAMPBELL">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;DCC_ILLINOIS"/>
+    </academic-sbc:Professor>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SAC09 -->
+
+    <academic-sbc:Conference rdf:about="&academic-sbc;SAC09">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2009</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >24th Annual ACM Symposium on Applied Computing</academic-sbc:name>
+        <academic-sbc:isHeldIn rdf:resource="&academic-sbc;UNITED_STATES"/>
+    </academic-sbc:Conference>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SAC09_PROC -->
+
+    <academic-sbc:Proceedings rdf:about="&academic-sbc;SAC09_PROC">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:isEventDocumentOf rdf:resource="&academic-sbc;SAC09"/>
+    </academic-sbc:Proceedings>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SANCHES_A_C_D -->
+
+    <academic-sbc:Person rdf:about="&academic-sbc;SANCHES_A_C_D">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Anderson Carlos Daniel Sanches</academic-sbc:name>
+    </academic-sbc:Person>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SANCHES_A_C_D_MT -->
+
+    <academic-sbc:MastersThesis rdf:about="&academic-sbc;SANCHES_A_C_D_MT">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2005</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Constru&#231;&#227;o e estudos sobre ontologias de bioqu&#237;mica</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;SANCHES_A_C_D"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;WASSERMANN_R"/>
+    </academic-sbc:MastersThesis>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SANDALO_F -->
+
+    <owl:Thing rdf:about="&academic-sbc;SANDALO_F">
+        <rdf:type rdf:resource="&academic-sbc;Person"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SANTOS_M -->
+
+    <owl:Thing rdf:about="&academic-sbc;SANTOS_M">
+        <rdf:type rdf:resource="&academic-sbc;Person"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Marcus Vinicius Tolentino dos Santos</academic-sbc:title>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SANTOS_M_DT -->
+
+    <academic-sbc:DoctoralThesis rdf:about="&academic-sbc;SANTOS_M_DT">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2000</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Specifying, Executing, and Reasoning About Actions and Plans Using Transaction Logic</academic-sbc:title>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;CORREA_DA_SILVA_F_S"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;SANTOS_M"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+    </academic-sbc:DoctoralThesis>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SBAC_PAD05 -->
+
+    <owl:Thing rdf:about="&academic-sbc;SBAC_PAD05">
+        <rdf:type rdf:resource="&academic-sbc;Conference"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2005</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Symposium on Computer Architecture and High Performance Computing</academic-sbc:name>
+        <academic-sbc:isHeldIn rdf:resource="&academic-sbc;BRAZIL"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SBAC_PAD05_PROC -->
+
+    <owl:Thing rdf:about="&academic-sbc;SBAC_PAD05_PROC">
+        <rdf:type rdf:resource="&academic-sbc;Proceedings"/>
+        <academic-sbc:isEventDocumentOf rdf:resource="&academic-sbc;SBAC_PAD05"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SBCM95 -->
+
+    <owl:Thing rdf:about="&academic-sbc;SBCM95">
+        <rdf:type rdf:resource="&academic-sbc;Conference"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">1995</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Brazilian Symposium on Computer Music</academic-sbc:name>
+        <academic-sbc:isHeldIn rdf:resource="&academic-sbc;BRAZIL"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SBCM95_PROC -->
+
+    <owl:Thing rdf:about="&academic-sbc;SBCM95_PROC">
+        <rdf:type rdf:resource="&academic-sbc;Proceedings"/>
+        <academic-sbc:isEventDocumentOf rdf:resource="&academic-sbc;SBCM95"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SBIA08 -->
+
+    <owl:Thing rdf:about="&academic-sbc;SBIA08">
+        <rdf:type rdf:resource="&academic-sbc;Conference"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2008</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Simp&#243;sio Brasileiro de Intelig&#234;ncia Artificial</academic-sbc:name>
+        <academic-sbc:isHeldIn rdf:resource="&academic-sbc;BRAZIL"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SBIA08_PROC -->
+
+    <owl:Thing rdf:about="&academic-sbc;SBIA08_PROC">
+        <rdf:type rdf:resource="&academic-sbc;Proceedings"/>
+        <academic-sbc:isEventDocumentOf rdf:resource="&academic-sbc;SBIA08"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SBIA94 -->
+
+    <academic-sbc:Conference rdf:about="&academic-sbc;SBIA94">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">1994</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Brazilian Symposium of Artificial Intelligence</academic-sbc:name>
+    </academic-sbc:Conference>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SBIA94_PROC -->
+
+    <academic-sbc:Proceedings rdf:about="&academic-sbc;SBIA94_PROC">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:isEventDocumentOf rdf:resource="&academic-sbc;SBIA94"/>
+    </academic-sbc:Proceedings>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SBRC95 -->
+
+    <academic-sbc:Conference rdf:about="&academic-sbc;SBRC95">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">1995</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >SIMP&#211;SIO BRASILEIRO DE REDES DE COMPUTADORES</academic-sbc:name>
+        <academic-sbc:isHeldIn rdf:resource="&academic-sbc;BRAZIL"/>
+    </academic-sbc:Conference>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SCHRIJVER_A -->
+
+    <owl:Thing rdf:about="&academic-sbc;SCHRIJVER_A">
+        <rdf:type rdf:resource="&academic-sbc;Professor"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Alexander Schrijver</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SCOTLAND -->
+
+    <academic-sbc:Country rdf:about="&academic-sbc;SCOTLAND">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:isLocatedIn rdf:resource="&academic-sbc;EUROPE"/>
+    </academic-sbc:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SIBGRAPI08 -->
+
+    <academic-sbc:Conference rdf:about="&academic-sbc;SIBGRAPI08">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;int">2008</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Brazilian Symposium on Computer Graphics and Image Processing</academic-sbc:name>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >XXI Brazilian Symposium on Computer Graphics and Image Processing</academic-sbc:name>
+        <academic-sbc:isHeldIn rdf:resource="&academic-sbc;BRAZIL"/>
+    </academic-sbc:Conference>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SIBGRAPI08_PROC -->
+
+    <owl:Thing rdf:about="&academic-sbc;SIBGRAPI08_PROC">
+        <rdf:type rdf:resource="&academic-sbc;Proceedings"/>
+        <academic-sbc:isEventDocumentOf rdf:resource="&academic-sbc;SIBGRAPI08"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SIBGRAPI09 -->
+
+    <academic-sbc:Conference rdf:about="&academic-sbc;SIBGRAPI09">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;int">2009</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Brazilian Symposium on Computer Graphics and Image Processing</academic-sbc:name>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >XXII Brazilian Symposium on Computer Graphics and Image Processing</academic-sbc:name>
+        <academic-sbc:isHeldIn rdf:resource="&academic-sbc;BRAZIL"/>
+    </academic-sbc:Conference>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SIBGRAPI09_PROC -->
+
+    <owl:Thing rdf:about="&academic-sbc;SIBGRAPI09_PROC">
+        <rdf:type rdf:resource="&academic-sbc;Proceedings"/>
+        <academic-sbc:isEventDocumentOf rdf:resource="&academic-sbc;SIBGRAPI09"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SILVA_A_F -->
+
+    <academic-sbc:Student rdf:about="&academic-sbc;SILVA_A_F">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Alexandre Freire</academic-sbc:name>
+    </academic-sbc:Student>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SILVA_A_F_MT -->
+
+    <academic-sbc:MastersThesis rdf:about="&academic-sbc;SILVA_A_F_MT">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2007</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Reflex&#245;es sobre o Ensino de Metodologias &#193;geis na Academia, na Ind&#250;stria e no Governo</academic-sbc:title>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;KON_F"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;SILVA_A_F"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+    </academic-sbc:MastersThesis>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SILVA_F_J_S_E -->
+
+    <academic-sbc:Professor rdf:about="&academic-sbc;SILVA_F_J_S_E">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Francisco Jos&#233; da Silva e Silva</academic-sbc:name>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;DEFINF_UFMA"/>
+    </academic-sbc:Professor>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SILVA_F_J_S_E_DT -->
+
+    <owl:Thing rdf:about="&academic-sbc;SILVA_F_J_S_E_DT">
+        <rdf:type rdf:resource="&academic-sbc;DoctoralThesis"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2003</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Adapta&#231;&#227;o Din&#226;mica de Sistemas Distribu&#237;dos</academic-sbc:title>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;KON_F"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;SILVA_F_J_S_E"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SILVA_LOURIVAL_PAULINO_DA -->
+
+    <academic-sbc:Person rdf:about="&academic-sbc;SILVA_LOURIVAL_PAULINO_DA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Lourival Paulino da Silva</academic-sbc:name>
+    </academic-sbc:Person>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SILVA_LOURIVAL_PAULINO_DA_DT -->
+
+    <academic-sbc:DoctoralThesis rdf:about="&academic-sbc;SILVA_LOURIVAL_PAULINO_DA_DT">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2004</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Um Modelo Formal para a Quinta Disciplina</academic-sbc:title>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;CORREA_DA_SILVA_F_S"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;SILVA_LOURIVAL_PAULINO_DA"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+    </academic-sbc:DoctoralThesis>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SILVA_P_J_S -->
+
+    <owl:Thing rdf:about="&academic-sbc;SILVA_P_J_S">
+        <rdf:type rdf:resource="&academic-sbc;Professor"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Paulo Jos&#233; da Silva e Silva</academic-sbc:name>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;DCC"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SIMON_I -->
+
+    <owl:Thing rdf:about="&academic-sbc;SIMON_I">
+        <rdf:type rdf:resource="&academic-sbc;Professor"/>
+        <academic-sbc:name rdf:datatype="&xsd;string">Imre Simon</academic-sbc:name>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;DCC"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SIMON_I_CP_01 -->
+
+    <academic-sbc:ConferencePaper rdf:about="&academic-sbc;SIMON_I_CP_01">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >The product of rational languages</academic-sbc:title>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;ICALP93_PROC"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;SIMON_I"/>
+    </academic-sbc:ConferencePaper>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SIMON_I_CP_02 -->
+
+    <owl:Thing rdf:about="&academic-sbc;SIMON_I_CP_02">
+        <rdf:type rdf:resource="&academic-sbc;ConferencePaper"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Limited subsets of a free monoid</academic-sbc:title>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;FOCS78_PROC"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;SIMON_I"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SIMON_I_DT -->
+
+    <academic-sbc:DoctoralThesis rdf:about="&academic-sbc;SIMON_I_DT">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">1972</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Hierarchies of Events with Dot-Depth One</academic-sbc:title>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;J_BRZOZOWSKI"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;SIMON_I"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;UWATERLOO"/>
+    </academic-sbc:DoctoralThesis>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SIMON_I_JA_01 -->
+
+    <owl:Thing rdf:about="&academic-sbc;SIMON_I_JA_01">
+        <rdf:type rdf:resource="&academic-sbc;JournalArticle"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Free Burnside Semigroups</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;LAGO_A_P"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;RAIRO01"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;SIMON_I"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SIMON_I_JA_02 -->
+
+    <owl:Thing rdf:about="&academic-sbc;SIMON_I_JA_02">
+        <rdf:type rdf:resource="&academic-sbc;JournalArticle"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Factorization forests of finite height</academic-sbc:title>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;ELSEVIER-TCS90"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;SIMON_I"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SIMON_I_JA_03 -->
+
+    <academic-sbc:JournalArticle rdf:about="&academic-sbc;SIMON_I_JA_03">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Characterizations of Locally testable Events</academic-sbc:title>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;ELSEVIER-DM73"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;J_BRZOZOWSKI"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;SIMON_I"/>
+    </academic-sbc:JournalArticle>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SIMON_I_MT -->
+
+    <academic-sbc:MastersThesis rdf:about="&academic-sbc;SIMON_I_MT">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">1970</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Notes on Noncounting Languages of Order 2</academic-sbc:title>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;J_BRZOZOWSKI"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;SIMON_I"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;UWATERLOO"/>
+    </academic-sbc:MastersThesis>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SL02 -->
+
+    <owl:Thing rdf:about="&academic-sbc;SL02">
+        <rdf:type rdf:resource="&academic-sbc;Journal"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2002</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string">Studia Logica</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SL03 -->
+
+    <academic-sbc:Journal rdf:about="&academic-sbc;SL03">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2003</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string">Studia Logica</academic-sbc:name>
+    </academic-sbc:Journal>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SOARES_J_A_R -->
+
+    <academic-sbc:Person rdf:about="&academic-sbc;SOARES_J_A_R">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </academic-sbc:Person>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SOUSA_T_C -->
+
+    <academic-sbc:Student rdf:about="&academic-sbc;SOUSA_T_C">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Thiago Carvalho de Sousa</academic-sbc:name>
+    </academic-sbc:Student>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SOUSA_T_C_MT -->
+
+    <academic-sbc:MastersThesis rdf:about="&academic-sbc;SOUSA_T_C_MT">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2007</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Revis&#227;o de modelos formais de sistemas de estados finitos</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;SOUSA_T_C"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;WASSERMANN_R"/>
+    </academic-sbc:MastersThesis>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SOUZA_C_C -->
+
+    <academic-sbc:Person rdf:about="&academic-sbc;SOUZA_C_C">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </academic-sbc:Person>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SPAIN -->
+
+    <owl:Thing rdf:about="&academic-sbc;SPAIN">
+        <rdf:type rdf:resource="&academic-sbc;Country"/>
+        <academic-sbc:isLocatedIn rdf:resource="&academic-sbc;EUROPE"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SUCUPIRA_I_R -->
+
+    <academic-sbc:Professor rdf:about="&academic-sbc;SUCUPIRA_I_R">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Igor Ribeiro Sucupira</academic-sbc:name>
+    </academic-sbc:Professor>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SUCUPIRA_I_R_MT -->
+
+    <owl:Thing rdf:about="&academic-sbc;SUCUPIRA_I_R_MT">
+        <rdf:type rdf:resource="&academic-sbc;MastersThesis"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2007</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Um Estudo Emp&#237;rico de Hiper-Heur&#237;sticas</academic-sbc:title>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;CORREA_DA_SILVA_F_S"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;SUCUPIRA_I_R"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SUGARLOAFPLOP05 -->
+
+    <academic-sbc:Conference rdf:about="&academic-sbc;SUGARLOAFPLOP05">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2005</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >5th Latin American Conference on Pattern Languages of Programming</academic-sbc:name>
+        <academic-sbc:isHeldIn rdf:resource="&academic-sbc;BRAZIL"/>
+    </academic-sbc:Conference>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SUGARLOAFPLOP05_PROC -->
+
+    <academic-sbc:Proceedings rdf:about="&academic-sbc;SUGARLOAFPLOP05_PROC">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:hasEventDocument rdf:resource="&academic-sbc;SUGARLOAFPLOP05"/>
+    </academic-sbc:Proceedings>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SWAT06 -->
+
+    <owl:Thing rdf:about="&academic-sbc;SWAT06">
+        <rdf:type rdf:resource="&academic-sbc;Conference"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2006</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Scandinavian Workshop on Algorithm Theory</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#SWEDEN -->
+
+    <owl:Thing rdf:about="&academic-sbc;SWEDEN">
+        <rdf:type rdf:resource="&academic-sbc;Country"/>
+        <academic-sbc:isLocatedIn rdf:resource="&academic-sbc;EUROPE"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#TCS07 -->
+
+    <owl:Thing rdf:about="&academic-sbc;TCS07">
+        <rdf:type rdf:resource="&academic-sbc;Journal"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2007</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Theoretical Computer Science</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#TIWEA04 -->
+
+    <owl:Thing rdf:about="&academic-sbc;TIWEA04">
+        <rdf:type rdf:resource="&academic-sbc;Conference"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2004</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >International Workshop in Experimental Algorithms</academic-sbc:name>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Third International Workshop in Experimental Algorithms</academic-sbc:name>
+        <academic-sbc:isHeldIn rdf:resource="&academic-sbc;BRAZIL"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#TJANDRAATMADJA_C -->
+
+    <academic-sbc:Person rdf:about="&academic-sbc;TJANDRAATMADJA_C">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </academic-sbc:Person>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#TPAMI02 -->
+
+    <owl:Thing rdf:about="&academic-sbc;TPAMI02">
+        <rdf:type rdf:resource="&academic-sbc;Journal"/>
+        <academic-sbc:year rdf:datatype="&xsd;int">2002</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >IEEE Transactions on Pattern Analysis and Machine Intelligence</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#TREPODE_N_W -->
+
+    <academic-sbc:Person rdf:about="&academic-sbc;TREPODE_N_W">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Nestor Walter Trepode</academic-sbc:name>
+    </academic-sbc:Person>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#TREPODE_N_W_DT -->
+
+    <academic-sbc:DoctoralThesis rdf:about="&academic-sbc;TREPODE_N_W_DT">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;int">2007</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Modelagem do Controle G&#234;nico do Ciclo Celular por Redes Gen&#233;ticas Probabil&#237;sticas</academic-sbc:title>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;BARRERA_JUNIOR"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;TREPODE_N_W"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+    </academic-sbc:DoctoralThesis>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#TREPODE_N_W_MT -->
+
+    <owl:Thing rdf:about="&academic-sbc;TREPODE_N_W_MT">
+        <rdf:type rdf:resource="&academic-sbc;MastersThesis"/>
+        <academic-sbc:year rdf:datatype="&xsd;int">2002</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Identifica&#231;&#227;o de Sistemas Din&#226;micos Finitos e Aplica&#231;&#245;es na Modelagem de Redes G&#234;nicas.</academic-sbc:title>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;BARRERA_JUNIOR"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;TREPODE_N_W"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#UA -->
+
+    <academic-sbc:University rdf:about="&academic-sbc;UA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >University of Amsterdam</academic-sbc:name>
+        <academic-sbc:isLocatedIn rdf:resource="&academic-sbc;NETHERLANDS"/>
+    </academic-sbc:University>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#UAU -->
+
+    <owl:Thing rdf:about="&academic-sbc;UAU">
+        <rdf:type rdf:resource="&academic-sbc;University"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Universitaet Augusburg</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#UE -->
+
+    <academic-sbc:University rdf:about="&academic-sbc;UE">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >University Of Edinburgh</academic-sbc:name>
+        <academic-sbc:isLocatedIn rdf:resource="&academic-sbc;SCOTLAND"/>
+    </academic-sbc:University>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#UFABC -->
+
+    <academic-sbc:University rdf:about="&academic-sbc;UFABC">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Universidade Federal do ABC</academic-sbc:name>
+        <academic-sbc:isLocatedIn rdf:resource="&academic-sbc;BRAZIL"/>
+    </academic-sbc:University>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#UFMA -->
+
+    <academic-sbc:University rdf:about="&academic-sbc;UFMA">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Universidade Federal do Maranh&#227;o</academic-sbc:name>
+        <academic-sbc:isLocatedIn rdf:resource="&academic-sbc;BRAZIL"/>
+    </academic-sbc:University>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#UFSC -->
+
+    <owl:Thing rdf:about="&academic-sbc;UFSC">
+        <rdf:type rdf:resource="&academic-sbc;University"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Universidade Federal de Santa Catarina</academic-sbc:name>
+        <academic-sbc:isLocatedIn rdf:resource="&academic-sbc;BRAZIL"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#UFSCAR -->
+
+    <owl:Thing rdf:about="&academic-sbc;UFSCAR">
+        <rdf:type rdf:resource="&academic-sbc;University"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Universidade Federal de S&#227;o Carlos</academic-sbc:name>
+        <academic-sbc:isLocatedIn rdf:resource="&academic-sbc;BRAZIL"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#UNITED_STATES -->
+
+    <academic-sbc:Country rdf:about="&academic-sbc;UNITED_STATES">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:isLocatedIn rdf:resource="&academic-sbc;AMERICA"/>
+    </academic-sbc:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#UNI_AUGSBURG -->
+
+    <academic-sbc:University rdf:about="&academic-sbc;UNI_AUGSBURG">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Universit&#228;t Augsburg</academic-sbc:name>
+        <academic-sbc:isLocatedIn rdf:resource="&academic-sbc;GERMANY"/>
+    </academic-sbc:University>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#UR -->
+
+    <owl:Thing rdf:about="&academic-sbc;UR">
+        <rdf:type rdf:resource="&academic-sbc;University"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >University of Regensburg</academic-sbc:name>
+        <academic-sbc:isLocatedIn rdf:resource="&academic-sbc;GERMANY"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#USP -->
+
+    <academic-sbc:University rdf:about="&academic-sbc;USP">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Universidade de S&#227;o Paulo</academic-sbc:name>
+        <academic-sbc:isLocatedIn rdf:resource="&academic-sbc;BRAZIL"/>
+    </academic-sbc:University>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#UW -->
+
+    <academic-sbc:University rdf:about="&academic-sbc;UW">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >University of Waterloo</academic-sbc:name>
+        <academic-sbc:isLocatedIn rdf:resource="&academic-sbc;CANADA"/>
+    </academic-sbc:University>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#UWATERLOO -->
+
+    <academic-sbc:University rdf:about="&academic-sbc;UWATERLOO">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >University Waterloo</academic-sbc:name>
+        <academic-sbc:isLocatedIn rdf:resource="&academic-sbc;CANADA"/>
+    </academic-sbc:University>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#VIDAL_A -->
+
+    <academic-sbc:Person rdf:about="&academic-sbc;VIDAL_A">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Alexandre C&#233;sar Tavares Vidal</academic-sbc:name>
+    </academic-sbc:Person>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#VITORIO_S_A -->
+
+    <owl:Thing rdf:about="&academic-sbc;VITORIO_S_A">
+        <rdf:type rdf:resource="&academic-sbc;Student"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Sirley Ambrosia Vitorio Oliveira</academic-sbc:name>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#VITORIO_S_A_MT -->
+
+    <owl:Thing rdf:about="&academic-sbc;VITORIO_S_A_MT">
+        <rdf:type rdf:resource="&academic-sbc;MastersThesis"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2001</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Obsol&#234;ncia de Informa&#231;&#227;o</academic-sbc:title>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;CORREA_DA_SILVA_F_S"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;VITORIO_S_A"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#WAKABAYASHI_Y -->
+
+    <academic-sbc:Professor rdf:about="&academic-sbc;WAKABAYASHI_Y">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Yoshiko Wakabayashi</academic-sbc:name>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;DCC"/>
+    </academic-sbc:Professor>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#WAKABAYASHI_Y_CP_01 -->
+
+    <owl:Thing rdf:about="&academic-sbc;WAKABAYASHI_Y_CP_01">
+        <rdf:type rdf:resource="&academic-sbc;ConferencePaper"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >A 5/3-approximation for Finding SpanningTrees with Many Leaves in Cubic Graphs</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;CORREA_J_R"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;FERNANDES_C_G"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;MATAMALA_M"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;WAKABAYASHI_Y"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;WAOA08"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#WAKABAYASHI_Y_CP_02 -->
+
+    <academic-sbc:ConferencePaper rdf:about="&academic-sbc;WAKABAYASHI_Y_CP_02">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >A polyhedral investigation of the LCS problem and a repetition-free variant</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;FERNANDES_C_G"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;FERREIRA_C_E"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;LATI08"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;TJANDRAATMADJA_C"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;WAKABAYASHI_Y"/>
+    </academic-sbc:ConferencePaper>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#WAKABAYASHI_Y_CP_03 -->
+
+    <owl:Thing rdf:about="&academic-sbc;WAKABAYASHI_Y_CP_03">
+        <rdf:type rdf:resource="&academic-sbc;ConferencePaper"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Approximating Rational Objectives is as Easy as Approximating Linear Ones</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;CORREA_J_R"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;FERNANDES_C_G"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;SWAT06"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;WAKABAYASHI_Y"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#WAKABAYASHI_Y_DT -->
+
+    <academic-sbc:DoctoralThesis rdf:about="&academic-sbc;WAKABAYASHI_Y_DT">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">1986</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Aggregation of Binary Relations: algorithmic and polyhedral investigations</academic-sbc:title>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;GROETSCHEL_M"/>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;M_GROTSCHEL"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;UAU"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;UNI_AUGSBURG"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;WAKABAYASHI_Y"/>
+    </academic-sbc:DoctoralThesis>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#WAKABAYASHI_Y_JA_01 -->
+
+    <owl:Thing rdf:about="&academic-sbc;WAKABAYASHI_Y_JA_01">
+        <rdf:type rdf:resource="&academic-sbc;JournalArticle"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Minimum cycle cover and Chinese postman problems on mixed graphs with bounded tree-width</academic-sbc:title>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;DAM09"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;FERNANDES_C"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;LEE_O"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;WAKABAYASHI_Y"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#WAKABAYASHI_Y_JA_02 -->
+
+    <academic-sbc:JournalArticle rdf:about="&academic-sbc;WAKABAYASHI_Y_JA_02">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Approximation algorithms and hardness results for the clique packing problem</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;CHATAIGNER_F"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;DAM09"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;MANIC_G"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;WAKABAYASHI_Y"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;YUSTER_R"/>
+    </academic-sbc:JournalArticle>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#WAKABAYASHI_Y_JA_03 -->
+
+    <academic-sbc:JournalArticle rdf:about="&academic-sbc;WAKABAYASHI_Y_JA_03">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Rearrangement of DNA Fragments: a Branch-and-cut Algorithm</academic-sbc:title>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;DAM02"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;FERREIRA_C_E"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;SOUZA_C_C"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;WAKABAYASHI_Y"/>
+    </academic-sbc:JournalArticle>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#WAKABAYASHI_Y_MT -->
+
+    <owl:Thing rdf:about="&academic-sbc;WAKABAYASHI_Y_MT">
+        <rdf:type rdf:resource="&academic-sbc;MastersThesis"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">1977</academic-sbc:year>
+        <academic-sbc:year rdf:datatype="&xsd;integer">1997</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Sobre Grafos Hamiltonianos</academic-sbc:title>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;SIMON_I"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;WAKABAYASHI_Y"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#WAOA08 -->
+
+    <owl:Thing rdf:about="&academic-sbc;WAOA08">
+        <rdf:type rdf:resource="&academic-sbc;Conference"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2008</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Workshop on Approximation and Online Algorithms</academic-sbc:name>
+        <academic-sbc:isHeldIn rdf:resource="&academic-sbc;ISRAEL"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#WASSERMANN_R -->
+
+    <academic-sbc:Professor rdf:about="&academic-sbc;WASSERMANN_R">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >Renata Wassermann</academic-sbc:name>
+        <academic-sbc:isAffiliatedTo rdf:resource="&academic-sbc;DCC"/>
+    </academic-sbc:Professor>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#WASSERMANN_R_CP_01 -->
+
+    <owl:Thing rdf:about="&academic-sbc;WASSERMANN_R_CP_01">
+        <rdf:type rdf:resource="&academic-sbc;ConferencePaper"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Revising Specifications with CTL Properties Using Bounded Model Checking</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;FINGER_M"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;SBIA08_PROC"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;WASSERMANN_R"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#WASSERMANN_R_CP_02 -->
+
+    <owl:Thing rdf:about="&academic-sbc;WASSERMANN_R_CP_02">
+        <rdf:type rdf:resource="&academic-sbc;ConferencePaper"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Expressivity and Control in Limited Reasoning</academic-sbc:title>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;ECAI02_PROC"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;FINGER_M"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;WASSERMANN_R"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#WASSERMANN_R_CP_03 -->
+
+    <academic-sbc:ConferencePaper rdf:about="&academic-sbc;WASSERMANN_R_CP_03">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >An Algorithm for Belief Revision</academic-sbc:title>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;KR00_PROC"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;WASSERMANN_R"/>
+    </academic-sbc:ConferencePaper>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#WASSERMANN_R_DT -->
+
+    <academic-sbc:DoctoralThesis rdf:about="&academic-sbc;WASSERMANN_R_DT">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2000</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Resource Bounded Belief Revision</academic-sbc:title>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;ROTT_H"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;UA"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;WASSERMANN_R"/>
+    </academic-sbc:DoctoralThesis>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#WASSERMANN_R_JA_01 -->
+
+    <owl:Thing rdf:about="&academic-sbc;WASSERMANN_R_JA_01">
+        <rdf:type rdf:resource="&academic-sbc;JournalArticle"/>
+        <academic-sbc:title>Local Diagnosis</academic-sbc:title>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;JANL01"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;WASSERMANN_R"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#WASSERMANN_R_JA_02 -->
+
+    <owl:Thing rdf:about="&academic-sbc;WASSERMANN_R_JA_02">
+        <rdf:type rdf:resource="&academic-sbc;JournalArticle"/>
+        <academic-sbc:title>Local Change</academic-sbc:title>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;HANSSON_S_O"/>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;SL02"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;WASSERMANN_R"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#WASSERMANN_R_JA_03 -->
+
+    <owl:Thing rdf:about="&academic-sbc;WASSERMANN_R_JA_03">
+        <rdf:type rdf:resource="&academic-sbc;JournalArticle"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Generalized Change and the Meaning of Rationality Postulates</academic-sbc:title>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;SL03"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;WASSERMANN_R"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#WASSERMANN_R_JA_04 -->
+
+    <academic-sbc:JournalArticle rdf:about="&academic-sbc;WASSERMANN_R_JA_04">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >Base Revision for Ontology Debugging</academic-sbc:title>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;JLC08"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;RIBEIRO_M_M"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;WASSERMANN_R"/>
+    </academic-sbc:JournalArticle>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#WASSERMANN_R_MT -->
+
+    <academic-sbc:MastersThesis rdf:about="&academic-sbc;WASSERMANN_R_MT">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">1995</academic-sbc:year>
+        <academic-sbc:title rdf:datatype="&xsd;string"
+            >A L&#243;gica das Estruturas de Features e suas Aplica&#231;&#245;es</academic-sbc:title>
+        <academic-sbc:hasAdvisor rdf:resource="&academic-sbc;CORREA_DA_SILVA_F_S"/>
+        <academic-sbc:publishedBy rdf:resource="&academic-sbc;USP"/>
+        <academic-sbc:hasAuthor rdf:resource="&academic-sbc;WASSERMANN_R"/>
+    </academic-sbc:MastersThesis>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#YODER_J_W -->
+
+    <academic-sbc:Person rdf:about="&academic-sbc;YODER_J_W">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:name rdf:datatype="&xsd;string">Joseph W. Yoder</academic-sbc:name>
+    </academic-sbc:Person>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/10/academic-sbc.owl#YUSTER_R -->
+
+    <academic-sbc:Person rdf:about="&academic-sbc;YUSTER_R">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </academic-sbc:Person>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/11/academic-sbc-final.owl#ENG_ILLINOIS -->
+
+    <owl:Thing rdf:about="#ENG_ILLINOIS">
+        <rdf:type rdf:resource="&academic-sbc;Institute"/>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >College of Engineering</academic-sbc:name>
+        <academic-sbc:isPartOf rdf:resource="&academic-sbc;ILLINOIS_EDU"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/11/academic-sbc-final.owl#WEA04 -->
+
+    <academic-sbc:Conference rdf:about="#WEA04">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:year rdf:datatype="&xsd;integer">2004</academic-sbc:year>
+        <academic-sbc:name rdf:datatype="&xsd;string"
+            >International Workshop in Experimental Algorithms</academic-sbc:name>
+        <academic-sbc:isHeldIn rdf:resource="&academic-sbc;BRAZIL"/>
+    </academic-sbc:Conference>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/11/academic-sbc-final.owl#WEA04_PROC -->
+
+    <academic-sbc:Proceedings rdf:about="#WEA04_PROC">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <academic-sbc:isEventDocumentOf rdf:resource="#WEA04"/>
+    </academic-sbc:Proceedings>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

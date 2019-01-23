@@ -1,0 +1,1732 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.owl-ontologies.com/unnamed.owl#"
+     xml:base="http://www.owl-ontologies.com/unnamed.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/ontologies/2014/5/cmtNormalized.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#acceptPaper -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#acceptPaper">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#acceptedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#acceptedBy">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#addProgramCommitteeMember -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#addProgramCommitteeMember">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommitteeMember"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#addedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#addedBy">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommitteeMember"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#adjustBid -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#adjustBid">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Bid"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#adjustedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#adjustedBy">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Bid"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#assignExternalReviewer -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#assignExternalReviewer">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ExternalReviewer"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#assignReviewer -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#assignReviewer">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#assignedByAdministrator -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#assignedByAdministrator">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#assignedByReviewer -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#assignedByReviewer">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ExternalReviewer"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#assignedTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#assignedTo">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#co-writePaper -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#co-writePaper">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Co-author"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#detailsEnteredBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#detailsEnteredBy">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#enableVirtualMeeting -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#enableVirtualMeeting">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#endReview -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#endReview">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommitteeChair"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Review"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#enterConferenceDetails -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#enterConferenceDetails">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#enterReviewCriteria -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#enterReviewCriteria">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#finalizePaperAssignment -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#finalizePaperAssignment">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#hardcopyMailingManifestsPrintedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#hardcopyMailingManifestsPrintedBy">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#hasAuthor -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#hasAuthor">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Author"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#hasBeenAssigned -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#hasBeenAssigned">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#hasBid -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#hasBid">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Bid"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#hasCo-author -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#hasCo-author">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Co-author"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#hasConferenceMember -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#hasConferenceMember">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ConferenceMember"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#hasConflictOfInterest -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#hasConflictOfInterest">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Document"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#hasDecision -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#hasDecision">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Decision"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#hasProgramCommitteeMember -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#hasProgramCommitteeMember">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommittee"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommitteeMember"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#hasSubjectArea -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#hasSubjectArea">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#SubjectArea"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#markConflictOfInterest -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#markConflictOfInterest">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.owl-ontologies.com/unnamed.owl#Author"/>
+                    <rdf:Description rdf:about="http://www.owl-ontologies.com/unnamed.owl#Chairman"/>
+                    <rdf:Description rdf:about="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#memberOfConference -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#memberOfConference">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ConferenceMember"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#memberOfProgramCommittee -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#memberOfProgramCommittee">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommittee"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommitteeMember"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#paperAssignmentFinalizedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#paperAssignmentFinalizedBy">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#paperAssignmentToolsRunBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#paperAssignmentToolsRunBy">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#printHardcopyMailingManifests -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#printHardcopyMailingManifests">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#readByMeta-Reviewer -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#readByMeta-Reviewer">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Meta-Reviewer"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#readByReviewer -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#readByReviewer">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#readPaper -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#readPaper">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#rejectPaper -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#rejectPaper">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#rejectedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#rejectedBy">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#reviewCriteriaEnteredBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#reviewCriteriaEnteredBy">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#reviewerBiddingStartedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#reviewerBiddingStartedBy">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#runPaperAssignmentTools -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#runPaperAssignmentTools">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#setMaxPapers -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#setMaxPapers">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommitteeMember"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#startReviewerBidding -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#startReviewerBidding">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#submitPaper -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#submitPaper">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Author"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#virtualMeetingEnabledBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#virtualMeetingEnabledBy">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#writePaper -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#writePaper">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Author"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#writeReview -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#writeReview">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Review"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#writtenBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#writtenBy">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Review"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#acceptsHardcopySubmissions -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#acceptsHardcopySubmissions">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#date -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#date">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#email -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#email">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#logoURL -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#logoURL">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#maxPapers -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#maxPapers">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommitteeMember"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#name">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+                    <rdf:Description rdf:about="http://www.owl-ontologies.com/unnamed.owl#Person"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#paperID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#paperID">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedLong"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#reviewsPerPaper -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#reviewsPerPaper">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#siteURL -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#siteURL">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#title -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#title">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Acceptance -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Acceptance">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Decision"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Rejection"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Administrator -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Administrator">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#User"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#AssociatedChair -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#AssociatedChair">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ConferenceMember"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ConferenceChair"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Author -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Author">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ConferenceMember"/>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#User"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#AuthorNotReviewer -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#AuthorNotReviewer">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Author"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommitteeMember"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Bid -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Bid">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Preference"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Person"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommittee"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Document"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Decision"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Chairman -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Chairman">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Co-author -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Co-author">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Author"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Conference -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Conference">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Document"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Person"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Preference"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Decision"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Bid"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommittee"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#ConferenceChair -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#ConferenceChair">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ConferenceMember"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#AssociatedChair"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#ConferenceMember -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#ConferenceMember">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Decision -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Decision">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Bid"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommittee"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Person"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Preference"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Document"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Document -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Document">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Decision"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommittee"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Bid"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Person"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Preference"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#ExternalReviewer -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#ExternalReviewer">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Person"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Meta-Review -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Meta-Review">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Review"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Meta-Reviewer -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Meta-Reviewer">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Paper -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Paper">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Document"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#readByReviewer"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#readByMeta-Reviewer"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#hasDecision"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Review"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#hasDecision"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#PaperAbstract -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#PaperAbstract">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#PaperFullVersion -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#PaperFullVersion">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Person -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Person">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Preference"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Document"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommittee"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Bid"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Decision"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Preference -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Preference">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Bid"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Person"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommittee"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Document"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Decision"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#ProgramCommittee -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#ProgramCommittee">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Person"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Document"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Bid"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Preference"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Decision"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#ProgramCommitteeChair -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#ProgramCommitteeChair">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommitteeMember"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#ProgramCommitteeMember -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#ProgramCommitteeMember">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ConferenceMember"/>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Person"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#AuthorNotReviewer"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Rejection -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Rejection">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Decision"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Acceptance"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Review -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Review">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Document"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Reviewer -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Reviewer">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ConferenceMember"/>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#User"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ExternalReviewer"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#AuthorNotReviewer"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#SubjectArea -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#SubjectArea"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#User -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#User">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#assignedByAdministrator"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#addProgramCommitteeMember"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommitteeMember"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#memberOfProgramCommittee"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommitteeMember"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#virtualMeetingEnabledBy"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#reviewerBiddingStartedBy"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#enableVirtualMeeting"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#startReviewerBidding"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommitteeChair"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#endReview"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommitteeChair"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Person"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#hasConflictOfInterest"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Person"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Document"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#hasConflictOfInterest"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Document"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ConferenceMember"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#hasConferenceMember"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ConferenceMember"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#hasDecision"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#hardcopyMailingManifestsPrintedBy"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#assignedTo"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#writePaper"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#startReviewerBidding"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#paperAssignmentToolsRunBy"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#acceptedBy"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#printHardcopyMailingManifests"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#assignedByReviewer"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#adjustedBy"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#markConflictOfInterest"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#acceptPaper"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#SubjectArea"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#hasSubjectArea"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#SubjectArea"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#rejectPaper"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommitteeMember"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#setMaxPapers"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommitteeMember"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#enterReviewCriteria"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#runPaperAssignmentTools"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#finalizePaperAssignment"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#hardcopyMailingManifestsPrintedBy"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommittee"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#hasProgramCommitteeMember"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommittee"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#submitPaper"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ExternalReviewer"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#assignExternalReviewer"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ExternalReviewer"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Review"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#writeReview"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Review"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#hasCo-author"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#rejectPaper"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#writeReview"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Review"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#endReview"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Review"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Author"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#writePaper"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Author"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#acceptedBy"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Review"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#writtenBy"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Review"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#assignReviewer"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#co-writePaper"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Bid"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#hasBid"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Bid"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Decision"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#hasDecision"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Decision"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#assignReviewer"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#hasBeenAssigned"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Bid"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#adjustBid"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Bid"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#detailsEnteredBy"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Author"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#submitPaper"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Author"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#reviewCriteriaEnteredBy"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#setMaxPapers"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#assignExternalReviewer"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#hasBeenAssigned"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#readByReviewer"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommitteeMember"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#addedBy"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommitteeMember"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Co-author"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#co-writePaper"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Co-author"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Author"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#hasAuthor"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Author"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommittee"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#memberOfProgramCommittee"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommittee"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#readPaper"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#runPaperAssignmentTools"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#hasConferenceMember"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#paperAssignmentFinalizedBy"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#memberOfConference"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#enableVirtualMeeting"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#hasBid"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#assignedTo"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#rejectedBy"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#rejectedBy"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#finalizePaperAssignment"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#paperAssignmentFinalizedBy"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommitteeMember"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#hasProgramCommitteeMember"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommitteeMember"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#hasAuthor"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#readByMeta-Reviewer"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Meta-Reviewer"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#readByMeta-Reviewer"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Meta-Reviewer"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#writtenBy"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#enterReviewCriteria"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#enterConferenceDetails"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#paperAssignmentToolsRunBy"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommitteeMember"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#addProgramCommitteeMember"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProgramCommitteeMember"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#enterConferenceDetails"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#readByReviewer"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ConferenceMember"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#memberOfConference"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ConferenceMember"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#printHardcopyMailingManifests"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#virtualMeetingEnabledBy"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#addedBy"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Co-author"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#hasCo-author"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Co-author"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#assignedByAdministrator"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#hasSubjectArea"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Paper"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#reviewerBiddingStartedBy"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#adjustBid"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#acceptPaper"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#reviewCriteriaEnteredBy"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Administrator"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#readPaper"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Reviewer"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#detailsEnteredBy"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Conference"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Bid"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#adjustedBy"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Bid"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ExternalReviewer"/>
+        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#assignedByReviewer"/>
+        <owl:onClass rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ExternalReviewer"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+

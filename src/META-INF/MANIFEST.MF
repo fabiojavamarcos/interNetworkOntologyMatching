@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+
+Name: Main.OntologyManagerTab.class
+Tab-Widget: True
+Default-Widget: True
+
