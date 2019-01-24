@@ -4798,297 +4798,35 @@ public class OntologyManagerTab extends JFrame {
 		for (int i = 4+n1+n2; i < 4+n1+n2+n3; i++) {
 			intranetworkAlignmentsFileNames.add(args[i]);
 		}
-		// testando com redes de 2 elementos para debug fácil
-		/*if (n1==2&&n2==2){
-			
-			compute2x2();
-			
-			
-			
-		} else { */
-			// more then 2 elements each network
-		//Thread worker1 = new Thread() {
-			//public void run() {
-				// dez 2018
-				//runIntraAlignmentsUnion();
-				runNet1Union(network1);
-				runNet2Union(network2);
-				
-				runNet1IntraAlignments();
-			
-			//}
-		//};
-		//worker1.start();
+	
+		runNet1Union(network1);
+		runNet2Union(network2);
 		
-			/*String lastUnionN1 = network1.get(0);
-			// process operations
-			// network1 creation with Union
-			System.out.println("opening..." + path + network1.get(0));
-			openBatch1(path, network1.get(0));
-			for (int i=1; i<network1.size(); i++){
-				int pos = findLoaded(network1.get(i));
-				if (pos == -1){
-					System.out.println("batch opening..." + path + network1.get(i));
-				
-					openBatch2(path, network1.get(i)); // second element from network1
-				}
-				else{
-					
-					System.out.println("load from memory ..." + path + network1.get(i) + " pos: "+ pos);
-					loadFromMemory2(pos);
-					
-				}
-				System.out.println("calling union1 in batch");
-				runOntBatch("Union");
-				
-				System.out.println("Saving union1 in batch: "+ lastUnionN1+ "U"+network1.get(i));
-				lastUnionN1 += "U"+network1.get(i);
-				
-				//saveRBatch(path, lastUnionN1+"U"+network1.get(i)); // save each union
-				partialUnionResultsN1.put(lastUnionN1+"U"+network1.get(i), lastUnionN1+"U"+network1.get(i)); // save partial result for later!
-				
-				pos = findLoaded(lastUnionN1);
-				if (pos == -1){
-					System.out.println("batch opening..." + path + lastUnionN1);
-				
-					openBatch1(path, lastUnionN1); // open the result of o1 U o2 as o1 again
-				} else {
-					System.out.println("load from memory ..." + path + lastUnionN1 + " pos: "+ pos);
-					loadFromMemory1(pos);
-
-				}
-				
-				System.out.println("last Union n1: "+lastUnionN1);
-			}
-			*/
-			/*String lastUnionN2 = network2.get(0);
-			// process operations
-			// network2 creation with Union
-			System.out.println("opening..." + path + network2.get(0));
-			openBatch1(path, network2.get(0));
-			for (int i=1; i<network2.size(); i++){
-				int pos = findLoaded(network2.get(i));
-				if (pos == -1){
-					System.out.println("batch opening..." + path + network2.get(i));
-				
-					openBatch2(path, network2.get(i)); // second element from network1
-				}
-				else{
-					
-					System.out.println("load from memory ..." + path + network2.get(i) + " pos: "+ pos);
-					loadFromMemory2(pos);
-					
-				}
-				System.out.println("calling union2 in batch");
-				runOntBatch("Union");
-				
-				System.out.println("Saving union2 in batch: "+ lastUnionN2+ "U"+network2.get(i));
-				lastUnionN2 += "U"+network2.get(i);
-				
-				//saveRBatch(path, lastUnionN2+"U"+network2.get(i)); // save each union
-				partialUnionResultsN2.put(lastUnionN2+"U"+network2.get(i), lastUnionN2+"U"+network2.get(i)); // save partial result for later!
-				
-				pos = findLoaded(lastUnionN2);
-				if (pos == -1){
-					System.out.println("batch opening..." + path + lastUnionN2);
-				
-					openBatch1(path, lastUnionN2); // open the result of o1 U o2 as o1 again
-				} else {
-					System.out.println("load from memory ..." + path + lastUnionN2 + " pos: "+ pos);
-					loadFromMemory1(pos);
-
-				}
-				
-				System.out.println("last Union n2: "+lastUnionN2);
-			}
-			*/
-			writeTimeStamp("finishing 2 unions ...");
-			writeTimeStamp("starting intersections ...");
-			
-			runNetsIntersections(network1,network2);
-			// intersection 1x2
-			/*
-			int totalIntersections = network1.size()*network2.size();
-			 
-			System.out.println("starting batch intersection ="+totalIntersections);
-			String lastIntersection = "";
-			// computes intersection over N1 and N2
-			// load both i and j ontologies from net1 and net2 
-
-			for (int i=0; i<network1.size(); i++){
-				
-				int pos = findLoaded(network1.get(i));
-				if (pos == -1){
-					System.out.println("batch opening..." + path + network1.get(i));
-					
-					openBatch1(path, network1.get(i));
-				}
-				else {
-					System.out.println("load from memory ..." + path + network1.get(i) + " pos: "+ pos);
-					loadFromMemory1(pos);
-
-				}
-				for (int j=0; j<network2.size(); j++){
-					pos = findLoaded(network2.get(j));
-					if (pos == -1){
-						System.out.println("batch opening..." + path + network2.get(j));
-						
-						openBatch2(path, network2.get(j));
-					} else {
-						System.out.println("load from memory ..." + path + network2.get(j) + " pos: "+ pos);
-						loadFromMemory2(pos);
-
-					}
-					
-					System.out.println("calling intersection in batch..." );
-					runOntBatch("Intersection");
-					
-					System.out.println("Saving intersection in batch"+ network1.get(i)+"I"+network2.get(j));
-					//saveRBatch(path, network1.get(i)+"I"+network2.get(j)); // save each intersection
-					
-					partialIntersectionResultsN1N2Names.put(network1.get(i)+"I"+network2.get(j), network1.get(i)+"I"+network2.get(j)); // save partial result for later!
-					partialIntersectionResultsN1N2.add(network1.get(i)+"I"+network2.get(j));
-					lastIntersection = network1.get(i)+"I"+network2.get(j);
-					System.out.println("last Intersection batch: "+network1.get(i)+"I"+network2.get(j));
-	
-				}
-			}
-			*/
-			writeTimeStamp("finishing intersections ...");
-			writeTimeStamp("starting 1st difference ...");
-			
-			runNet1Difference(network1);
-			runNet2Difference(network2);
-			
-			/*
-			// difference N1
-			String lastDifferenceN1 = "";
-			// computes differences from network1 and intersections
-			int pos = findLoaded(lastUnionN1);
-			if (pos == -1){
-				System.out.println("Opening union1 in batch"+ lastUnionN1);
-				
-				openBatch1(path, lastUnionN1);
-			}else {
-				System.out.println("load from memory ..." + lastUnionN1 + " pos: "+ pos);
-				loadFromMemory1(pos);
-
-			}
-			for (int i=0; i<partialIntersectionResultsN1N2.size(); i++){
-				pos = findLoaded(partialIntersectionResultsN1N2.get(i));
-
-				if (pos == -1){
-					System.out.println("Opening intersection in batch: "+ i + partialIntersectionResultsN1N2.get(i));
-	
-					openBatch2(path, partialIntersectionResultsN1N2.get(i));
-				} else {
-					System.out.println("load from memory ..." + partialIntersectionResultsN1N2.get(i) + " pos: "+ pos);
-					loadFromMemory2(pos);
-				}
-				System.out.println("Running dif in batch: ");
-
-				runOntBatch("Difference");
-				if (i==0){
-					//System.out.println("saving dif in batch: "+lastUnionN1+"D"+partialIntersectionResultsN1N2.get(i));
-					//saveRBatch(path, lastUnionN1+"D"+partialIntersectionResultsN1N2.get(i));
-					partialDifferenceResultsN1.put(lastUnionN1+"D"+partialIntersectionResultsN1N2.get(i), lastUnionN1+"D"+partialIntersectionResultsN1N2.get(i)); // save partial result for later!
-					lastDifferenceN1 = lastUnionN1+"D"+partialIntersectionResultsN1N2.get(i);
-
-				} else {
-					//System.out.println("saving dif in batch: "+lastDifferenceN1+"D"+partialIntersectionResultsN1N2.get(i));
-					//saveRBatch(path, lastDifferenceN1+"D"+partialIntersectionResultsN1N2.get(i));
-					partialDifferenceResultsN1.put(lastDifferenceN1+"D"+partialIntersectionResultsN1N2.get(i), partialIntersectionResultsN1N2.get(i-1)+"D"+partialIntersectionResultsN1N2.get(i)); // save partial result for later!
-					lastDifferenceN1 = lastDifferenceN1+"D"+partialIntersectionResultsN1N2.get(i);
-
-				}
-				
-				pos = findLoaded(lastDifferenceN1);
-				if (pos == -1){
-					System.out.println("Opening intersection in batch: "+ i + lastDifferenceN1);
-	
-					openBatch1(path, lastDifferenceN1); // open the result of o1 D o2 as o1 again
-				}
-				else {
-					System.out.println("load from memory ..." + lastDifferenceN1 + " pos: "+ pos);
-					loadFromMemory1(pos);
-
-				}
-			}
-			System.out.println("last Difference n1: "+lastDifferenceN1);
-			System.out.println("saving dif in batch: "+lastDifferenceN1+ " as net1");
-			saveRBatch(path, "net1");
-			
-			*/
-			writeTimeStamp("finishing 1st difference ...");
-			writeTimeStamp("starting 2nd difference ...");
-			/*
-			// difference N2
-			String lastDifferenceN2 = "";
-			// computes differences from network2 and intersections
-			pos = findLoaded(lastUnionN2);
-			if (pos == -1){
-				System.out.println("Opening union2 in batch"+ lastUnionN2);
-				
-				openBatch1(path, lastUnionN2);
-			} else {
-				System.out.println("load from memory ..." + lastUnionN2 + " pos: "+ pos);
-				loadFromMemory1(pos);
-			}
-			for (int i=0; i<partialIntersectionResultsN1N2.size(); i++){
-				pos = findLoaded(partialIntersectionResultsN1N2.get(i));
-
-				if (pos == -1){
-					System.out.println("Opening intersection in batch: "+ i + partialIntersectionResultsN1N2.get(i));
-	
-					openBatch2(path, partialIntersectionResultsN1N2.get(i));
-				} else {
-					System.out.println("load from memory ..." + partialIntersectionResultsN1N2.get(i) + " pos: "+ pos);
-					loadFromMemory2(pos);
-
-				}
-				System.out.println("Running dif in batch: ");
-
-				runOntBatch("Difference");
-				if (i==0){
-					System.out.println("saving dif in batch: "+lastUnionN2+"D"+partialIntersectionResultsN1N2.get(i));
-					//saveRBatch(path, lastUnionN2+"D"+partialIntersectionResultsN1N2.get(i));
-					partialDifferenceResultsN2.put(lastUnionN2+"D"+partialIntersectionResultsN1N2.get(i), lastUnionN2+"D"+partialIntersectionResultsN1N2.get(i)); // save partial result for later!
-					lastDifferenceN2 = lastUnionN2+"D"+partialIntersectionResultsN1N2.get(i);
-
-				} else {
-					System.out.println("saving dif in batch: "+lastDifferenceN2+"D"+partialIntersectionResultsN1N2.get(i));
-					//saveRBatch(path, lastDifferenceN2+"D"+partialIntersectionResultsN1N2.get(i));
-					partialDifferenceResultsN2.put(lastDifferenceN2+"D"+partialIntersectionResultsN1N2.get(i), partialIntersectionResultsN1N2.get(i-1)+"D"+partialIntersectionResultsN1N2.get(i)); // save partial result for later!
-					lastDifferenceN2 = lastDifferenceN2+"D"+partialIntersectionResultsN1N2.get(i);
-
-				}
-				pos = findLoaded(lastDifferenceN2);
-				if (pos == -1){
-					System.out.println("Opening intersection in batch: "+ i + lastDifferenceN2);
-	
-					openBatch1(path, lastDifferenceN2); // open the result of o1 D o2 as o1 again
-				} else {
-					System.out.println("load from memory ..." + lastDifferenceN2 + " pos: "+ pos);
-					loadFromMemory1(pos);
-
-				}
-			}
-			System.out.println("last Difference n2: "+lastDifferenceN2);
-			System.out.println("saving dif in batch: "+lastDifferenceN2+ " as net2");
-			saveRBatch(path, "net2");
-			*/
-			writeTimeStamp("finishing 2nd difference ...");
-			
-
-			writeTimeStamp("Finishing 2 networks  ...");
-
-			// finally call alin to match resulting results lastDifferenceN1 and lastDifferenceN2
-			System.out.println(" Calling alin to match "+ lastDifferenceN1 + "x " + lastDifferenceN2);
-
-
-
-		//}// else net1 and 2 > 2
+		runNet1IntraAlignments();
+		runNet2IntraAlignments();
 		
+		writeTimeStamp("finishing 2 unions ...");
+		writeTimeStamp("starting intersections ...");
+		
+		runNetsIntersections(network1,network2);
+
+		writeTimeStamp("finishing intersections ...");
+		writeTimeStamp("starting 1st difference ...");
+		
+		runNet1Difference(network1);
+		runNet2Difference(network2);
+		
+		writeTimeStamp("finishing 1st difference ...");
+		writeTimeStamp("starting 2nd difference ...");
+
+		writeTimeStamp("finishing 2nd difference ...");
+		
+
+		writeTimeStamp("Finishing 2 networks  ...");
+
+		// finally call alin to match resulting results lastDifferenceN1 and lastDifferenceN2
+		System.out.println(" Calling alin to match "+ lastDifferenceN1 + "x " + lastDifferenceN2);
+
 		System.out.println("--Log JTextArea ---");
 		System.out.println(Log.getText());
 		System.out.println("--LogBatch ---");
@@ -5130,29 +4868,30 @@ public class OntologyManagerTab extends JFrame {
 		//saveRBatch(path, lastUnionN1+"U"intranetworkAlignmentsFileNames.get(0)); // save each union
 		partialUnionResultsN1.put(lastUnionN1+"D"+intranetworkAlignmentsFileNames.get(0), lastUnionN1+"D"+intranetworkAlignmentsFileNames.get(0) ); // save Union after apply intra alignments!
 		
-		// computes differences from network1 and intra alignments
-		pos = findLoaded(lastUnionN2);
-		if (pos == -1){
-			System.out.println("Opening union2 in batch"+ lastUnionN2);
-			
-			openBatch1(path, lastUnionN2);
-		}else {
-			System.out.println("load from memory ..." + lastUnionN2 + " pos: "+ pos);
-			loadFromMemory1(pos);
-		}
-		openBatch2(path, intranetworkAlignmentsFileNames.get(1));
-		System.out.println("Running dif with intranet alignments in batch: ");
-
-		runOntBatch("Difference");
-		
-		System.out.println("Saving union2 in batch: "+ lastUnionN1+ "U"+intranetworkAlignmentsFileNames.get(1));
-		lastUnionN2 += "D"+intranetworkAlignmentsFileNames.get(1);
-		
-		//saveRBatch(path, lastUnionN1+"U"intranetworkAlignmentsFileNames.get(0)); // save each union
-		partialUnionResultsN2.put(lastUnionN2+"D"+intranetworkAlignmentsFileNames.get(1), lastUnionN2+"D"+intranetworkAlignmentsFileNames.get(1) ); // save Union after apply intra alignments!
-
 	}
+	private void runNet2IntraAlignments() {
 
+			// computes differences from network2 and intra alignments
+			int pos = findLoaded(lastUnionN2);
+			if (pos == -1){
+				System.out.println("Opening union2 in batch"+ lastUnionN2);
+				
+				openBatch1(path, lastUnionN2);
+			}else {
+				System.out.println("load from memory ..." + lastUnionN2 + " pos: "+ pos);
+				loadFromMemory1(pos);
+			}
+			openBatch2(path, intranetworkAlignmentsFileNames.get(1));
+			System.out.println("Running dif with intranet alignments in batch: ");
+
+			runOntBatch("Difference");
+			
+			System.out.println("Saving union2 in batch: "+ lastUnionN1+ "U"+intranetworkAlignmentsFileNames.get(1));
+			lastUnionN2 += "D"+intranetworkAlignmentsFileNames.get(1);
+			
+			//saveRBatch(path, lastUnionN1+"U"intranetworkAlignmentsFileNames.get(0)); // save each union
+			partialUnionResultsN2.put(lastUnionN2+"D"+intranetworkAlignmentsFileNames.get(1), lastUnionN2+"D"+intranetworkAlignmentsFileNames.get(1) ); // save Union after apply intra alignments!
+	}
 	/*private void runIntraAlignmentsUnion(int intraN1, int intraN2) {
 		// TODO Auto-generated method stub
 		/*System.out.println("opening..." + path + "ekaw-sigkdd-w-uri.owl");
