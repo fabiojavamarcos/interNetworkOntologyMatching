@@ -4476,7 +4476,7 @@ public class OntologyManagerTab extends JFrame {
 			System.out.println("Saving union2 in batch: "+ lastUnionN2+ "U"+network2.get(i));
 			lastUnionN2 += "U"+network2.get(i);
 			
-			//saveRBatch(path, lastUnionN2+"U"+network2.get(i)); // save each union
+			saveRBatch(path, lastUnionN2+"U"+network2.get(i)); // save each union
 			partialUnionResultsN2.put(lastUnionN2+"U"+network2.get(i), lastUnionN2+"U"+network2.get(i)); // save partial result for later!
 			
 			pos = findLoaded(lastUnionN2);
@@ -4519,7 +4519,7 @@ public class OntologyManagerTab extends JFrame {
 			System.out.println("Saving union1 in batch: "+ lastUnionN1+ "U"+network1.get(i));
 			lastUnionN1 += "U"+network1.get(i);
 			
-			//saveRBatch(path, lastUnionN1+"U"+network1.get(i)); // save each union
+			saveRBatch(path, lastUnionN1+"U"+network1.get(i)); // save each union
 			partialUnionResultsN1.put(lastUnionN1+"U"+network1.get(i), lastUnionN1+"U"+network1.get(i)); // save partial result for later!
 			
 			pos = findLoaded(lastUnionN1);
@@ -4797,24 +4797,25 @@ public class OntologyManagerTab extends JFrame {
 		// reading intranetwork alignments
 		for (int i = 4+n1+n2; i < 4+n1+n2+n3; i++) {
 			intranetworkAlignmentsFileNames.add(args[i]);
+			System.out.println("Intra alignments:"+args[i]);
 		}
 	
 		runNet1Union(network1);
 		runNet2Union(network2);
 		
-		runNet1IntraAlignments();
-		runNet2IntraAlignments();
+		runNet1IntraAlignmentsV2();
+		runNet2IntraAlignmentsV2();
 		
 		writeTimeStamp("finishing 2 unions ...");
 		writeTimeStamp("starting intersections ...");
 		
-		runNetsIntersections(network1,network2);
+		//runNetsIntersections(network1,network2);
 
 		writeTimeStamp("finishing intersections ...");
 		writeTimeStamp("starting 1st difference ...");
 		
-		runNet1Difference(network1);
-		runNet2Difference(network2);
+		//runNet1Difference(network1);
+		//runNet2Difference(network2);
 		
 		writeTimeStamp("finishing 1st difference ...");
 		writeTimeStamp("starting 2nd difference ...");
@@ -4858,40 +4859,89 @@ public class OntologyManagerTab extends JFrame {
 			loadFromMemory1(pos);
 		}
 		openBatch2(path, intranetworkAlignmentsFileNames.get(0));
-		System.out.println("Running dif with intranet alignments in batch: ");
+		System.out.println("Running dif with intranet alignments in batch: "+ lastUnionN1 + " - " + intranetworkAlignmentsFileNames.get(0));
 
 		runOntBatch("Difference");
 		
-		System.out.println("Saving union1 in batch: "+ lastUnionN1+ "U"+intranetworkAlignmentsFileNames.get(0));
+		System.out.println("Saving net1 after dif w/ intra alignments in batch: "+ lastUnionN1+ "D"+intranetworkAlignmentsFileNames.get(0));
 		lastUnionN1 += "D"+intranetworkAlignmentsFileNames.get(0);
 		
-		//saveRBatch(path, lastUnionN1+"U"intranetworkAlignmentsFileNames.get(0)); // save each union
+		saveRBatch(path, lastUnionN1); // save each union
+		partialUnionResultsN1.put(lastUnionN1+"D"+intranetworkAlignmentsFileNames.get(0), lastUnionN1+"D"+intranetworkAlignmentsFileNames.get(0) ); // save Union after apply intra alignments!
+		
+	}
+	
+	private void runNet1IntraAlignmentsV2() { // changed the order: intraalignments - lastUnionN1
+		// TODO Auto-generated method stub
+		// computes differences from network1 and intra alignments
+		int pos = findLoaded(lastUnionN1);
+		if (pos == -1){
+			System.out.println("Opening union1 in batch"+ lastUnionN1);
+			
+			openBatch2(path, lastUnionN1); // open 2 first!!!!
+		}else {
+			System.out.println("load from memory ..." + lastUnionN1 + " pos: "+ pos);
+			loadFromMemory1(pos);
+		}
+		openBatch1(path, intranetworkAlignmentsFileNames.get(0)); // open 1 after!!!!
+		System.out.println("Running dif with intranet alignments in batch: "+ lastUnionN1 + " - " + intranetworkAlignmentsFileNames.get(0));
+
+		runOntBatch("Difference");
+		
+		System.out.println("Saving net1 after dif w/ intra alignments in batch: "+ lastUnionN1+ "D"+intranetworkAlignmentsFileNames.get(0));
+		lastUnionN1 += "D"+intranetworkAlignmentsFileNames.get(0);
+		
+		saveRBatch(path, lastUnionN1); // save each union
 		partialUnionResultsN1.put(lastUnionN1+"D"+intranetworkAlignmentsFileNames.get(0), lastUnionN1+"D"+intranetworkAlignmentsFileNames.get(0) ); // save Union after apply intra alignments!
 		
 	}
 	private void runNet2IntraAlignments() {
 
-			// computes differences from network2 and intra alignments
-			int pos = findLoaded(lastUnionN2);
-			if (pos == -1){
-				System.out.println("Opening union2 in batch"+ lastUnionN2);
-				
-				openBatch1(path, lastUnionN2);
-			}else {
-				System.out.println("load from memory ..." + lastUnionN2 + " pos: "+ pos);
-				loadFromMemory1(pos);
-			}
-			openBatch2(path, intranetworkAlignmentsFileNames.get(1));
-			System.out.println("Running dif with intranet alignments in batch: ");
+		// computes differences from network2 and intra alignments
+		int pos = findLoaded(lastUnionN2);
+		if (pos == -1){
+			System.out.println("Opening union2 in batch"+ lastUnionN2);
+			
+			openBatch1(path, lastUnionN2);
+		}else {
+			System.out.println("load from memory ..." + lastUnionN2 + " pos: "+ pos);
+			loadFromMemory1(pos);
+		}
+		openBatch2(path, intranetworkAlignmentsFileNames.get(1));
+		System.out.println("Running dif with intranet alignments in batch: "+ lastUnionN2 + " - "+ intranetworkAlignmentsFileNames.get(1));
 
-			runOntBatch("Difference");
-			
-			System.out.println("Saving union2 in batch: "+ lastUnionN1+ "U"+intranetworkAlignmentsFileNames.get(1));
-			lastUnionN2 += "D"+intranetworkAlignmentsFileNames.get(1);
-			
-			//saveRBatch(path, lastUnionN1+"U"intranetworkAlignmentsFileNames.get(0)); // save each union
-			partialUnionResultsN2.put(lastUnionN2+"D"+intranetworkAlignmentsFileNames.get(1), lastUnionN2+"D"+intranetworkAlignmentsFileNames.get(1) ); // save Union after apply intra alignments!
+		runOntBatch("Difference");
+		
+		System.out.println("Saving net2 after dif w/ intra alignments in batch: "+ lastUnionN2+ "D"+intranetworkAlignmentsFileNames.get(1));
+		lastUnionN2 += "D"+intranetworkAlignmentsFileNames.get(1);
+		
+		saveRBatch(path, lastUnionN2); // save each union
+		partialUnionResultsN2.put(lastUnionN2+"D"+intranetworkAlignmentsFileNames.get(1), lastUnionN2+"D"+intranetworkAlignmentsFileNames.get(1) ); // save Union after apply intra alignments!
 	}
+	private void runNet2IntraAlignmentsV2() { // changed the order: intraalignments - lastUnionN2
+
+		// computes differences from network2 and intra alignments
+		int pos = findLoaded(lastUnionN2);
+		if (pos == -1){
+			System.out.println("Opening union2 in batch"+ lastUnionN2);
+			
+			openBatch2(path, lastUnionN2); // open 2 frist!!!
+		}else {
+			System.out.println("load from memory ..." + lastUnionN2 + " pos: "+ pos);
+			loadFromMemory1(pos);
+		}
+		openBatch1(path, intranetworkAlignmentsFileNames.get(1)); // open 1 after!!!
+		System.out.println("Running dif with intranet alignments in batch: "+ lastUnionN2 + " - "+ intranetworkAlignmentsFileNames.get(1));
+
+		runOntBatch("Difference");
+		
+		System.out.println("Saving net2 after dif w/ intra alignments in batch: "+ lastUnionN2+ "D"+intranetworkAlignmentsFileNames.get(1));
+		lastUnionN2 += "D"+intranetworkAlignmentsFileNames.get(1);
+		
+		saveRBatch(path, lastUnionN2); // save each union
+		partialUnionResultsN2.put(lastUnionN2+"D"+intranetworkAlignmentsFileNames.get(1), lastUnionN2+"D"+intranetworkAlignmentsFileNames.get(1) ); // save Union after apply intra alignments!
+	}
+
 	/*private void runIntraAlignmentsUnion(int intraN1, int intraN2) {
 		// TODO Auto-generated method stub
 		/*System.out.println("opening..." + path + "ekaw-sigkdd-w-uri.owl");
