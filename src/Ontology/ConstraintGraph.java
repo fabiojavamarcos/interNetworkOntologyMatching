@@ -64,7 +64,7 @@ public class ConstraintGraph {
 	 * @return
 	 * @throws Exception 
 	 */
-	public Graph createGraph(Object[] NormOnt, JTextArea Log) throws Exception
+	public Graph createGraph(Object[] NormOnt, String Log, String debug) throws Exception
 	{
 		Graph g = new Graph();
         OWLOntology ontology = (OWLOntology) NormOnt[0];
@@ -163,8 +163,10 @@ public class ConstraintGraph {
 				g.insertEdge(SubPropExp.toString(), SuperPropExp.toString());
 			}
 			//Stage 1 End
-			System.out.println("Classes and Properties");
-			//Graph2Console(g);
+			if (debug.contentEquals("Y")) {
+				System.out.println("Classes and Properties");
+				Graph2Console(g);
+			}
 			//Stage 2 Start
 			HashMap<Integer, Node> vertices = g.getVertices();
 	        List<LinkedList<Integer>> adj = g.getAdj();
@@ -217,7 +219,10 @@ public class ConstraintGraph {
 			//Add the negation for each node in the adj list
 			vertices = g.getVertices();
 			adj = g.getAdj();
-			//Graph2Console(g);
+			if (debug.contentEquals("Y")) {
+
+				Graph2Console(g);
+			}
 			//int tempSize = adj.size();
 			for(int j = 0; j < adj.size(); j++) 
 			{
@@ -257,8 +262,11 @@ public class ConstraintGraph {
 				    }
             	}
             }
-			System.out.println("Add negations");
-			//Graph2Console(g);
+			if (debug.contentEquals("Y")) {
+
+				System.out.println("Add negations");
+				Graph2Console(g);
+			}
 			//Copying original Adjacent List
 			vertices = g.getVertices();
 			adj = g.getAdj();
@@ -313,8 +321,11 @@ public class ConstraintGraph {
 	        //3ii - adding arcs between related restriction card when necessary
 			
 			g = addEdgesBetweenRC(g);
-			System.out.println("Linking mincard");
-			//Graph2Console(g);
+			if (debug.contentEquals("Y")) {
+
+				System.out.println("Linking mincard");
+				Graph2Console(g);
+			}
 			//Stage 3 End
 	        //Stage 4 Start
 	        
@@ -370,14 +381,17 @@ public class ConstraintGraph {
             	}
             }
 	        //Stage 4 End
-            System.out.println("\n Graph Constructed: \n");
-			//Graph2Console(g);
-			System.out.println("\n Tagging Bottom and Top Nodes: \n");
-            g = searchBottomNodes(g);
-			//Graph2Console(g);
-			//Graph2File(g);
-			System.out.println("\n Ontology loaded");
-			//Graph2Console(g);
+			if (debug.contentEquals("Y")) {
+
+	            System.out.println("\n Graph Constructed: \n");
+				Graph2Console(g);
+				System.out.println("\n Tagging Bottom and Top Nodes: \n");
+	            g = searchBottomNodes(g);
+				Graph2Console(g);
+				Graph2File(g);
+				System.out.println("\n Ontology loaded");
+				//Graph2Console(g);
+			}
 			//Time stamping
 			date= new java.util.Date();
 			stamp = stamp + "Ontology loaded: \n";
@@ -388,8 +402,8 @@ public class ConstraintGraph {
 		}
 		catch(Exception e)	
 		{
-			String str = Log.getText() + "\nError : Could not load ontology";
-  		  	Log.setText(str);
+			String str = Log + "\nError : Could not load ontology";
+  		  	Log=str;
   		  	System.out.println(str);// to show error when running in batch
   		  	throw e;
 		}

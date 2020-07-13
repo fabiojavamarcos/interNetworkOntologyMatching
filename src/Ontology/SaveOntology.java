@@ -43,7 +43,7 @@ import org.semanticweb.owlapi.util.SimpleIRIMapper;
 @SuppressWarnings("unused")
 public class SaveOntology {
 
-	public static Boolean SaveOntologyToFile(String path, String name, Graph g, JTextArea Log)
+	public static Boolean SaveOntologyToFile(String path, String name, Graph g, String Log)
 	{
 		String str = "";
 		try{
@@ -58,15 +58,15 @@ public class SaveOntology {
 			IRI nameIRI =  IRI.create(file.toURI());
 			manager = loadManager(ontology , manager, g, nameIRI);
 			manager.saveOntology(ontology, nameIRI);
-			str = Log.getText();
+			str = Log;
 			str = str + "\n" + "Ontology successfully saved as: " + path;
-			Log.setText(str);
+			Log=str;
 		}
 		catch(Exception e)
 		{
-			str = Log.getText();
+			str = Log;
     	    str = str + "\n" + "Could not save ontology: " + e.getMessage();
-    	    Log.setText(str);
+    	    Log=str;
     	    return false;
 		}
 		return true;
@@ -330,7 +330,7 @@ public class SaveOntology {
 	 * @param file
 	 * @return Object containing its path, OWLOntology and its manager
 	 */
-	private static Object[] createOntology(String path, String name, JTextArea Log, File file)
+	private static Object[] createOntology(String path, String name, String Log, File file)
 	{
 		String str = "";
 		Object[] obj = new Object[3];
@@ -349,25 +349,26 @@ public class SaveOntology {
        }
        catch(OWLOntologyCreationException e)
        {
-    	   str = Log.getText();
+    	   str = Log;
     	   str = str + "\n" + "Could not load ontology: " + e.getMessage();
-    	   Log.setText(str);
+    	   Log=str;
     	   return null;
        }
        catch(OWLOntologyStorageException e)
        {
-    	   str = Log.getText();
-    	   str = str + "\n" + "Could not save ontology: " + e.getMessage();
-    	   Log.setText(str);
+    	   str = Log;
+    	   str = str + "\n" + "Could not load ontology: " + e.getMessage();
+    	   Log=str;
     	   return null;
        }
        catch(Exception e)
        {
-    	   str = Log.getText();
+    	   str = Log;
     	   str = str + "\n" + "Error: " + e.getMessage();
-    	   Log.setText(str);
+
+    	   Log=str;
     	   return null;
-       }
+      }
        obj[0]= path;
        obj[1]= ontology;
        obj[2]= manager;
