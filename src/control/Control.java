@@ -33,6 +33,7 @@ import command.MinimizeGraph;
 import command.MinimizeGraphBatch;
 import command.OpenBatch1;
 import command.OpenBatch2;
+import command.SaveRBatch;
 import command.Union;
 import command.UnionBatch;
 
@@ -137,7 +138,8 @@ public class Control {
 		UnionBatch ub = new UnionBatch();
 		OpenBatch1 ob1 = new OpenBatch1();
 		OpenBatch2 ob2 = new OpenBatch2();
-
+		SaveRBatch srb = new SaveRBatch();
+		
 		commands.put("Difference", d);
 		commands.put("Intersection",i);
 		commands.put("Union",u);
@@ -148,6 +150,7 @@ public class Control {
 		commands.put("MinimizeGraphBatch",mgb);
 		commands.put("OpenBatch1",ob1);
 		commands.put("OpenBatch2",ob2);
+		commands.put("SaveRBatch",ob2);
 		
 	}
 	
@@ -356,7 +359,7 @@ public class Control {
 		System.out.println("Saving net1 after dif w/ intra alignments in batch: "+ lastUnionN1+ "D"+intranetworkAlignmentsFileNames.get(0));
 		lastUnionN1 += "D"+intranetworkAlignmentsFileNames.get(0);
 
-		com2 = (Command2) commands.get("saveRBatch");
+		com2 = (Command2) commands.get("SaveRBatch");
 		
 		com2.execute(path, lastUnionN1);
 
@@ -392,7 +395,7 @@ public class Control {
 		System.out.println("Saving net1 after dif w/ intra alignments in batch: "+ lastUnionN1+ "D"+intranetworkAlignmentsFileNames.get(0));
 		lastUnionN1 += "D"+intranetworkAlignmentsFileNames.get(0);
 		
-		com2 = (Command2) commands.get("saveRBatch");
+		com2 = (Command2) commands.get("SaveRBatch");
 		
 		com2.execute(path, lastUnionN1);
 		//saveRBatch(path, lastUnionN1); // save each union
@@ -426,7 +429,7 @@ public class Control {
 		System.out.println("Saving net2 after dif w/ intra alignments in batch: "+ lastUnionN2+ "D"+intranetworkAlignmentsFileNames.get(1));
 		lastUnionN2 += "D"+intranetworkAlignmentsFileNames.get(1);
 		
-		com2 = (Command2) commands.get("saveRBatch");
+		com2 = (Command2) commands.get("SaveRBatch");
 		
 		com2.execute(path, lastUnionN2);
 		//saveRBatch(path, lastUnionN2); // save each union
@@ -458,7 +461,7 @@ public class Control {
 		System.out.println("Saving net2 after dif w/ intra alignments in batch: "+ lastUnionN2+ "D"+intranetworkAlignmentsFileNames.get(1));
 		lastUnionN2 += "D"+intranetworkAlignmentsFileNames.get(1);
 		
-		com2 = (Command2) commands.get("saveRBatch");
+		com2 = (Command2) commands.get("SaveRBatch");
 		
 		com2.execute(path, lastUnionN2);
 		//saveRBatch(path, lastUnionN2); // save each union
@@ -527,7 +530,7 @@ public class Control {
 			lastUnionN2 += "U"+network2.get(i);
 			System.out.println("Saving union2 in batch: "+ lastUnionN2);
 
-			com2 = (Command2) commands.get("saveRBatch");
+			com2 = (Command2) commands.get("SaveRBatch");
 			
 			com2.execute(path, lastUnionN2);
 			
@@ -583,7 +586,7 @@ public class Control {
 			lastUnionN1 += "U"+network1.get(i);
 			System.out.println("Saving union1 in batch: "+ lastUnionN1);
 			
-			com2 = (Command2) commands.get("saveRBatch");
+			com2 = (Command2) commands.get("SaveRBatch");
 			
 			com2.execute(path, lastUnionN1);
 			
@@ -729,7 +732,7 @@ public class Control {
 		}
 		System.out.println("last Difference n1: "+lastDifferenceN1);
 		System.out.println("saving dif in batch: "+lastDifferenceN1+ " as net1");
-		com2 = (Command2) commands.get("saveRBatch");
+		com2 = (Command2) commands.get("SaveRBatch");
 		
 		com2.execute(path, "net1-"+n1+n2+n3);
 		//saveRBatch(path, "net1-"+n1+n2+n3);
@@ -798,7 +801,7 @@ public class Control {
 		}
 		System.out.println("last Difference n2: "+lastDifferenceN2);
 		System.out.println("saving dif in batch: "+lastDifferenceN2+ " as net2");
-		com2 = (Command2) commands.get("saveRBatch");
+		com2 = (Command2) commands.get("SaveRBatch");
 		
 		com2.execute(path, "net1-"+n1+n2+n3);
 		//saveRBatch(path, "net2-"+n1+n2+n3);
