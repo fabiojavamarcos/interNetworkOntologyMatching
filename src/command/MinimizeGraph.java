@@ -26,8 +26,6 @@ public class MinimizeGraph extends Command {
 	 *
 	 */
 
-		//public void actionPerformed(ActionEvent e) 
-	    //{
 			if(gResults != null)
 			{
 				//root = SwingUtilities.getRoot((JButton) e.getSource());
@@ -300,37 +298,7 @@ public class MinimizeGraph extends Command {
 	    				        	ConstraintGraph.Graph2Console(gResults);
 	    				        }
 	    				        
-	    						/*if(!HideIRIResults)
-	    		    			{
-	    		    				//Cleaning table
-	    		    				DefaultTableModel modelInc = new DefaultTableModel(
-	    		    			               new Object [][] {
-
-	    		    			               },
-	    		    			               new String [] {
-	    		    			                   "Resulting Ontology", ""
-	    		    			               });				
-	    		    				//jTableInc.setModel(modelInc);
-	    			    			//fill table with ontology
-	    		    				//modelInc = fillJTableWithIRI(gResults, modelInc);
-	    		    			}
-	    		    			else
-	    		    			{
-	    		    				//Cleaning table
-	    		    				DefaultTableModel modelInc = new DefaultTableModel(
-	    		    			               new Object [][] {
-
-	    		    			               },
-	    		    			               new String [] {
-	    		    			                   "Resulting Ontology", ""
-	    		    			               });				
-	    		    				//jTableInc.setModel(modelInc);
-	    			    			//fill table with ontology
-	    		    				//modelInc = fillJTableWithoutIRI(gResults, modelInc);
-	    		    			}*/
 	    				        
-	    		    			//enableButtons(true);
-	    		    			//root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 	    		    			//str = str + "\nMinimization Done!";
 	    		    			//Log+=str;
 	    				        
@@ -339,8 +307,6 @@ public class MinimizeGraph extends Command {
 	    						System.out.println(ex.getStackTrace());
 	    						//str = Log + "\n" + ex.getMessage();
 	    		    			//Log+=str;
-	    		    			//enableButtons(true);
-	    		    			//root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 	    		    			return;
 	    					}
 	    				//}
@@ -352,12 +318,10 @@ public class MinimizeGraph extends Command {
 					System.out.println(ex.getStackTrace());
 					//str = Log + "\nError : " + ex.getMessage();
 	    			//Log +=str;
-	    			//enableButtons(true);
-	    			//root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 	    			return;
 				}
 			}
-	    //}
+	    
 	}
 
 }

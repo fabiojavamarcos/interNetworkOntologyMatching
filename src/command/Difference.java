@@ -32,11 +32,9 @@ public class Difference extends Command {
 	 * 
 	 */
 	
-		//enableButtons(false);
-		//root.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+
 		//String str = Log + "\nRunning Difference over " + pathOnt1 + " and " + pathOnt2;
 		//Log+=str;
-		//root.update(root.getGraphics());
 
 		//Thread worker = new Thread() {
 			//public void run() {
@@ -317,8 +315,8 @@ public class Difference extends Command {
 	    			//enableButtons(true);
 	    			//root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 	    			System.out.println("Minimize Graphs... after Difference: "+ pathOnt1 + " and " + pathOnt2);
-	    			Command com = new MinimizeGraph(); 
-	    			commands.get("MinimizeGraph");
+	    			Command com = (Command) commands.get("MinimizeGraph");
+	    			
 	    			com.execute("Difference");
 	    			//minimizeGraphBatch("Difference");
 	    			// store to use later without open files ou process normalization and graphs again
@@ -354,8 +352,6 @@ public class Difference extends Command {
 					//str = Log + "\n" + ex.getMessage();
 	    			//Log+=str;
 	    			gResults = null;
-	    			//enableButtons(true);
-	    			//root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 	    			return;
 				}
 			//}

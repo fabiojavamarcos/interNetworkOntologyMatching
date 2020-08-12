@@ -21,11 +21,8 @@ public class MinimizeGraphBatch extends Command {
 		// TODO Auto-generated method stub
 		if(gResults != null)
 		{
-			//root = SwingUtilities.getRoot((JButton) e.getSource());
 			String str = Log;
 			try{
-				//enableButtons(false);
-    			//root.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
     			CleanUp = true;
     			
     			//Thread worker = new Thread() {
@@ -291,37 +288,7 @@ public class MinimizeGraphBatch extends Command {
     				        	ConstraintGraph.Graph2Console(gResults);
     				        }
     				        
-    						/*if(!HideIRIResults)
-    		    			{
-    		    				//Cleaning table
-    		    				DefaultTableModel modelInc = new DefaultTableModel(
-    		    			               new Object [][] {
-
-    		    			               },
-    		    			               new String [] {
-    		    			                   "Resulting Ontology", ""
-    		    			               });				
-    		    				//jTableInc.setModel(modelInc);
-    			    			//fill table with ontology
-    		    				//modelInc = fillJTableWithIRI(gResults, modelInc);
-    		    			}
-    		    			else
-    		    			{
-    		    				//Cleaning table
-    		    				DefaultTableModel modelInc = new DefaultTableModel(
-    		    			               new Object [][] {
-
-    		    			               },
-    		    			               new String [] {
-    		    			                   "Resulting Ontology", ""
-    		    			               });				
-    		    				//jTableInc.setModel(modelInc);
-    			    			//fill table with ontology
-    		    				//modelInc = fillJTableWithoutIRI(gResults, modelInc);
-    		    			}*/
-    				        
-    		    			//enableButtons(true);
-    		    			//root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+   				        
     		    			//str = str + "\nMinimization Done!";
     		    			//Log+=str;
     				        
@@ -330,8 +297,6 @@ public class MinimizeGraphBatch extends Command {
     						System.out.println(ex.getStackTrace());
     						//str = Log + "\n" + ex.getMessage();
     		    			//Log+=str;
-    		    			//enableButtons(true);
-    		    			//root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
     		    			return;
     					}
     				//}
@@ -343,8 +308,6 @@ public class MinimizeGraphBatch extends Command {
 				System.out.println(ex.getStackTrace());
 				//str = Log + "\nError : " + ex.getMessage();
     			//Log +=str;
-    			//enableButtons(true);
-    			//root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
     			return;
 			}
 		}

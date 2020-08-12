@@ -26,11 +26,8 @@ public class Union extends Command {
 	@Override
 	public void execute(String operation) {
 	
-		//enableButtons(false);
-		//root.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 		Log+= "\nRunning Union Batch over " + pathOnt1 + " and " + pathOnt2;
 		//System.out.println(Log);
-		//root.update(root.getGraphics());
 
 		//Thread worker = new Thread() {
 			//public void run() {
@@ -255,8 +252,8 @@ public class Union extends Command {
 	    			//enableButtons(true);
 	    			//root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 	    			System.out.println("Minimize Graphs... after Union: "+ pathOnt1 + " and " + pathOnt2);
-	    			Command com = new MinimizeGraph(); 
-	    			commands.get("MinimizeGraph");
+	    			Command com = (Command) commands.get("MinimizeGraph");
+	    			
 	    			com.execute("Union");
 	    			//minimizeGraphBatch("Union");
 	    			// store to use later without open files ou process normalization and graphs again
@@ -290,8 +287,6 @@ public class Union extends Command {
 					Log+= "\n" + ex.getMessage();
 					//System.out.println(Log);
 	    			gResults = null;
-	    			//enableButtons(true);
-	    			//root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 	    			return;
 				}
 			//}

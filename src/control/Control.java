@@ -24,12 +24,15 @@ import Ontology.Graph;
 import Ontology.Normalization;
 import Ontology.SaveOntology;
 import command.Command;
+import command.Command2;
 import command.Difference;
 import command.DifferenceBatch;
 import command.Intersection;
 import command.IntersectionBatch;
 import command.MinimizeGraph;
 import command.MinimizeGraphBatch;
+import command.OpenBatch1;
+import command.OpenBatch2;
 import command.Union;
 import command.UnionBatch;
 
@@ -96,6 +99,10 @@ public class Control {
 	protected Date date;
 	protected Timestamp now;
 	protected Hashtable commands = new Hashtable();
+	
+	protected Command com;
+	protected Command2 com2;
+
     
 	/**
 	 * Basic GUI Design plus initializing Class variables 
@@ -119,6 +126,7 @@ public class Control {
 		HideIRI2=false;
 		HideIRIResults = false;
 		CleanUp = false;
+		
 		Difference d = new Difference();
 		Intersection i = new Intersection();
 		MinimizeGraph mg = new MinimizeGraph();
@@ -127,6 +135,8 @@ public class Control {
 		IntersectionBatch ib = new IntersectionBatch();
 		MinimizeGraphBatch mgb = new MinimizeGraphBatch();
 		UnionBatch ub = new UnionBatch();
+		OpenBatch1 ob1 = new OpenBatch1();
+		OpenBatch2 ob2 = new OpenBatch2();
 
 		commands.put("Difference", d);
 		commands.put("Intersection",i);
@@ -136,7 +146,9 @@ public class Control {
 		commands.put("IntersectionBatch",ib);
 		commands.put("UnionBatch",ub);
 		commands.put("MinimizeGraphBatch",mgb);
-
+		commands.put("OpenBatch1",ob1);
+		commands.put("OpenBatch2",ob2);
+		
 	}
 	
 	private void getOSType() {
@@ -323,21 +335,32 @@ public class Control {
 		int pos = findLoaded(lastUnionN1);
 		if (pos == -1){
 			System.out.println("Opening union1 in batch"+ lastUnionN1);
+			com2 = (Command2) commands.get("openBatch1");
 			
-			openBatch1(path, lastUnionN1);
+			com2.execute(path, lastUnionN1);
+
+			//openBatch1(path, lastUnionN1);
 		}else {
 			System.out.println("load from memory ..." + lastUnionN1 + " pos: "+ pos);
 			loadFromMemory1(pos);
 		}
-		openBatch2(path, intranetworkAlignmentsFileNames.get(0));
+		com2 = (Command2) commands.get("openBatch2");
+		
+		com2.execute(path, intranetworkAlignmentsFileNames.get(0));
+
+		//(path, intranetworkAlignmentsFileNames.get(0));
 		System.out.println("Running dif with intranet alignments in batch: "+ lastUnionN1 + " - " + intranetworkAlignmentsFileNames.get(0));
 
 		runOntBatch("Difference");
 		
 		System.out.println("Saving net1 after dif w/ intra alignments in batch: "+ lastUnionN1+ "D"+intranetworkAlignmentsFileNames.get(0));
 		lastUnionN1 += "D"+intranetworkAlignmentsFileNames.get(0);
+
+		com2 = (Command2) commands.get("saveRBatch");
 		
-		saveRBatch(path, lastUnionN1); // save each union
+		com2.execute(path, lastUnionN1);
+
+		//saveRBatch(path, lastUnionN1); // save each union
 		partialUnionResultsN1.put(lastUnionN1+"D"+intranetworkAlignmentsFileNames.get(0), lastUnionN1+"D"+intranetworkAlignmentsFileNames.get(0) ); // save Union after apply intra alignments!
 		
 	}
@@ -349,12 +372,19 @@ public class Control {
 		if (pos == -1){
 			System.out.println("Opening union1 in batch"+ lastUnionN1);
 			
-			openBatch2(path, lastUnionN1); // open 2 first!!!!
+			com2 = (Command2) commands.get("openBatch2");
+			
+			com2.execute(path, lastUnionN1);
+
+			//openBatch2(path, lastUnionN1); // open 2 first!!!!
 		}else {
 			System.out.println("load from memory ..." + lastUnionN1 + " pos: "+ pos);
 			loadFromMemory1(pos);
 		}
-		openBatch1(path, intranetworkAlignmentsFileNames.get(0)); // open 1 after!!!!
+		com2 = (Command2) commands.get("openBatch1");
+		
+		com2.execute(path, intranetworkAlignmentsFileNames.get(0));
+		//openBatch1(path, intranetworkAlignmentsFileNames.get(0)); // open 1 after!!!!
 		System.out.println("Running dif with intranet alignments in batch: "+ lastUnionN1 + " - " + intranetworkAlignmentsFileNames.get(0));
 
 		runOntBatch("Difference");
@@ -362,7 +392,10 @@ public class Control {
 		System.out.println("Saving net1 after dif w/ intra alignments in batch: "+ lastUnionN1+ "D"+intranetworkAlignmentsFileNames.get(0));
 		lastUnionN1 += "D"+intranetworkAlignmentsFileNames.get(0);
 		
-		saveRBatch(path, lastUnionN1); // save each union
+		com2 = (Command2) commands.get("saveRBatch");
+		
+		com2.execute(path, lastUnionN1);
+		//saveRBatch(path, lastUnionN1); // save each union
 		partialUnionResultsN1.put(lastUnionN1+"D"+intranetworkAlignmentsFileNames.get(0), lastUnionN1+"D"+intranetworkAlignmentsFileNames.get(0) ); // save Union after apply intra alignments!
 		
 	}
@@ -373,12 +406,19 @@ public class Control {
 		if (pos == -1){
 			System.out.println("Opening union2 in batch"+ lastUnionN2);
 			
-			openBatch1(path, lastUnionN2);
+			com2 = (Command2) commands.get("openBatch1");
+			
+			com2.execute(path, lastUnionN2);
+
+			//openBatch1(path, lastUnionN2);
 		}else {
 			System.out.println("load from memory ..." + lastUnionN2 + " pos: "+ pos);
 			loadFromMemory1(pos);
 		}
-		openBatch2(path, intranetworkAlignmentsFileNames.get(1));
+		com2 = (Command2) commands.get("openBatch2");
+		
+		com2.execute(path, intranetworkAlignmentsFileNames.get(1));
+		//openBatch2(path, intranetworkAlignmentsFileNames.get(1));
 		System.out.println("Running dif with intranet alignments in batch: "+ lastUnionN2 + " - "+ intranetworkAlignmentsFileNames.get(1));
 
 		runOntBatch("Difference");
@@ -386,7 +426,10 @@ public class Control {
 		System.out.println("Saving net2 after dif w/ intra alignments in batch: "+ lastUnionN2+ "D"+intranetworkAlignmentsFileNames.get(1));
 		lastUnionN2 += "D"+intranetworkAlignmentsFileNames.get(1);
 		
-		saveRBatch(path, lastUnionN2); // save each union
+		com2 = (Command2) commands.get("saveRBatch");
+		
+		com2.execute(path, lastUnionN2);
+		//saveRBatch(path, lastUnionN2); // save each union
 		partialUnionResultsN2.put(lastUnionN2+"D"+intranetworkAlignmentsFileNames.get(1), lastUnionN2+"D"+intranetworkAlignmentsFileNames.get(1) ); // save Union after apply intra alignments!
 	}
 	private void runNet2IntraAlignmentsV2() { // changed the order: intraalignments - lastUnionN2
@@ -396,12 +439,18 @@ public class Control {
 		if (pos == -1){
 			System.out.println("Opening union2 in batch"+ lastUnionN2);
 			
-			openBatch2(path, lastUnionN2); // open 2 frist!!!
+			com2 = (Command2) commands.get("openBatch2");
+			
+			com2.execute(path, lastUnionN2);
+			//openBatch2(path, lastUnionN2); // open 2 frist!!!
 		}else {
 			System.out.println("load from memory ..." + lastUnionN2 + " pos: "+ pos);
 			loadFromMemory1(pos);
 		}
-		openBatch1(path, intranetworkAlignmentsFileNames.get(1)); // open 1 after!!!
+		com2 = (Command2) commands.get("openBatch1");
+		
+		com2.execute(path, intranetworkAlignmentsFileNames.get(1));
+		//openBatch1(path, intranetworkAlignmentsFileNames.get(1)); // open 1 after!!!
 		System.out.println("Running dif with intranet alignments in batch: "+ lastUnionN2 + " - "+ intranetworkAlignmentsFileNames.get(1));
 
 		runOntBatch("Difference");
@@ -409,7 +458,10 @@ public class Control {
 		System.out.println("Saving net2 after dif w/ intra alignments in batch: "+ lastUnionN2+ "D"+intranetworkAlignmentsFileNames.get(1));
 		lastUnionN2 += "D"+intranetworkAlignmentsFileNames.get(1);
 		
-		saveRBatch(path, lastUnionN2); // save each union
+		com2 = (Command2) commands.get("saveRBatch");
+		
+		com2.execute(path, lastUnionN2);
+		//saveRBatch(path, lastUnionN2); // save each union
 		partialUnionResultsN2.put(lastUnionN2+"D"+intranetworkAlignmentsFileNames.get(1), lastUnionN2+"D"+intranetworkAlignmentsFileNames.get(1) ); // save Union after apply intra alignments!
 	}
 
@@ -449,13 +501,19 @@ public class Control {
 		// process operations
 		// network2 creation with Union
 		System.out.println("opening..." + path + network2.get(0));
-		openBatch1(path, network2.get(0));
+		com2 = (Command2) commands.get("openBatch1");
+		
+		com2.execute(path, network2.get(0));
+		//openBatch1(path, network2.get(0));
 		for (int i=1; i<network2.size(); i++){
 			int pos = findLoaded(network2.get(i));
 			if (pos == -1){
 				System.out.println("batch opening..." + path + network2.get(i));
 			
-				openBatch2(path, network2.get(i)); // second element from network1
+				com2 = (Command2) commands.get("openBatch2");
+				
+				com2.execute(path, network2.get(i));
+				//openBatch2(path, network2.get(i)); // second element from network1
 			}
 			else{
 				
@@ -469,15 +527,21 @@ public class Control {
 			lastUnionN2 += "U"+network2.get(i);
 			System.out.println("Saving union2 in batch: "+ lastUnionN2);
 
+			com2 = (Command2) commands.get("saveRBatch");
 			
-			saveRBatch(path, lastUnionN2); // save each union
+			com2.execute(path, lastUnionN2);
+			
+			//saveRBatch(path, lastUnionN2); // save each union
 			partialUnionResultsN2.put(lastUnionN2, lastUnionN2); // save partial result for later!
 			
 			pos = findLoaded(lastUnionN2);
 			if (pos == -1){
 				System.out.println("batch opening..." + path + lastUnionN2);
 			
-				openBatch1(path, lastUnionN2); // open the result of o1 U o2 as o1 again
+				com2 = (Command2) commands.get("openBatch1");
+				
+				com2.execute(path, lastUnionN2);
+				//openBatch1(path, lastUnionN2); // open the result of o1 U o2 as o1 again
 			} else {
 				System.out.println("load from memory ..." + path + lastUnionN2 + " pos: "+ pos);
 				loadFromMemory1(pos);
@@ -493,13 +557,19 @@ public class Control {
 		// process operations
 		// network1 creation with Union
 		System.out.println("opening..." + path + network1.get(0));
-		openBatch1(path, network1.get(0));
+		com2 = (Command2) commands.get("openBatch1");
+		
+		com2.execute(path, network1.get(0));
+		//openBatch1(path, network1.get(0));
 		for (int i=1; i<network1.size(); i++){
 			int pos = findLoaded(network1.get(i));
 			if (pos == -1){
 				System.out.println("batch opening..." + path + network1.get(i));
 			
-				openBatch2(path, network1.get(i)); // second element from network1
+				com2 = (Command2) commands.get("openBatch2");
+				
+				com2.execute(path, network1.get(i));
+				//openBatch2(path, network1.get(i)); // second element from network1
 			}
 			else{
 				
@@ -513,15 +583,21 @@ public class Control {
 			lastUnionN1 += "U"+network1.get(i);
 			System.out.println("Saving union1 in batch: "+ lastUnionN1);
 			
+			com2 = (Command2) commands.get("saveRBatch");
 			
-			saveRBatch(path, lastUnionN1); // save each union
+			com2.execute(path, lastUnionN1);
+			
+			//saveRBatch(path, lastUnionN1); // save each union
 			partialUnionResultsN1.put(lastUnionN1, lastUnionN1); // save partial result for later!
 			
 			pos = findLoaded(lastUnionN1);
 			if (pos == -1){
 				System.out.println("batch opening..." + path + lastUnionN1);
 			
-				openBatch1(path, lastUnionN1); // open the result of o1 U o2 as o1 again
+				com2 = (Command2) commands.get("openBatch1");
+				
+				com2.execute(path, lastUnionN1);
+				//openBatch1(path, lastUnionN1); // open the result of o1 U o2 as o1 again
 			} else {
 				System.out.println("load from memory ..." + path + lastUnionN1 + " pos: "+ pos);
 				loadFromMemory1(pos);
@@ -547,7 +623,10 @@ public class Control {
 			if (pos == -1){
 				System.out.println("batch opening..." + path + network1.get(i));
 				
-				openBatch1(path, network1.get(i));
+				com2 = (Command2) commands.get("openBatch1");
+				
+				com2.execute(path, network1.get(i));
+				//openBatch1(path, network1.get(i));
 			}
 			else {
 				System.out.println("load from memory ..." + path + network1.get(i) + " pos: "+ pos);
@@ -559,7 +638,10 @@ public class Control {
 				if (pos == -1){
 					System.out.println("batch opening..." + path + network2.get(j));
 					
-					openBatch2(path, network2.get(j));
+					com2 = (Command2) commands.get("openBatch2");
+					
+					com2.execute(path, network2.get(j));
+					//openBatch2(path, network2.get(j));
 				} else {
 					System.out.println("load from memory ..." + path + network2.get(j) + " pos: "+ pos);
 					loadFromMemory2(pos);
@@ -590,7 +672,10 @@ public class Control {
 		if (pos == -1){
 			System.out.println("Opening union1 in batch"+ lastUnionN1);
 			
-			openBatch1(path, lastUnionN1);
+			com2 = (Command2) commands.get("openBatch1");
+			
+			com2.execute(path, lastUnionN1);
+			//openBatch1(path, lastUnionN1);
 		}else {
 			System.out.println("load from memory ..." + lastUnionN1 + " pos: "+ pos);
 			loadFromMemory1(pos);
@@ -602,7 +687,10 @@ public class Control {
 			if (pos == -1){
 				System.out.println("Opening intersection in batch: "+ i + partialIntersectionResultsN1N2.get(i));
 
-				openBatch2(path, partialIntersectionResultsN1N2.get(i));
+				com2 = (Command2) commands.get("openBatch2");
+				
+				com2.execute(path, partialIntersectionResultsN1N2.get(i));
+				//openBatch2(path, partialIntersectionResultsN1N2.get(i));
 			} else {
 				System.out.println("load from memory ..." + partialIntersectionResultsN1N2.get(i) + " pos: "+ pos);
 				loadFromMemory2(pos);
@@ -628,7 +716,10 @@ public class Control {
 			if (pos == -1){
 				System.out.println("Opening intersection in batch: "+ i + lastDifferenceN1);
 
-				openBatch1(path, lastDifferenceN1); // open the result of o1 D o2 as o1 again
+				com2 = (Command2) commands.get("openBatch1");
+				
+				com2.execute(path, lastDifferenceN1);
+				//openBatch1(path, lastDifferenceN1); // open the result of o1 D o2 as o1 again
 			}
 			else {
 				System.out.println("load from memory ..." + lastDifferenceN1 + " pos: "+ pos);
@@ -638,7 +729,10 @@ public class Control {
 		}
 		System.out.println("last Difference n1: "+lastDifferenceN1);
 		System.out.println("saving dif in batch: "+lastDifferenceN1+ " as net1");
-		saveRBatch(path, "net1-"+n1+n2+n3);
+		com2 = (Command2) commands.get("saveRBatch");
+		
+		com2.execute(path, "net1-"+n1+n2+n3);
+		//saveRBatch(path, "net1-"+n1+n2+n3);
 	}
 	
 	public void runNet2Difference(ArrayList<String> network2){
@@ -648,8 +742,11 @@ public class Control {
 		int pos = findLoaded(lastUnionN2);
 		if (pos == -1){
 			System.out.println("Opening union2 in batch"+ lastUnionN2);
+			com2 = (Command2) commands.get("openBatch1");
 			
-			openBatch1(path, lastUnionN2);
+			com2.execute(path, lastUnionN2);
+
+			//openBatch1(path, lastUnionN2);
 		} else {
 			System.out.println("load from memory ..." + lastUnionN2 + " pos: "+ pos);
 			loadFromMemory1(pos);
@@ -660,7 +757,10 @@ public class Control {
 			if (pos == -1){
 				System.out.println("Opening intersection in batch: "+ i + partialIntersectionResultsN1N2.get(i));
 
-				openBatch2(path, partialIntersectionResultsN1N2.get(i));
+				com2 = (Command2) commands.get("openBatch2");
+				
+				com2.execute(path, partialIntersectionResultsN1N2.get(i));
+				//openBatch2(path, partialIntersectionResultsN1N2.get(i));
 			} else {
 				System.out.println("load from memory ..." + partialIntersectionResultsN1N2.get(i) + " pos: "+ pos);
 				loadFromMemory2(pos);
@@ -686,7 +786,10 @@ public class Control {
 			if (pos == -1){
 				System.out.println("Opening intersection in batch: "+ i + lastDifferenceN2);
 
-				openBatch1(path, lastDifferenceN2); // open the result of o1 D o2 as o1 again
+				com2 = (Command2) commands.get("openBatch1");
+				
+				com2.execute(path, lastDifferenceN2);
+				//openBatch1(path, lastDifferenceN2); // open the result of o1 D o2 as o1 again
 			} else {
 				System.out.println("load from memory ..." + lastDifferenceN2 + " pos: "+ pos);
 				loadFromMemory1(pos);
@@ -695,7 +798,10 @@ public class Control {
 		}
 		System.out.println("last Difference n2: "+lastDifferenceN2);
 		System.out.println("saving dif in batch: "+lastDifferenceN2+ " as net2");
-		saveRBatch(path, "net2-"+n1+n2+n3);
+		com2 = (Command2) commands.get("saveRBatch");
+		
+		com2.execute(path, "net1-"+n1+n2+n3);
+		//saveRBatch(path, "net2-"+n1+n2+n3);
 					
 	}
 	private void loadFromMemory1(int pos) {
@@ -772,227 +878,7 @@ public class Control {
 		LogBatch += timeElapsed + "\n"; //log with only essencial stuff
 
 	}
-	private void openBatch2(String path, String file) {
-		// TODO Auto-generated method stub
-		String str;
-		try{
-			//enableButtons(false);
-			//root.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-			//pathOnt1 = c.getSelectedFile().toString();
-			//nameOnt1 = c.getSelectedFile().getName().toString();
-			pathOnt2 = path +file;
-			System.out.println("path completo:" +pathOnt2);
-			nameOnt2 = file;
-			System.out.println("file:" +nameOnt2);
-			Log += "\nLoading Batch: " + path + file;
-			//System.out.println(Log);
-			//root.update(root.getGraphics());
-			
-	//		Thread worker = new Thread() {
-		//		public void run() {
-			//		String str;
-					try{
-						str = Log;
-    					Normalization norm = new Normalization();
-    					Object[] o = norm.runOntologyNormalization(pathOnt2, nameOnt2, osType);
-    	    			String pathNorm = o[0].toString();
-    	    			//exception inside normalization...
-		    			if(pathNorm.substring(0, 5).equals("Error"))
-		    			{
-		    				str = str + "\n" + pathNorm;
-		    				Log += str;
-		    				//enableButtons(true);
-    		    			//root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		    				return;
-		    			}
-		    			IRIOnt2 = o[1].toString();
-		    			System.out.print("\n Original IRI Ontology 2: " + IRIOnt2 + "\n");
-		    			Ont2 = loadOntBatch(pathNorm);
-		    			ConstraintGraph r = new ConstraintGraph();
-		    			gOnt2 = new Graph();
-		    			gOnt2 = r.createGraph(Ont2, Log, debug);
-		    			
-		    			// store to use later without open files ou process normalization and graphs again
-		    			Object [] OntAUX = new Object [7];
-		    		    /*		obj[0] = ontology;
-		    			obj[1] = factory;
-		    			obj[2] = manager;
-		    		    obj[3] = ontPath;
-		    		    obj[4] = ontName;
-		    		    obj[5] = graph;
-		    		    obj[6] = IRI;
-		    		*/
-		    			OntAUX[0] = Ont2[0];
-		    			OntAUX[1] = Ont2[1];
-		    			OntAUX[2] = Ont2[2];
-		    			OntAUX[3] = Ont2[3];
-		    			OntAUX[4] = file;
-		    			OntAUX[5] = gOnt2;
-		    			OntAUX[6] = IRIOnt2;
-		    			 
-		    			ontologiesProcessed.add(OntAUX); 
-		    			//Ontology loaded into memory, cleaning table 1
-		    			/*DefaultTableModel model1 = new DefaultTableModel(
-		    					new Object [][] {
 
-		    					},
-		    					new String [] {
-		    							nameOnt1, ""
-		    					});
-		    			*/
-		    			//jTable1.setModel(model1);
-		    			//fill table with ontology
-		    			//ShowBottomWarning = true;
-		    			CleanUp = false;
-		    			//model1 = fillJTableWithIRI(gOnt1, model1);
-		    			//str = Log;
-		    			//str = str + "\n" + "Ontology successfully loaded as Ontology 2 batch";
-		    			//Log += str;
-		    			HideIRI1 = false;
-		    			//loading possible Projection on jTable2
-		    			/*str = (String)(jComboBoxOperation.getSelectedItem());
-		    			if(str.equals("Projection"))
-		    			{
-		    				ProjectionTableModel model2 = new ProjectionTableModel();
-		    				jTable2.setModel(model2);
-		    				fillProjectionList(gOnt1, model2);	    				
-		    			}
-		    			enableButtons(true);
-		    			root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		    			*/
-					}catch(Exception ex)
-					{
-						Log+= "\nError openBatch2 : " + ex.getMessage();
-						//System.out.println(Log);
-		    			//enableButtons(true);
-		    			//root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		    			return;
-					}
-  //  			}
-//			};
-//			worker.start();
-		}
-		catch(Exception ex)
-		{
-			Log+= "\n Error openBatch2:" + ex.getMessage();
-			//System.out.println(Log);
-			//enableButtons(true);
-			//root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-			return;
-		}
-
-	}
-
-	private void openBatch1(String path, String file) {
-		// TODO Auto-generated method stub
-		String str;
-		try{
-			//enableButtons(false);
-			//root.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-			//pathOnt1 = c.getSelectedFile().toString();
-			//nameOnt1 = c.getSelectedFile().getName().toString();
-			pathOnt1 = path +file;
-			System.out.println("path completo:" +pathOnt1);
-			nameOnt1 = file;
-			System.out.println("file:" +file);
-			Log += "\nLoading Batch: " + path + file;
-			//System.out.println(Log);
-			//root.update(root.getGraphics());
-			
-			//Thread worker = new Thread() {
-				//public void run() {
-					//String str;
-					try{
-						str = Log;
-    					Normalization norm = new Normalization();
-    					Object[] o = norm.runOntologyNormalization(pathOnt1, nameOnt1, osType);
-    	    			String pathNorm = o[0].toString();
-    	    			//exception inside normalization...
-		    			if(pathNorm.substring(0, 5).equals("Error"))
-		    			{
-		    				str = str + "\n" + pathNorm;
-		    				Log+=str;
-		    				//enableButtons(true);
-    		    			//root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		    				return;
-		    			}
-		    			IRIOnt1 = o[1].toString();
-		    			System.out.print("\n Original IRI Ontology 1: " + IRIOnt1 + "\n");
-		    			Ont1 = loadOntBatch(pathNorm);
-		    			ConstraintGraph r = new ConstraintGraph();
-		    			gOnt1 = new Graph();
-		    			gOnt1 = r.createGraph(Ont1, Log, debug);
-		    			
-		    			// store to use later without open files ou process normalization and graphs again
-		    			Object [] OntAUX = new Object [7];
-		    		    /*		obj[0] = ontology;
-		    			obj[1] = factory;
-		    			obj[2] = manager;
-		    		    obj[3] = ontPath;
-		    		    obj[4] = ontName;
-		    		    obj[5] = graph;
-		    		    obj[6] = IRI;
-		    		*/
-		    			OntAUX[0] = Ont1[0];
-		    			OntAUX[1] = Ont1[1];
-		    			OntAUX[2] = Ont1[2];
-		    			OntAUX[3] = Ont1[3];
-		    			OntAUX[4] = file;
-		    			OntAUX[5] = gOnt1;
-		    			OntAUX[6] = IRIOnt1;
-		    			 
-		    			ontologiesProcessed.add(OntAUX); 
-		    			
-		    			//Ontology loaded into memory, cleaning table 1
-		    			/*DefaultTableModel model1 = new DefaultTableModel(
-		    					new Object [][] {
-
-		    					},
-		    					new String [] {
-		    							nameOnt1, ""
-		    					});
-		    			*/
-		    			//jTable1.setModel(model1);
-		    			//fill table with ontology
-		    			//ShowBottomWarning = true;
-		    			CleanUp = false;
-		    			//model1 = fillJTableWithIRI(gOnt1, model1);
-		    			//str = Log;
-		    			//str = str + "\n" + "Ontology successfully loaded as Ontology 1 batch";
-		    			//Log+=str;
-		    			HideIRI1 = false;
-		    			//loading possible Projection on jTable2
-		    			/*str = (String)(jComboBoxOperation.getSelectedItem());
-		    			if(str.equals("Projection"))
-		    			{
-		    				ProjectionTableModel model2 = new ProjectionTableModel();
-		    				jTable2.setModel(model2);
-		    				fillProjectionList(gOnt1, model2);	    				
-		    			}
-		    			enableButtons(true);
-		    			root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		    			*/
-					}catch(Exception ex)
-					{
-						Log+= "\nError openBatch1: " + ex.getMessage();
-		    			//System.out.println(Log);
-		    			//enableButtons(true);
-		    			//root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		    			return;
-					}
-    			//}
-			//};
-			//worker.start();
-		}
-		catch(Exception ex)
-		{
-			Log+= "\n Error openBatch1" + ex.getMessage();
-			//System.out.println(Log);
-			//enableButtons(true);
-			//root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-			return;
-		}
-	}
 	private void runOntBatch(String operation) {
 		// TODO Auto-generated method stub
 		//root = SwingUtilities.getRoot((JButton) e.getSource());
@@ -1019,22 +905,22 @@ public class Control {
     				}
     				if(str.equals("Union"))
     				{
-    					Command com = new UnionBatch(); 
-    					commands.get("UnionBatch");
+    					Command com = (Command) commands.get("UnionBatch");
+    					
     					com.execute("Union");
 
     					//runUnionBatch();
     				}else if(str.equals("Intersection"))
     				{
-    					Command com = new IntersectionBatch(); 
-    					commands.get("IntersectionBatch");
+    					Command com = (Command) commands.get("IntersectionBatch");
+    					
     					com.execute("Intersection");
 
     					//runIntersectionBatch();
     				}else if(str.equals("Difference"))
     				{
-    					Command com = new DifferenceBatch(); 
-    					commands.get("DifferenceBatch");
+    					Command com = (Command) commands.get("DifferenceBatch"); 
+    					
     					com.execute("Difference");
     					//runDifferenceBatch();
     				}
@@ -1055,90 +941,6 @@ public class Control {
 			//enableButtons(true);
 			//root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
     	}
-
-	}
-	private void saveRBatch(String path, String file) {
-		// TODO Auto-generated method stub
-		//root = SwingUtilities.getRoot((JButton) e.getSource());
-    	//JFileChooser c = new JFileChooser();
-    	String str = "";
-    	
-    	// Demonstrate "Save" dialog:
-    	//int rVal = c.showSaveDialog(OntologyManagerTab.this);
-    	//if(rVal == JFileChooser.APPROVE_OPTION)
-    	//{	
-    		try{
-    			//pathOntResults = c.getSelectedFile().getAbsolutePath().toString();
-    			pathOntResults = path+file;
-    			//nameOntResults = c.getSelectedFile().getName().toString();
-    			nameOntResults = file;
-    			int num = pathOntResults.lastIndexOf(".");
-    			
-    			if(num == -1)
-    			{
-    				pathOntResults = pathOntResults + "Normalized.owl";
-    				nameOntResults = nameOntResults + "Normalized.owl";
-    			}
-    			else if (!pathOntResults.endsWith("Normalized.owl"))
-    			{
-    				String s = pathOntResults.substring(0, pathOntResults.lastIndexOf("."));
-    				pathOntResults = pathOntResults + "Normalized.owl";
-    				nameOntResults = nameOntResults + "Normalized.owl";
-    			}
-    			
-    			/*
-    			if(num == -1)
-    			{
-    				pathOntResults = pathOntResults + ".owl";
-    				nameOntResults = nameOntResults + ".owl";
-    			}
-    			*/
-    			//enableButtons(false);
-    			//btnSave.setEnabled(false);
-    			//root.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-    			//Log+= "\nSaving Ontology as: " + pathOntResults + "\n";
-    			//System.out.println(Log);
-    			//root.update(root.getGraphics());
-
-    	//		Thread worker = new Thread() {
-    		//		public void run() {
-    			//		String str;
-    					try{
-    						//Save Ontology
-    						//SaveOntology.SaveOntologyToFile(pathOntResults, nameOntResults, gResults, Log);
-    						// save without the normalized for batch process
-    						SaveOntology.SaveOntologyToFile(path+file, nameOntResults, gResults, Log);
-			    			
-			    			//enableButtons(true);
-    		    			//root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-    					}catch(Exception ex)
-    					{
-    						Log += "\n erro saveRbatch:" + ex.getMessage();
-    		    			//Log.setText(str);
-    		    			//enableButtons(true);
-    		    			//root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-    		    			return;
-    					}
-	    //			}
-    		//	};
-    			//worker.start();
-    		}
-    		catch(Exception ex)
-    		{
-    			//Log+= "\n saveRbatch: " + ex.getMessage();
-    			ex.printStackTrace();
-    			//enableButtons(true);
-    			//btnSave.setEnabled(true);
-    			//root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-    			return;
-    		}
-    	//}
-    	/*if(rVal == JFileChooser.CANCEL_OPTION)
-    	{
-    		str = Log.getText() + "\n" + "You pressed cancel, Ontology was not saved";
-    		Log.setText(str);
-    	}*/
-   // }
 
 	}
 	/**

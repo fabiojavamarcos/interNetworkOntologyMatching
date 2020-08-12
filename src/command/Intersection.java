@@ -34,11 +34,8 @@ public class Intersection extends Command {
 	 * 
 	 */
 	
-		//enableButtons(false);
-		//root.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 		Log += "\nRunning Intersection over " + pathOnt1 + " and " + pathOnt2;
 		
-		//root.update(root.getGraphics());
 
 		//Thread worker = new Thread() {
 			//@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -234,8 +231,8 @@ public class Intersection extends Command {
 	    			//enableButtons(true);
 	    			//root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 	    			System.out.println("Minimize Graphs... after Intersection: "+ pathOnt1 + " and " + pathOnt2);
-	    			Command com = new MinimizeGraph(); 
-	    			commands.get("MinimizeGraph");
+	    			Command com = (Command) commands.get("MinimizeGraph");
+	    			
 	    			com.execute("Intersection");
 	    			//minimizeGraphBatch("Intersection");
 	    			// store to use later without open files ou process normalization and graphs again
@@ -271,8 +268,6 @@ public class Intersection extends Command {
 					//str = Log + "\n" + ex.getMessage();
 	    			//Log+=str;
 	    			gResults = null;
-	    			//enableButtons(true);
-	    			//root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 	    			return;
 				}
 			//}
