@@ -7,7 +7,12 @@ public class SaveRBatch extends Command2 {
 	@Override
 	public void execute(String path, String file) {
 		// TODO Auto-generated method stub
-		// TODO Auto-generated method stub
+		/**
+		 * Batch implementation
+		 * 
+		 * @author Fabio Marcos de Abreu Santos
+		 *
+		 */
 		String str = "";
     	
    		try{

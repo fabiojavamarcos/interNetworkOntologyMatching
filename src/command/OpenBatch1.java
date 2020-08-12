@@ -9,6 +9,12 @@ public class OpenBatch1 extends Command2 {
 	@Override
 	public void execute(String path, String file) {
 		// TODO Auto-generated method stub
+		/**
+		 * Batch implementation
+		 * 
+		 * @author Fabio Marcos de Abreu Santos
+		 *
+		 */
 		String str;
 		try{
 			//pathOnt1 = c.getSelectedFile().toString();

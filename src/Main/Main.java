@@ -6,7 +6,12 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//edu.stanford.smi.protege.Application.main(args);
+		/**
+		 * MVC implementation
+		 * 
+		 * @author Fabio Marcos de Abreu Santos
+		 *
+		 */
 		Control control = new Control();
 		if (args == null){
 			control.initialize();

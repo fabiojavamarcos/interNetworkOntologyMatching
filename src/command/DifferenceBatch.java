@@ -26,6 +26,12 @@ public class DifferenceBatch extends Command {
 
 	@Override
 	public void execute(String operation) {
+		/**
+		 * Batch implementation
+		 * 
+		 * @author Fabio Marcos de Abreu Santos
+		 *
+		 */
 		// TODO Auto-generated method stub
 		//String str = Log + "\nRunning Difference over " + pathOnt1 + " and " + pathOnt2;
 		//Log+=str;

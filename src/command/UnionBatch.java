@@ -26,7 +26,12 @@ public class UnionBatch extends Command {
 	@Override
 	public void execute(String operation) {
 		// TODO Auto-generated method stub
-
+		/**
+		 * Batch implementation
+		 * 
+		 * @author Fabio Marcos de Abreu Santos
+		 *
+		 */
 		Log+= "\nRunning Union Batch over " + pathOnt1 + " and " + pathOnt2;
 		//System.out.println(Log);
 

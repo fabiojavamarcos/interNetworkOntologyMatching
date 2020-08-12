@@ -186,7 +186,13 @@ public class Control {
 	 */
 	public void batch(String[] args) {
 		// TODO Auto-generated method stub
-		// carrega OS da máquina
+		// 
+		/**
+		 * Batch implementation
+		 * 
+		 * @author Fabio Marcos de Abreu Santos
+		 *
+		 */
 		getOSType();
 		
 		Log = new String(); // to keep compatibility with the log 

@@ -19,6 +19,12 @@ public class MinimizeGraphBatch extends Command {
 	@Override
 	public void execute(String operation) {
 		// TODO Auto-generated method stub
+		/**
+		 * Batch implementation
+		 * 
+		 * @author Fabio Marcos de Abreu Santos
+		 *
+		 */
 		if(gResults != null)
 		{
 			String str = Log;

@@ -29,6 +29,12 @@ public class IntersectionBatch extends Command {
 	@Override
 	public void execute(String operation) {
 		// TODO Auto-generated method stub
+		/**
+		 * Batch implementation
+		 * 
+		 * @author Fabio Marcos de Abreu Santos
+		 *
+		 */
 		Log += "\nRunning Intersection over " + pathOnt1 + " and " + pathOnt2;
 		
 
