@@ -20,7 +20,7 @@ import Ontology.Graph.Edge;
 /**
  * This Class implements the Breadth First Search algorithm over the Graph Class to discover if there are paths between certain nodes
  *
- * @author Rômulo de Carvalho Magalhães
+ * @author Rômulo de Carvalho Magalhães - adapted by Fabio Marcos de Abreu Santos
  *
  */
 @SuppressWarnings("unused")
