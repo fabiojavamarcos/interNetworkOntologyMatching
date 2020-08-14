@@ -34,6 +34,11 @@ import Ontology.NodeType;
 import Ontology.Normalization;
 import Ontology.SaveOntology;
 import Ontology.UsefulOWL;
+<<<<<<< Updated upstream
+=======
+
+import java.util.Date;
+>>>>>>> Stashed changes
 
 public class Control {
 	
@@ -95,6 +100,11 @@ public class Control {
 	private String debug;
 	private String output;
 	private String messages;
+<<<<<<< Updated upstream
+=======
+	private Date date;
+	private Timestamp now;
+>>>>>>> Stashed changes
     
 	/**
 	 * Basic GUI Design plus initializing Class variables 
@@ -526,7 +536,7 @@ public class Control {
 				runOntBatch("Intersection");
 				
 				System.out.println("Saving intersection in batch"+ network1.get(i)+"I"+network2.get(j));
-				//saveRBatch(path, network1.get(i)+"I"+network2.get(j)); // save each intersection
+				saveRBatch(path, network1.get(i)+"I"+network2.get(j)); // save each intersection
 				
 				partialIntersectionResultsN1N2Names.put(network1.get(i)+"I"+network2.get(j), network1.get(i)+"I"+network2.get(j)); // save partial result for later!
 				partialIntersectionResultsN1N2.add(network1.get(i)+"I"+network2.get(j));
@@ -714,6 +724,116 @@ public class Control {
 		stamp = stamp + (new Timestamp(date.getTime())).toString() + "\n";
 		System.out.println(stamp);
 		Log += stamp;
+	}
+	private void openBatch2(String path, String file) {
+		// TODO Auto-generated method stub
+		String str;
+		try{
+			//enableButtons(false);
+			//root.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+			//pathOnt1 = c.getSelectedFile().toString();
+			//nameOnt1 = c.getSelectedFile().getName().toString();
+			pathOnt2 = path +file;
+			System.out.println("path completo:" +pathOnt2);
+			nameOnt2 = file;
+			System.out.println("file:" +nameOnt2);
+			Log += "\nLoading Batch: " + path + file;
+			//System.out.println(Log);
+			//root.update(root.getGraphics());
+			
+	//		Thread worker = new Thread() {
+		//		public void run() {
+			//		String str;
+					try{
+						str = Log;
+    					Normalization norm = new Normalization();
+    					Object[] o = norm.runOntologyNormalization(pathOnt2, nameOnt2, osType);
+    	    			String pathNorm = o[0].toString();
+    	    			//exception inside normalization...
+		    			if(pathNorm.substring(0, 5).equals("Error"))
+		    			{
+		    				str = str + "\n" + pathNorm;
+		    				Log += str;
+		    				//enableButtons(true);
+    		    			//root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+		    				return;
+		    			}
+		    			IRIOnt2 = o[1].toString();
+		    			System.out.print("\n Original IRI Ontology 2: " + IRIOnt2 + "\n");
+		    			Ont2 = loadOntBatch(pathNorm);
+		    			ConstraintGraph r = new ConstraintGraph();
+		    			gOnt2 = new Graph();
+		    			gOnt2 = r.createGraph(Ont2, Log, debug);
+		    			
+		    			// store to use later without open files ou process normalization and graphs again
+		    			Object [] OntAUX = new Object [7];
+		    		    /*		obj[0] = ontology;
+		    			obj[1] = factory;
+		    			obj[2] = manager;
+		    		    obj[3] = ontPath;
+		    		    obj[4] = ontName;
+		    		    obj[5] = graph;
+		    		    obj[6] = IRI;
+		    		*/
+		    			OntAUX[0] = Ont2[0];
+		    			OntAUX[1] = Ont2[1];
+		    			OntAUX[2] = Ont2[2];
+		    			OntAUX[3] = Ont2[3];
+		    			OntAUX[4] = file;
+		    			OntAUX[5] = gOnt2;
+		    			OntAUX[6] = IRIOnt2;
+		    			 
+		    			ontologiesProcessed.add(OntAUX); 
+		    			//Ontology loaded into memory, cleaning table 1
+		    			/*DefaultTableModel model1 = new DefaultTableModel(
+		    					new Object [][] {
+
+		    					},
+		    					new String [] {
+		    							nameOnt1, ""
+		    					});
+		    			*/
+		    			//jTable1.setModel(model1);
+		    			//fill table with ontology
+		    			//ShowBottomWarning = true;
+		    			CleanUp = false;
+		    			//model1 = fillJTableWithIRI(gOnt1, model1);
+		    			//str = Log;
+		    			//str = str + "\n" + "Ontology successfully loaded as Ontology 2 batch";
+		    			//Log += str;
+		    			HideIRI1 = false;
+		    			//loading possible Projection on jTable2
+		    			/*str = (String)(jComboBoxOperation.getSelectedItem());
+		    			if(str.equals("Projection"))
+		    			{
+		    				ProjectionTableModel model2 = new ProjectionTableModel();
+		    				jTable2.setModel(model2);
+		    				fillProjectionList(gOnt1, model2);	    				
+		    			}
+		    			enableButtons(true);
+		    			root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+		    			*/
+					}catch(Exception ex)
+					{
+						Log+= "\nError openBatch2 : " + ex.getMessage();
+						//System.out.println(Log);
+		    			//enableButtons(true);
+		    			//root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+		    			return;
+					}
+  //  			}
+//			};
+//			worker.start();
+		}
+		catch(Exception ex)
+		{
+			Log+= "\n Error openBatch2:" + ex.getMessage();
+			//System.out.println(Log);
+			//enableButtons(true);
+			//root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+			return;
+		}
+
 	}
 	private void openBatch2(String path, String file) {
 		// TODO Auto-generated method stub
@@ -1960,7 +2080,11 @@ public class Control {
 	/**
 	 * Implements Show and Hide action for the Elements IRI in Ontology 2 
 	 *
+<<<<<<< Updated upstream
 	 * @author Rômulo de Carvalho Magalhães
+=======
+	 * @author Rômulo de Carvalho Magalhães - adapted by Fabio Marcos de Abreu Santos
+>>>>>>> Stashed changes
 	 *
 	 */
 	public void minimizeGraphBatch (String operation){
@@ -1978,7 +2102,11 @@ public class Control {
 	    			//Thread worker = new Thread() {
 	    				//@SuppressWarnings({ "rawtypes", "unchecked" })
 						//public void run() {
+<<<<<<< Updated upstream
 	    					Log += "\nMinimizing Resulting Graph";
+=======
+	    					//Log += "\nMinimizing Resulting Graph";
+>>>>>>> Stashed changes
 	    					try{
 	    						//Evaluate cardinality restrictions according to the Procedure realized
 	    						HashMap<Integer,Node> vertices = gResults.getVertices();
