@@ -15,7 +15,7 @@ import org.semanticweb.owlapi.util.DefaultPrefixManager;
 /**
  * Specialization of the Node Class to represent the complement of OWL Cardinality restriction 
  * 
- * @author Romulo de Carvalho Magalhaes
+ * @author Romulo de Carvalho Magalhaes - adapted by Fabio Marcos de Abreu Santos
  *
  */
 public class NodeRestrictionComplementOfRestrictionCardinality extends Node{

@@ -51,7 +51,7 @@ import Ontology.BreadthFirstSearch;
  * Implements the creation of the Restriction Graph, 
  * transforming the OWLOntology in a structured Graph that will be used for the logical operations over Ontologies 
  *
- * @author Romulo de Carvalho Magalhaes
+ * @author Romulo de Carvalho Magalhaes - adapted by Fabio Marcos de Abreu Santos
  *
  */
 public class ConstraintGraph {

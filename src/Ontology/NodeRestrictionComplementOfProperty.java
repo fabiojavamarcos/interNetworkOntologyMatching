@@ -13,7 +13,7 @@ import org.semanticweb.owlapi.util.DefaultPrefixManager;
 /**
  * Specialization of the Node Class to represent the complement of OWL properties 
  * 
- * @author Romulo de Carvalho Magalhaes
+ * @author Romulo de Carvalho Magalhaes - adapted by Fabio Marcos de Abreu Santos
  *
  */
 public class NodeRestrictionComplementOfProperty extends Node{

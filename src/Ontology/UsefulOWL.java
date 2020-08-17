@@ -10,7 +10,7 @@ import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
  * Class containing small useful functions for OWL handling,
  * like extracting terms from IRIs and checking OWLObjects type
  * 
- * @author Romulo de Carvalho Magalhaes
+ * @author Romulo de Carvalho Magalhaes - adapted by Fabio Marcos de Abreu Santos
  *
  */
 public class UsefulOWL {

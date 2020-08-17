@@ -35,6 +35,8 @@ import Ontology.Normalization;
 import Ontology.SaveOntology;
 import Ontology.UsefulOWL;
 
+import java.util.Date;
+
 public class Control {
 	
     private String Log;
@@ -95,6 +97,8 @@ public class Control {
 	private String debug;
 	private String output;
 	private String messages;
+	private Date date;
+	private Timestamp now;
     
 	/**
 	 * Basic GUI Design plus initializing Class variables 
@@ -156,6 +160,8 @@ public class Control {
 		getOSType();
 		
 		Log = new String(); // to keep compatibility with the log 
+		date = new Date(); 
+		now = new Timestamp(date.getTime());
 		
 		this.writeTimeStamp("starting internetwork ontology matching");
 		
@@ -168,12 +174,19 @@ public class Control {
 		System.out.println("net1 size= " + n1);
 		System.out.println("net2 size= " + n2);
 		System.out.println("intranetwork alignments size=" +n3 );
+		Log+="net1 size= " + n1 +"\n";
+		Log+="net2 size= " + n2 +"\n";
+		Log+="intranetwork alignments size=" +n3+"\n";
+
 		output = args[4+n1+n2+n3];
 		debug = args[4+n1+n2+n3+1];
 		messages = args[4+n1+n2+n3+2];
 		System.out.println("output dir= " + output);
 		System.out.println("debug= " + debug);
 		System.out.println("messages= " + messages);
+		Log+="output dir= " + output+"\n";
+		Log+="debug= " + debug+"\n";
+		Log+="messages= " + messages+"\n";
 
 
 		/*if (n3%2!=0) {
@@ -191,10 +204,12 @@ public class Control {
 			if (i < n1+4){ // < n: to network 1
 				network1.add(args[i]);
 				System.out.println("net 1: "+ args[i]);
+				Log+="net 1: "+ args[i]+"\n";
 			}
 			if (i >= n1+4){ // >= n: to network 2
 				network2.add(args[i]);
 				System.out.println("net 2: "+ args[i]);
+				Log+="net 2: "+ args[i]+"\n";
 			}
 		}
 		// reading intranetwork alignments
@@ -225,9 +240,17 @@ public class Control {
 		for (int i = 4+n1+n2; i < 4+n1+n2+n3; i++) {
 			intranetworkAlignmentsFileNames.add(args[i]);
 			System.out.println("Intra alignments:"+args[i]);
+			Log+="Intra alignments:"+ args[i]+"\n";
 		}
-	
+		
+		LogBatch += Log;
+		
+		writeTimeStamp("Starting 1o union ...");
+		
 		runNet1Union(network1);
+		
+		writeTimeStamp("Starting 2o union ...");
+		
 		runNet2Union(network2);
 		
 		if (n3>0) {
@@ -244,10 +267,10 @@ public class Control {
 		writeTimeStamp("starting 1st difference ...");
 		
 		runNet1Difference(network1);
-		runNet2Difference(network2);
 		
-		writeTimeStamp("finishing 1st difference ...");
 		writeTimeStamp("starting 2nd difference ...");
+		
+		runNet2Difference(network2);
 
 		writeTimeStamp("finishing 2nd difference ...");
 		
@@ -263,9 +286,15 @@ public class Control {
 		//System.out.println(LogBatch);
 		
 		try{ 
-			File f = new File(output+"logBatch"+n1+n2+n3+args[4]+args[5]+".txt");
+			File f = new File(output+"log"+n1+n2+n3+args[4]+args[5]+".txt");
 			BufferedWriter writer = new BufferedWriter(new FileWriter(f));
 		    writer.write (Log);
+	
+		    //Close writer
+		    writer.close();
+		    f = new File(output+"logTime"+n1+n2+n3+args[4]+args[5]+".txt");
+			writer = new BufferedWriter(new FileWriter(f));
+		    writer.write (LogBatch);
 	
 		    //Close writer
 		    writer.close();
@@ -283,7 +312,7 @@ public class Control {
 			openBatch1(path, lastUnionN1);
 		}else {
 			System.out.println("load from memory ..." + lastUnionN1 + " pos: "+ pos);
-			loadFromMemory1(pos);
+			loadFromMemory1(pos); 
 		}
 		openBatch2(path, intranetworkAlignmentsFileNames.get(0));
 		System.out.println("Running dif with intranet alignments in batch: "+ lastUnionN1 + " - " + intranetworkAlignmentsFileNames.get(0));
@@ -526,7 +555,7 @@ public class Control {
 				runOntBatch("Intersection");
 				
 				System.out.println("Saving intersection in batch"+ network1.get(i)+"I"+network2.get(j));
-				//saveRBatch(path, network1.get(i)+"I"+network2.get(j)); // save each intersection
+				saveRBatch(path, network1.get(i)+"I"+network2.get(j)); // save each intersection
 				
 				partialIntersectionResultsN1N2Names.put(network1.get(i)+"I"+network2.get(j), network1.get(i)+"I"+network2.get(j)); // save partial result for later!
 				partialIntersectionResultsN1N2.add(network1.get(i)+"I"+network2.get(j));
@@ -678,6 +707,7 @@ public class Control {
 		System.out.println("path completo:" +pathOnt1);
 		nameOnt1 = fileAUX;
 		System.out.println("file:" +nameOnt1);
+		Log+=("opening from memory file:" +nameOnt1+"\n");
 	}
 
 	private void loadFromMemory2(int pos) {
@@ -704,16 +734,28 @@ public class Control {
 		System.out.println("path completo:" +pathOnt2);
 		nameOnt2 = fileAUX;
 		System.out.println("file:" +nameOnt2);
+		Log+=("opening from memory file:" +nameOnt2+"\n");
 	}
 
 	private void writeTimeStamp(String message){
-		java.util.Date date;
-    	date = new java.util.Date();
-		String stamp;
+		
+    	date = new Date();
+		String stamp, timeElapsed;
+		Timestamp old = now;
+		now = new Timestamp(date.getTime());
+		long elapsedTimeMillis = now.getTime() - old.getTime();
+		//long hours = (elapsedTimeMillis / (1000 * 60 * 60)) % 24;
+		//long seconds = (elapsedTimeMillis / (1000));
+		timeElapsed = message + " Time Elapsed : " + elapsedTimeMillis;
 		stamp = message +" \n";
 		stamp = stamp + (new Timestamp(date.getTime())).toString() + "\n";
 		System.out.println(stamp);
-		Log += stamp;
+		Log += stamp + "\n";
+		LogBatch += stamp + "\n"; //log with only essencial stuff
+		System.out.println(timeElapsed);
+		Log += timeElapsed + "\n";
+		LogBatch += timeElapsed + "\n"; //log with only essencial stuff
+
 	}
 	private void openBatch2(String path, String file) {
 		// TODO Auto-generated method stub
@@ -1960,7 +2002,7 @@ public class Control {
 	/**
 	 * Implements Show and Hide action for the Elements IRI in Ontology 2 
 	 *
-	 * @author Rômulo de Carvalho Magalhães
+	 * @author Rômulo de Carvalho Magalhães - adapted by Fabio Marcos de Abreu Santos - adapted by Fabio Marcos de Abreu Santos
 	 *
 	 */
 	public void minimizeGraphBatch (String operation){
@@ -1978,7 +2020,7 @@ public class Control {
 	    			//Thread worker = new Thread() {
 	    				//@SuppressWarnings({ "rawtypes", "unchecked" })
 						//public void run() {
-	    					Log += "\nMinimizing Resulting Graph";
+	    					//Log += "\nMinimizing Resulting Graph";
 	    					try{
 	    						//Evaluate cardinality restrictions according to the Procedure realized
 	    						HashMap<Integer,Node> vertices = gResults.getVertices();

@@ -3,7 +3,7 @@ package Application;
 /**
  * Enum for OS type
  *
- * @author Romulo de Carvalho Magalhaes
+ * @author Romulo de Carvalho Magalhaes - adapted by Fabio Marcos de Abreu Santos
  *
  */
 public enum OSType {
