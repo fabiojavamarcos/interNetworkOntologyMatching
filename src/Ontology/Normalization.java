@@ -54,7 +54,7 @@ import org.semanticweb.owlapi.util.SimpleIRIMapper;
  * Creates a new ontology, that is the normalization of the 
  * original and places in the same folder as the original file with the same name + "Normalized.owl" at the end
  * 
- * @author Romulo de Carvalho Magalhaes
+ * @author Romulo de Carvalho Magalhaes - adapted by Fabio Marcos de Abreu Santos
  *
  */
 public class Normalization {

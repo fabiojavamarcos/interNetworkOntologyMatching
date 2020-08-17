@@ -34,11 +34,8 @@ import Ontology.NodeType;
 import Ontology.Normalization;
 import Ontology.SaveOntology;
 import Ontology.UsefulOWL;
-<<<<<<< Updated upstream
-=======
 
 import java.util.Date;
->>>>>>> Stashed changes
 
 public class Control {
 	
@@ -100,11 +97,8 @@ public class Control {
 	private String debug;
 	private String output;
 	private String messages;
-<<<<<<< Updated upstream
-=======
 	private Date date;
 	private Timestamp now;
->>>>>>> Stashed changes
     
 	/**
 	 * Basic GUI Design plus initializing Class variables 
@@ -166,6 +160,8 @@ public class Control {
 		getOSType();
 		
 		Log = new String(); // to keep compatibility with the log 
+		date = new Date(); 
+		now = new Timestamp(date.getTime());
 		
 		this.writeTimeStamp("starting internetwork ontology matching");
 		
@@ -178,12 +174,19 @@ public class Control {
 		System.out.println("net1 size= " + n1);
 		System.out.println("net2 size= " + n2);
 		System.out.println("intranetwork alignments size=" +n3 );
+		Log+="net1 size= " + n1 +"\n";
+		Log+="net2 size= " + n2 +"\n";
+		Log+="intranetwork alignments size=" +n3+"\n";
+
 		output = args[4+n1+n2+n3];
 		debug = args[4+n1+n2+n3+1];
 		messages = args[4+n1+n2+n3+2];
 		System.out.println("output dir= " + output);
 		System.out.println("debug= " + debug);
 		System.out.println("messages= " + messages);
+		Log+="output dir= " + output+"\n";
+		Log+="debug= " + debug+"\n";
+		Log+="messages= " + messages+"\n";
 
 
 		/*if (n3%2!=0) {
@@ -201,10 +204,12 @@ public class Control {
 			if (i < n1+4){ // < n: to network 1
 				network1.add(args[i]);
 				System.out.println("net 1: "+ args[i]);
+				Log+="net 1: "+ args[i]+"\n";
 			}
 			if (i >= n1+4){ // >= n: to network 2
 				network2.add(args[i]);
 				System.out.println("net 2: "+ args[i]);
+				Log+="net 2: "+ args[i]+"\n";
 			}
 		}
 		// reading intranetwork alignments
@@ -235,9 +240,17 @@ public class Control {
 		for (int i = 4+n1+n2; i < 4+n1+n2+n3; i++) {
 			intranetworkAlignmentsFileNames.add(args[i]);
 			System.out.println("Intra alignments:"+args[i]);
+			Log+="Intra alignments:"+ args[i]+"\n";
 		}
-	
+		
+		LogBatch += Log;
+		
+		writeTimeStamp("Starting 1o union ...");
+		
 		runNet1Union(network1);
+		
+		writeTimeStamp("Starting 2o union ...");
+		
 		runNet2Union(network2);
 		
 		if (n3>0) {
@@ -254,10 +267,10 @@ public class Control {
 		writeTimeStamp("starting 1st difference ...");
 		
 		runNet1Difference(network1);
-		runNet2Difference(network2);
 		
-		writeTimeStamp("finishing 1st difference ...");
 		writeTimeStamp("starting 2nd difference ...");
+		
+		runNet2Difference(network2);
 
 		writeTimeStamp("finishing 2nd difference ...");
 		
@@ -273,9 +286,15 @@ public class Control {
 		//System.out.println(LogBatch);
 		
 		try{ 
-			File f = new File(output+"logBatch"+n1+n2+n3+args[4]+args[5]+".txt");
+			File f = new File(output+"log"+n1+n2+n3+args[4]+args[5]+".txt");
 			BufferedWriter writer = new BufferedWriter(new FileWriter(f));
 		    writer.write (Log);
+	
+		    //Close writer
+		    writer.close();
+		    f = new File(output+"logTime"+n1+n2+n3+args[4]+args[5]+".txt");
+			writer = new BufferedWriter(new FileWriter(f));
+		    writer.write (LogBatch);
 	
 		    //Close writer
 		    writer.close();
@@ -293,7 +312,7 @@ public class Control {
 			openBatch1(path, lastUnionN1);
 		}else {
 			System.out.println("load from memory ..." + lastUnionN1 + " pos: "+ pos);
-			loadFromMemory1(pos);
+			loadFromMemory1(pos); 
 		}
 		openBatch2(path, intranetworkAlignmentsFileNames.get(0));
 		System.out.println("Running dif with intranet alignments in batch: "+ lastUnionN1 + " - " + intranetworkAlignmentsFileNames.get(0));
@@ -688,6 +707,7 @@ public class Control {
 		System.out.println("path completo:" +pathOnt1);
 		nameOnt1 = fileAUX;
 		System.out.println("file:" +nameOnt1);
+		Log+=("opening from memory file:" +nameOnt1+"\n");
 	}
 
 	private void loadFromMemory2(int pos) {
@@ -714,125 +734,27 @@ public class Control {
 		System.out.println("path completo:" +pathOnt2);
 		nameOnt2 = fileAUX;
 		System.out.println("file:" +nameOnt2);
+		Log+=("opening from memory file:" +nameOnt2+"\n");
 	}
 
 	private void writeTimeStamp(String message){
-		java.util.Date date;
-    	date = new java.util.Date();
-		String stamp;
+		
+    	date = new Date();
+		String stamp, timeElapsed;
+		Timestamp old = now;
+		now = new Timestamp(date.getTime());
+		long elapsedTimeMillis = now.getTime() - old.getTime();
+		//long hours = (elapsedTimeMillis / (1000 * 60 * 60)) % 24;
+		//long seconds = (elapsedTimeMillis / (1000));
+		timeElapsed = message + " Time Elapsed : " + elapsedTimeMillis;
 		stamp = message +" \n";
 		stamp = stamp + (new Timestamp(date.getTime())).toString() + "\n";
 		System.out.println(stamp);
-		Log += stamp;
-	}
-	private void openBatch2(String path, String file) {
-		// TODO Auto-generated method stub
-		String str;
-		try{
-			//enableButtons(false);
-			//root.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-			//pathOnt1 = c.getSelectedFile().toString();
-			//nameOnt1 = c.getSelectedFile().getName().toString();
-			pathOnt2 = path +file;
-			System.out.println("path completo:" +pathOnt2);
-			nameOnt2 = file;
-			System.out.println("file:" +nameOnt2);
-			Log += "\nLoading Batch: " + path + file;
-			//System.out.println(Log);
-			//root.update(root.getGraphics());
-			
-	//		Thread worker = new Thread() {
-		//		public void run() {
-			//		String str;
-					try{
-						str = Log;
-    					Normalization norm = new Normalization();
-    					Object[] o = norm.runOntologyNormalization(pathOnt2, nameOnt2, osType);
-    	    			String pathNorm = o[0].toString();
-    	    			//exception inside normalization...
-		    			if(pathNorm.substring(0, 5).equals("Error"))
-		    			{
-		    				str = str + "\n" + pathNorm;
-		    				Log += str;
-		    				//enableButtons(true);
-    		    			//root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		    				return;
-		    			}
-		    			IRIOnt2 = o[1].toString();
-		    			System.out.print("\n Original IRI Ontology 2: " + IRIOnt2 + "\n");
-		    			Ont2 = loadOntBatch(pathNorm);
-		    			ConstraintGraph r = new ConstraintGraph();
-		    			gOnt2 = new Graph();
-		    			gOnt2 = r.createGraph(Ont2, Log, debug);
-		    			
-		    			// store to use later without open files ou process normalization and graphs again
-		    			Object [] OntAUX = new Object [7];
-		    		    /*		obj[0] = ontology;
-		    			obj[1] = factory;
-		    			obj[2] = manager;
-		    		    obj[3] = ontPath;
-		    		    obj[4] = ontName;
-		    		    obj[5] = graph;
-		    		    obj[6] = IRI;
-		    		*/
-		    			OntAUX[0] = Ont2[0];
-		    			OntAUX[1] = Ont2[1];
-		    			OntAUX[2] = Ont2[2];
-		    			OntAUX[3] = Ont2[3];
-		    			OntAUX[4] = file;
-		    			OntAUX[5] = gOnt2;
-		    			OntAUX[6] = IRIOnt2;
-		    			 
-		    			ontologiesProcessed.add(OntAUX); 
-		    			//Ontology loaded into memory, cleaning table 1
-		    			/*DefaultTableModel model1 = new DefaultTableModel(
-		    					new Object [][] {
-
-		    					},
-		    					new String [] {
-		    							nameOnt1, ""
-		    					});
-		    			*/
-		    			//jTable1.setModel(model1);
-		    			//fill table with ontology
-		    			//ShowBottomWarning = true;
-		    			CleanUp = false;
-		    			//model1 = fillJTableWithIRI(gOnt1, model1);
-		    			//str = Log;
-		    			//str = str + "\n" + "Ontology successfully loaded as Ontology 2 batch";
-		    			//Log += str;
-		    			HideIRI1 = false;
-		    			//loading possible Projection on jTable2
-		    			/*str = (String)(jComboBoxOperation.getSelectedItem());
-		    			if(str.equals("Projection"))
-		    			{
-		    				ProjectionTableModel model2 = new ProjectionTableModel();
-		    				jTable2.setModel(model2);
-		    				fillProjectionList(gOnt1, model2);	    				
-		    			}
-		    			enableButtons(true);
-		    			root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		    			*/
-					}catch(Exception ex)
-					{
-						Log+= "\nError openBatch2 : " + ex.getMessage();
-						//System.out.println(Log);
-		    			//enableButtons(true);
-		    			//root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		    			return;
-					}
-  //  			}
-//			};
-//			worker.start();
-		}
-		catch(Exception ex)
-		{
-			Log+= "\n Error openBatch2:" + ex.getMessage();
-			//System.out.println(Log);
-			//enableButtons(true);
-			//root.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-			return;
-		}
+		Log += stamp + "\n";
+		LogBatch += stamp + "\n"; //log with only essencial stuff
+		System.out.println(timeElapsed);
+		Log += timeElapsed + "\n";
+		LogBatch += timeElapsed + "\n"; //log with only essencial stuff
 
 	}
 	private void openBatch2(String path, String file) {
@@ -2080,11 +2002,7 @@ public class Control {
 	/**
 	 * Implements Show and Hide action for the Elements IRI in Ontology 2 
 	 *
-<<<<<<< Updated upstream
-	 * @author Rômulo de Carvalho Magalhães
-=======
-	 * @author Rômulo de Carvalho Magalhães - adapted by Fabio Marcos de Abreu Santos
->>>>>>> Stashed changes
+	 * @author Rômulo de Carvalho Magalhães - adapted by Fabio Marcos de Abreu Santos - adapted by Fabio Marcos de Abreu Santos
 	 *
 	 */
 	public void minimizeGraphBatch (String operation){
@@ -2102,11 +2020,7 @@ public class Control {
 	    			//Thread worker = new Thread() {
 	    				//@SuppressWarnings({ "rawtypes", "unchecked" })
 						//public void run() {
-<<<<<<< Updated upstream
-	    					Log += "\nMinimizing Resulting Graph";
-=======
 	    					//Log += "\nMinimizing Resulting Graph";
->>>>>>> Stashed changes
 	    					try{
 	    						//Evaluate cardinality restrictions according to the Procedure realized
 	    						HashMap<Integer,Node> vertices = gResults.getVertices();
