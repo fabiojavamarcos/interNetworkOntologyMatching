@@ -5,7 +5,7 @@ A preprocessing tool that checks for the same entities in both networks and avoi
  InterNetwork Ontology Matching Tool
 
 Example of use:
-
+Run the main.Main.java with the following arguments:
 /Users/home/Documents/dev/conferenceOAEI/
 2
 2
@@ -18,6 +18,7 @@ confOf.owl
 N
 N
 
+--------------------------------------
 Where :
 
 Parameter # - description
