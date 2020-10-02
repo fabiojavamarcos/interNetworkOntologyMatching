@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Stream;
 import java.sql.Timestamp;
 
 //import org.semanticweb.owlapi.apibinding.OWLManager;
@@ -32,6 +33,7 @@ import org.semanticweb.owlapi.model.OWLSubObjectPropertyOfAxiom;
 
 
 import org.semanticweb.owlapi.model.PrefixManager;
+import org.semanticweb.owlapi.search.EntitySearcher;
 import org.semanticweb.owlapi.util.DefaultPrefixManager;
 
 
@@ -183,16 +185,22 @@ public class ConstraintGraph {
 	            		if(vertices.get(e.get(0)).getNodeType().equals(NodeType.RestrictionCardinality)) 
 	            		{
 	            			NodeRestrictionCardinality nok = (NodeRestrictionCardinality) g.getVertices().get(e.get(0));
-	            			if((p.getDomains(ontology) != null) &&(q.getDomains(ontology) != null) && 
-            					(!p.getDomains(ontology).isEmpty() &&  ! p.getRanges(ontology).isEmpty()) && 
-            					(!q.getDomains(ontology).isEmpty()  &&  ! q.getRanges(ontology).isEmpty()))
+	            			
+	            			Stream<OWLClassExpression> pDomains = EntitySearcher.getDomains(p, ontology);
+	            			Stream<OWLClassExpression> qDomains = EntitySearcher.getDomains(q, ontology);
+	            			Stream<OWLClassExpression> pRanges = EntitySearcher.getRanges(p, ontology);
+	            			Stream<OWLClassExpression> qRanges = EntitySearcher.getRanges(q, ontology);
+	            			
+	            			if((pDomains != null && qDomains != null) && 
+            					(pDomains.count() != 0 && pRanges.count() != 0) && 
+            					(qDomains.count() != 0  &&  qRanges.count() != 0))
 	            			{
 	            				//System.out.println(" q.getRanges(ontology):" +  q.getRanges(ontology)); 
-	                            //System.out.println(" q.getRanges(ontology):" +  q.getRanges(ontology)); 
-	                            OWLClassExpression domainP = p.getDomains(ontology).iterator().next(); // DomainP
-	                            OWLClassExpression domainQ = q.getDomains(ontology).iterator().next(); // DomainQ
-	                            OWLClassExpression rangeP = p.getRanges(ontology).iterator().next(); // RangeP
-	                            OWLClassExpression rangeQ = q.getRanges(ontology).iterator().next(); // RangeQ
+	                            //System.out.println(" q.getRanges(ontology):" +  q.getRanges(ontology));
+	                            OWLClassExpression domainP = pDomains.iterator().next(); // DomainP
+	                            OWLClassExpression domainQ = qRanges.iterator().next(); // DomainQ
+	                            OWLClassExpression rangeP = pRanges.iterator().next(); // RangeP
+	                            OWLClassExpression rangeQ = qRanges.iterator().next(); // RangeQ
 	                            String expDomainP = UsefulOWL.returnIRI(domainP.toString());
 	                            String expRangeP = UsefulOWL.returnIRI(rangeP.toString());
 	                            if(nok.getDescProp().equals(UsefulOWL.returnPropObjectProperty(p)) && nok.getDescRangeOrDomain().equals(expDomainP)) 
@@ -535,16 +543,23 @@ public class ConstraintGraph {
 	            		if(vertices.get(e.get(0)).getNodeType().equals(NodeType.RestrictionCardinality)) 
 	            		{
 	            			NodeRestrictionCardinality nok = (NodeRestrictionCardinality) g.getVertices().get(e.get(0));
-	            			if((p.getDomains(ontology) != null) &&(q.getDomains(ontology) != null) && 
-            					(!p.getDomains(ontology).isEmpty() &&  ! p.getRanges(ontology).isEmpty()) && 
-            					(!q.getDomains(ontology).isEmpty()  &&  ! q.getRanges(ontology).isEmpty()))
-	            			{
+	            			
+	            			Stream<OWLClassExpression> pDomains = EntitySearcher.getDomains(p, ontology);
+	            			Stream<OWLClassExpression> qDomains = EntitySearcher.getDomains(q, ontology);
+	            			Stream<OWLClassExpression> pRanges = EntitySearcher.getRanges(p, ontology);
+	            			Stream<OWLClassExpression> qRanges = EntitySearcher.getRanges(q, ontology);
+	            			
+	            			if((pDomains != null && qDomains != null) && 
+	            					(pDomains.count() != 0 && pRanges.count() != 0) && 
+	            					(qDomains.count() != 0  &&  qRanges.count() != 0))
+		            			{
 	            				//System.out.println(" q.getRanges(ontology):" +  q.getRanges(ontology)); 
 	                            //System.out.println(" q.getRanges(ontology):" +  q.getRanges(ontology)); 
-	                            OWLClassExpression domainP = p.getDomains(ontology).iterator().next(); // DomainP
-	                            OWLClassExpression domainQ = q.getDomains(ontology).iterator().next(); // DomainQ
-	                            OWLClassExpression rangeP = p.getRanges(ontology).iterator().next(); // RangeP
-	                            OWLClassExpression rangeQ = q.getRanges(ontology).iterator().next(); // RangeQ
+	            				
+	                            OWLClassExpression domainP = pDomains.iterator().next(); // DomainP
+	                            OWLClassExpression domainQ = qRanges.iterator().next(); // DomainQ
+	                            OWLClassExpression rangeP = pRanges.iterator().next(); // RangeP
+	                            OWLClassExpression rangeQ = qRanges.iterator().next(); // RangeQ
 	                            String expDomainP = UsefulOWL.returnIRI(domainP.toString());
 	                            String expRangeP = UsefulOWL.returnIRI(rangeP.toString());
 	                            if(nok.getDescProp().equals(UsefulOWL.returnPropObjectProperty(p)) && nok.getDescRangeOrDomain().equals(expDomainP)) 

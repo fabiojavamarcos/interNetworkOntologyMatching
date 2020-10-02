@@ -33,6 +33,7 @@ import org.semanticweb.owlapi.model.OWLDataPropertyDomainAxiom;
 import org.semanticweb.owlapi.model.OWLDataPropertyRangeAxiom;
 import org.semanticweb.owlapi.model.OWLDisjointClassesAxiom;
 import org.semanticweb.owlapi.model.OWLDisjointObjectPropertiesAxiom;
+import org.semanticweb.owlapi.model.OWLDocumentFormat;
 import org.semanticweb.owlapi.model.OWLObject;
 import org.semanticweb.owlapi.model.OWLObjectComplementOf;
 import org.semanticweb.owlapi.model.OWLObjectMaxCardinality;
@@ -74,7 +75,7 @@ public class Normalization {
 			File startingOntology = new File(path);
 			OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
             OWLOntology ontology = manager.loadOntologyFromOntologyDocument(startingOntology);
-            OWLOntologyFormat format = manager.getOntologyFormat(ontology); //get the format of the original ontology to pass on to the normalized one
+            OWLDocumentFormat format = manager.getOntologyFormat(ontology); //get the format of the original ontology to pass on to the normalized one
             IRI normalizedOntologyIRI;
             //IRI ontologyIRI = manager.getOntologyDocumentIRI(ontology);
             if(osn == OSType.Windows)
@@ -93,9 +94,9 @@ public class Normalization {
             File file = new File(normalizedOntologyPath); 
             //Copying the prefixes of the original
             RDFXMLOntologyFormat rdfSyntaxFormat = new RDFXMLOntologyFormat();
-            if(format.isPrefixOWLOntologyFormat()) 
+            if(format.isPrefixOWLDocumentFormat()) 
             {
-            	rdfSyntaxFormat.copyPrefixesFrom(format.asPrefixOWLOntologyFormat());
+            	rdfSyntaxFormat.copyPrefixesFrom(format.asPrefixOWLDocumentFormat());
             }
             IRI documentIRI = IRI.create("file:"+normalizedOntologyPath);
             SimpleIRIMapper mapper = new SimpleIRIMapper(normalizedOntologyIRI, documentIRI);
