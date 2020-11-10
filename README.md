@@ -1,4 +1,7 @@
 # interNetworkOntologyMatching
+
+This is a network matcher tool to match network of ontologies based on algebraic operations.
+
 A preprocessing tool that checks for the same entities in both networks and avoids compare them. Implementations of the SubInterNM approach defined in: https://www.researchgate.net/publication/328809054_A_Proposal_for_Optimizing_Internetwork_Matching_of_Ontologies
 
 # SubInterNM
