@@ -15,7 +15,7 @@ import org.semanticweb.owlapi.model.OWLOntologyManager;
 /**
  * Specialization of the Node Class to represent the complement of OWL Classes
  * 
- * @author Romulo de Carvalho Magalhaes - adapted by Fabio Marcos de Abreu Santos
+ * 
  *
  */
 public class NodeRestrictionComplementOfClass extends Node{

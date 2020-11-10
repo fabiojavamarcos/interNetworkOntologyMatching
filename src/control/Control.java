@@ -2002,7 +2002,7 @@ public class Control {
 	/**
 	 * Implements Show and Hide action for the Elements IRI in Ontology 2 
 	 *
-	 * @author Rômulo de Carvalho Magalhães - adapted by Fabio Marcos de Abreu Santos - adapted by Fabio Marcos de Abreu Santos
+	 * 
 	 *
 	 */
 	public void minimizeGraphBatch (String operation){

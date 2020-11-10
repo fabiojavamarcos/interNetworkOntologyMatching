@@ -11,8 +11,7 @@ import org.semanticweb.owlapi.model.OWLOntologyManager;
 /**
  * Specialization of the Node Class to represent OWL Class 
  * 
- * @author Romulo de Carvalho Magalhaes - adapted by Fabio Marcos de Abreu Santos
- *
+ * 
  */
 public class NodeClass extends Node{
 

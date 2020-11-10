@@ -4,7 +4,7 @@ import Ontology.Node;
 /**
  * This class is a representation of the nodes from a given ontology that will be given as a choice for projection
  *
- * @author Rômulo de Carvalho Magalhães - adapted by Fabio Marcos de Abreu Santos - adapted by Fabio Marcos de Abreu Santos
+ * 
  *
  */
 public class ProjectionItem {
