@@ -23,7 +23,7 @@ import Ontology.Node;
 /**
  * Graph representation for OWL data
  * 
- * @author Romulo de Carvalho Magalhaes - adapted by Fabio Marcos de Abreu Santos
+ * 
  *
  */
 public class Graph {
@@ -1436,7 +1436,7 @@ public class Graph {
 	/**
 	 * Implements Edges between nodes of a Graph
 	 *
-	 * @author Romulo de Carvalho Magalhaes - adapted by Fabio Marcos de Abreu Santos
+	 * 
 	 *
 	 */
 	public static class Edge {
@@ -1460,7 +1460,7 @@ public class Graph {
 	/**
 	 * Simple comparator for nodes
 	 *
-	 * @author Romulo de Carvalho Magalhaes - adapted by Fabio Marcos de Abreu Santos
+	 * 
 	 *
 	 */
 	public class VerticeComparator implements Comparator<Node> 
